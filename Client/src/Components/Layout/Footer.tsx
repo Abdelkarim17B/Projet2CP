@@ -16,39 +16,39 @@ function Footer() {
             </div>
             <div className="flex gap-[6vw]">
                 <div className="flex flex-col gap-[4vh]">
-                    <h3 className="font-bold text-[1.6rem] text-BlueDark">Events</h3>
+                    <h3 className="font-bold text-[1.6rem] text-BlueDark">Lorem</h3>
                     <ul className="flex flex-col gap-[1vh] text-[1.5rem] text-Gray">
-                        <li>GDG Events</li>
-                        <li>Internal Events</li>
-                        <li>Online Events</li>
-                        <li>Next Event</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
                     </ul>
                 </div>
                 <div className="flex flex-col gap-[4vh]">
-                    <h3 className="font-bold text-[1.6rem] text-BlueDark">Events</h3>
+                    <h3 className="font-bold text-[1.6rem] text-BlueDark">Lorem</h3>
                     <ul className="flex flex-col gap-[1vh] text-[1.5rem] text-Gray">
-                        <li>GDG Events</li>
-                        <li>Internal Events</li>
-                        <li>Online Events</li>
-                        <li>Next Event</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
                     </ul>
                 </div>
                 <div className="flex flex-col gap-[4vh]">
-                    <h3 className="font-bold text-[1.6rem] text-BlueDark">Events</h3>
+                    <h3 className="font-bold text-[1.6rem] text-BlueDark">Lorem</h3>
                     <ul className="flex flex-col gap-[1vh] text-[1.5rem] text-Gray">
-                        <li>GDG Events</li>
-                        <li>Internal Events</li>
-                        <li>Online Events</li>
-                        <li>Next Event</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
                     </ul>
                 </div>
                 <div className="flex flex-col gap-[4vh]">
-                    <h3 className="font-bold text-[1.6rem] text-BlueDark">Events</h3>
+                    <h3 className="font-bold text-[1.6rem] text-BlueDark">Lorem</h3>
                     <ul className="flex flex-col gap-[1vh] text-[1.5rem] text-Gray">
-                        <li>GDG Events</li>
-                        <li>Internal Events</li>
-                        <li>Online Events</li>
-                        <li>Next Event</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
                     </ul>
                 </div>
             </div>
