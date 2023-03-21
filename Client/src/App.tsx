@@ -1,5 +1,3 @@
-import Footer from "./Components/Layout/Footer"
-import Navbar from "./Components/Layout/Navbar"
 import Accueil from "./Pages/Accueil"
 
 function App() {
