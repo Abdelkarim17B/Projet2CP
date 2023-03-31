@@ -5,7 +5,7 @@ const {createTables} = require('../models/createDatabase');
 
 const app = express();
 
-connectDB();
+//connectDB();
 
 app.get('/', (req, res) => {
   res.send('Main route');
