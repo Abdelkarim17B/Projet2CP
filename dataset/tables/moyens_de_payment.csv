@@ -1,22 +1,22 @@
 id_banque,nom_banque,type,creation_bank_card,renouvelement_bank_card,remplacement_bank_card,edition_code_confidentiel_bank_card,retrait_intra_bancaire,retrait_inter_bancaire,creation_visa,renouvelement_visa,remplacement_visa,edition_code_confidentiel_visa
-542,BANQUE EXTERIEURE D'ALGERIE - BEA,personnel,,,,,,,,,,
-542,BANQUE EXTERIEURE D'ALGERIE - BEA,professionnel,,,,,,,,,,
-542,BANQUE EXTERIEURE D'ALGERIE - BEA,entreprise,,,,,,,,,,
-186,BANQUE NATIONALE D'ALGERIE - BNA,personnel,Gratuit,,,Classique/ Gold/ Epargne 150 DA/ 200 DA/ 150 DA,20 DA HT,35 DA TTC,,,,
-186,BANQUE NATIONALE D'ALGERIE - BNA,professionnel,Gratuit,Gratuit,, Classique/ Gold 150/ 200 DA,20 DA HT,35 DA TTC,,,,
-186,BANQUE NATIONALE D'ALGERIE - BNA,entreprise,Gratuit,Gratuit,,Classique/ Gold 150/ 200 DA,20 DA HT,35 DA TTC,,,,
-278,BANQUE DE L'AGRICULTURE ET DU DEVELOPPEMENT RURAL - BADR,personnel,,,,,15 DA,29.41 DA,"titanium 17000 DA, classique 12000 DA/ 2 ans","titanium 5000 DA, classique 3000 DA ","17000 DA, classique 12000 DA/ 2 ans",500 DA
-278,BANQUE DE L'AGRICULTURE ET DU DEVELOPPEMENT RURAL - BADR,professionnel,,,,,,,,,,
-278,BANQUE DE L'AGRICULTURE ET DU DEVELOPPEMENT RURAL - BADR,entreprise,,,,,15 DA,29.41 DA,"titanium 17000 DA, classique 12000 DA/ 2 ans","titanium 5000 DA, classique 3000 DA ","17000 DA, classique 12000 DA/ 2 ans",500 DA
+542,BANQUE EXTERIEURE D ALGERIE - BEA,personnel,,,,,,,,,,
+542,BANQUE EXTERIEURE D ALGERIE - BEA,professionnel,,,,,,,,,,
+542,BANQUE EXTERIEURE D ALGERIE - BEA,entreprise,,,,,,,,,,
+186,BANQUE NATIONALE D ALGERIE - BNA,personnel,Gratuit,,,Classique/ Gold/ Epargne 150 DA/ 200 DA/ 150 DA,20 DA HT,35 DA TTC,,,,
+186,BANQUE NATIONALE D ALGERIE - BNA,professionnel,Gratuit,Gratuit,, Classique/ Gold 150/ 200 DA,20 DA HT,35 DA TTC,,,,
+186,BANQUE NATIONALE D ALGERIE - BNA,entreprise,Gratuit,Gratuit,,Classique/ Gold 150/ 200 DA,20 DA HT,35 DA TTC,,,,
+278,BANQUE DE L AGRICULTURE ET DU DEVELOPPEMENT RURAL - BADR,personnel,,,,,15 DA,29.41 DA,"titanium 17000 DA, classique 12000 DA/ 2 ans","titanium 5000 DA, classique 3000 DA ","17000 DA, classique 12000 DA/ 2 ans",500 DA
+278,BANQUE DE L AGRICULTURE ET DU DEVELOPPEMENT RURAL - BADR,professionnel,,,,,,,,,,
+278,BANQUE DE L AGRICULTURE ET DU DEVELOPPEMENT RURAL - BADR,entreprise,,,,,15 DA,29.41 DA,"titanium 17000 DA, classique 12000 DA/ 2 ans","titanium 5000 DA, classique 3000 DA ","17000 DA, classique 12000 DA/ 2 ans",500 DA
 736,BANQUE DE DEVELOPPEMENT LOCAL - BDL,personnel,"classique gratuit, gold gratuit",,"classique 400da, gold 800da","classique 200, gold 300",20 da,35 da,"classique 2000 DA, gold 5000 DA, platinium 14000 DA","classique 2000 DA, gold 5000 DA, platinium 14000 DA","classique 2000 DA, gold 5000 DA, platinium 14000 DA","500da, platinium 1000 DA"
 736,BANQUE DE DEVELOPPEMENT LOCAL - BDL,professionnel,"classique gratuit, gold gratuit",,"classique 400da, gold 800da","classique 200, gold 300",20 da,35 da,"classique 2000 DA, gold 5000 DA, platinium 14000 DA","classique 2000 DA, gold 5000 DA, platinium 14000 DA","classique 2000 DA, gold 5000 DA, platinium 14000 DA","500da, platinium 1000 DA"
 736,BANQUE DE DEVELOPPEMENT LOCAL - BDL,entreprise,,,,,,,,,,
-469,CREDIT POPULAIRE D'ALGERIE - CPA,personnel,,,,,,,,,,
-469,CREDIT POPULAIRE D'ALGERIE - CPA,professionnel,,,,,,,,,,
-469,CREDIT POPULAIRE D'ALGERIE - CPA,entreprise,,,,,,,,,,
-2370,CAISSE D'EPARGNE ET DE PREVOYANCE - CNEP BANQUE,personnel,,,,,,,,,,
-2370,CAISSE D'EPARGNE ET DE PREVOYANCE - CNEP BANQUE,professionnel,,,,,,,,,,
-2370,CAISSE D'EPARGNE ET DE PREVOYANCE - CNEP BANQUE,entreprise,,,,,,,,,,
+469,CREDIT POPULAIRE D ALGERIE - CPA,personnel,,,,,,,,,,
+469,CREDIT POPULAIRE D ALGERIE - CPA,professionnel,,,,,,,,,,
+469,CREDIT POPULAIRE D ALGERIE - CPA,entreprise,,,,,,,,,,
+2370,CAISSE D EPARGNE ET DE PREVOYANCE - CNEP BANQUE,personnel,,,,,,,,,,
+2370,CAISSE D EPARGNE ET DE PREVOYANCE - CNEP BANQUE,professionnel,,,,,,,,,,
+2370,CAISSE D EPARGNE ET DE PREVOYANCE - CNEP BANQUE,entreprise,,,,,,,,,,
 8763,BANQUE AL BARAKA ALGERIE,personnel,,,,,,,,,,
 8763,BANQUE AL BARAKA ALGERIE,professionnel,,,,,,,,,,
 8763,BANQUE AL BARAKA ALGERIE,entreprise,,,,,,,,,,

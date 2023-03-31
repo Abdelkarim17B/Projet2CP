@@ -1,22 +1,22 @@
 id_banque,nom_banque,type,ouverture_compte_courant,tenue_compte_courant,ouverture_compte_cheque,tenue_compte_cheque,ouverture_compte_epargne,tenue_compte_epargne,ouverture_compte_devise,tenue_compte_devise,fermeture_de_compte
-542,BANQUE EXTERIEURE D'ALGERIE - BEA,personnel,,,,,,,,,
-542,BANQUE EXTERIEURE D'ALGERIE - BEA,professionnel,,,,,,,,,
-542,BANQUE EXTERIEURE D'ALGERIE - BEA,entreprise,,,,,,,,,
-186,BANQUE NATIONALE D'ALGERIE - BNA,personnel,,,Gratuit,200 DA/AN,"2,50%",50 DA/AN,,Taux et conditions fixés par la Banque d'Algérie,200 DA
-186,BANQUE NATIONALE D'ALGERIE - BNA,professionnel,Gratuit,,Gratuit,200 DA/AN,,50 DA/AN,,taux et conditions fixés par la Banque d'Algérie,200 DA
-186,BANQUE NATIONALE D'ALGERIE - BNA,entreprise,Gratuit,2500 DA/An,,,,,Gratuit,,2500 DA
-278,BANQUE DE L'AGRICULTURE ET DU DEVELOPPEMENT RURAL - BADR,personnel,,,1000 DA/trim,,Gratuit,,,,
-278,BANQUE DE L'AGRICULTURE ET DU DEVELOPPEMENT RURAL - BADR,professionnel,,,,,,,,,
-278,BANQUE DE L'AGRICULTURE ET DU DEVELOPPEMENT RURAL - BADR,entreprise,Gratuit,3000 DA/an,1000 DA/trim,,Gratuit,,,,Gratuit
+542,BANQUE EXTERIEURE D ALGERIE - BEA,personnel,,,,,,,,,
+542,BANQUE EXTERIEURE D ALGERIE - BEA,professionnel,,,,,,,,,
+542,BANQUE EXTERIEURE D ALGERIE - BEA,entreprise,,,,,,,,,
+186,BANQUE NATIONALE D ALGERIE - BNA,personnel,,,Gratuit,200 DA/AN,"2,50%",50 DA/AN,,Taux et conditions fixés par la Banque d'Algérie,200 DA
+186,BANQUE NATIONALE D ALGERIE - BNA,professionnel,Gratuit,,Gratuit,200 DA/AN,,50 DA/AN,,taux et conditions fixés par la Banque d'Algérie,200 DA
+186,BANQUE NATIONALE D ALGERIE - BNA,entreprise,Gratuit,2500 DA/An,,,,,Gratuit,,2500 DA
+278,BANQUE DE L AGRICULTURE ET DU DEVELOPPEMENT RURAL - BADR,personnel,,,1000 DA/trim,,Gratuit,,,,
+278,BANQUE DE L AGRICULTURE ET DU DEVELOPPEMENT RURAL - BADR,professionnel,,,,,,,,,
+278,BANQUE DE L AGRICULTURE ET DU DEVELOPPEMENT RURAL - BADR,entreprise,Gratuit,3000 DA/an,1000 DA/trim,,Gratuit,,,,Gratuit
 736,BANQUE DE DEVELOPPEMENT LOCAL - BDL,personnel,Gratuit,500 DA/An,Gratuit,500 DA/An,Gratuit,500 DA/An,,,Gratuit
 736,BANQUE DE DEVELOPPEMENT LOCAL - BDL,professionnel,Gratuit,2000 DA/An,Gratuit,2000 DA/An,,,,,Gratuit
 736,BANQUE DE DEVELOPPEMENT LOCAL - BDL,entreprise,Gratuit,2500 DA/An,Gratuit,2500 DA/An,,,,,Gratuit
-469,CREDIT POPULAIRE D'ALGERIE - CPA,personnel,,,,,,,,,
-469,CREDIT POPULAIRE D'ALGERIE - CPA,professionnel,,,,,,,,,
-469,CREDIT POPULAIRE D'ALGERIE - CPA,entreprise,,,,,,,,,
-2370,CAISSE D'EPARGNE ET DE PREVOYANCE - CNEP BANQUE,personnel,,,,,,,,,
-2370,CAISSE D'EPARGNE ET DE PREVOYANCE - CNEP BANQUE,professionnel,,,,,,,,,
-2370,CAISSE D'EPARGNE ET DE PREVOYANCE - CNEP BANQUE,entreprise,,,,,,,,,
+469,CREDIT POPULAIRE D ALGERIE - CPA,personnel,,,,,,,,,
+469,CREDIT POPULAIRE D ALGERIE - CPA,professionnel,,,,,,,,,
+469,CREDIT POPULAIRE D ALGERIE - CPA,entreprise,,,,,,,,,
+2370,CAISSE D EPARGNE ET DE PREVOYANCE - CNEP BANQUE,personnel,,,,,,,,,
+2370,CAISSE D EPARGNE ET DE PREVOYANCE - CNEP BANQUE,professionnel,,,,,,,,,
+2370,CAISSE D EPARGNE ET DE PREVOYANCE - CNEP BANQUE,entreprise,,,,,,,,,
 8763,BANQUE AL BARAKA ALGERIE,personnel,,,,,,,,,
 8763,BANQUE AL BARAKA ALGERIE,professionnel,,,,,,,,,
 8763,BANQUE AL BARAKA ALGERIE,entreprise,,,,,,,,,
@@ -54,8 +54,8 @@ id_banque,nom_banque,type,ouverture_compte_courant,tenue_compte_courant,ouvertur
 87258,CREDIT AGRICOLE CORPORATE ET INVESTISSEMENT BANK - ALGERIE,professionnel,,,,,,,,,
 87258,CREDIT AGRICOLE CORPORATE ET INVESTISSEMENT BANK - ALGERIE,entreprise,,,,,,,,,
 205,AL SALAM BANK - ALGERIA - SPA,personnel,Gratuit,"2 500,00 /Trim",Gratuit,"1 000,00 /l’an",Gratuit,Gratuit,Gratuit,,Gratuit
-205,AL SALAM BANK - ALGERIA - SPA,professionnel,Gratuit,"2 500,00 /Trim",Gratuit,"1 000,00 /l’an",Gratuit,Gratuit,Gratuit,,Gratuit
-205,AL SALAM BANK - ALGERIA - SPA,entreprise,Gratuit,"2 500,00 /Trim",Gratuit,"1 000,00 /l’an",Gratuit,Gratuit,Gratuit,,Gratuit
+205,AL SALAM BANK - ALGERIA - SPA,professionnel,Gratuit,"2 500,00 /Trim",Gratuit,"1 000,00 /an",Gratuit,Gratuit,Gratuit,,Gratuit
+205,AL SALAM BANK - ALGERIA - SPA,entreprise,Gratuit,"2 500,00 /Trim",Gratuit,"1 000,00 /an",Gratuit,Gratuit,Gratuit,,Gratuit
 983,H.S.B.C. ALGERIE (succursale de banque),personnel,,,,,,,,,
 983,H.S.B.C. ALGERIE (succursale de banque),professionnel,,,,,,,,,
 983,H.S.B.C. ALGERIE (succursale de banque),entreprise,,,,,,,,,

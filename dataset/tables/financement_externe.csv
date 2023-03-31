@@ -1,22 +1,22 @@
 id_banque,nom_banque,type,encaissement_cheque_etranger,virement_recu,virement_emis,exportation_domiciliation,importation_domiciliation,transfert_libre_prelevement_compte_dinars,transfert_libre_prelevement_compte_devise
-542,BANQUE EXTERIEURE D'ALGERIE - BEA,personnel,,,,,,,
-542,BANQUE EXTERIEURE D'ALGERIE - BEA,professionnel,,,,,,,
-542,BANQUE EXTERIEURE D'ALGERIE - BEA,entreprise,,,,,,,
-186,BANQUE NATIONALE D'ALGERIE - BNA,personnel,500 DA /Appoint + frais du correspondant,,,,,,
-186,BANQUE NATIONALE D'ALGERIE - BNA,professionnel,,,,1000 DA/ dossier,2 000 DA/ dossier,"1,50‰ avec min 2500 DA+ frais SWIFT 1000DA+ commission de change BA1‰","1,50‰ avec min 2500 DA+ frais SWIFT 1000 DA"
-186,BANQUE NATIONALE D'ALGERIE - BNA,entreprise,Gratuit,,,1000 DA/ dossier,2 000 DA/ dossier,"1,50‰ avec min 2500 DA+ frais SWIFT 1000DA+ commission de change BA1‰","1,50‰ avec min 2500 DA+ frais SWIFT 1000 DA"
-278,BANQUE DE L'AGRICULTURE ET DU DEVELOPPEMENT RURAL - BADR,personnel,,,,,,"0.25% + 0.1% commission BA, min 2500 DA + Frais de Swift 3500 DA",
-278,BANQUE DE L'AGRICULTURE ET DU DEVELOPPEMENT RURAL - BADR,professionnel,,,,,,,
-278,BANQUE DE L'AGRICULTURE ET DU DEVELOPPEMENT RURAL - BADR,entreprise,,,,3000 DA,3000 DA,"0.25% + 0.1% commission BA, min 2500 DA + Frais de Swift 3500 DA",
+542,BANQUE EXTERIEURE D ALGERIE - BEA,personnel,,,,,,,
+542,BANQUE EXTERIEURE D ALGERIE - BEA,professionnel,,,,,,,
+542,BANQUE EXTERIEURE D ALGERIE - BEA,entreprise,,,,,,,
+186,BANQUE NATIONALE D ALGERIE - BNA,personnel,500 DA /Appoint + frais du correspondant,,,,,,
+186,BANQUE NATIONALE D ALGERIE - BNA,professionnel,,,,1000 DA/ dossier,2 000 DA/ dossier,"1,50‰ avec min 2500 DA+ frais SWIFT 1000DA+ commission de change BA1‰","1,50‰ avec min 2500 DA+ frais SWIFT 1000 DA"
+186,BANQUE NATIONALE D ALGERIE - BNA,entreprise,Gratuit,,,1000 DA/ dossier,2 000 DA/ dossier,"1,50‰ avec min 2500 DA+ frais SWIFT 1000DA+ commission de change BA1‰","1,50‰ avec min 2500 DA+ frais SWIFT 1000 DA"
+278,BANQUE DE L AGRICULTURE ET DU DEVELOPPEMENT RURAL - BADR,personnel,,,,,,"0.25% + 0.1% commission BA, min 2500 DA + Frais de Swift 3500 DA",
+278,BANQUE DE L AGRICULTURE ET DU DEVELOPPEMENT RURAL - BADR,professionnel,,,,,,,
+278,BANQUE DE L AGRICULTURE ET DU DEVELOPPEMENT RURAL - BADR,entreprise,,,,3000 DA,3000 DA,"0.25% + 0.1% commission BA, min 2500 DA + Frais de Swift 3500 DA",
 736,BANQUE DE DEVELOPPEMENT LOCAL - BDL,personnel,,,,,,,
 736,BANQUE DE DEVELOPPEMENT LOCAL - BDL,professionnel,,,,1000,3000,"0,25% min: 2 000 DA","0,25% min: 2 000 DA"
 736,BANQUE DE DEVELOPPEMENT LOCAL - BDL,entreprise,,,,3000,3000,"0,25% min: 2 000 DA","0,25% min: 2 000 DA"
-469,CREDIT POPULAIRE D'ALGERIE - CPA,personnel,,,,,,,
-469,CREDIT POPULAIRE D'ALGERIE - CPA,professionnel,,,,,,,
-469,CREDIT POPULAIRE D'ALGERIE - CPA,entreprise,,,,,,,
-2370,CAISSE D'EPARGNE ET DE PREVOYANCE - CNEP BANQUE,personnel,,,,,,,
-2370,CAISSE D'EPARGNE ET DE PREVOYANCE - CNEP BANQUE,professionnel,,,,,,,
-2370,CAISSE D'EPARGNE ET DE PREVOYANCE - CNEP BANQUE,entreprise,,,,,,,
+469,CREDIT POPULAIRE D ALGERIE - CPA,personnel,,,,,,,
+469,CREDIT POPULAIRE D ALGERIE - CPA,professionnel,,,,,,,
+469,CREDIT POPULAIRE D ALGERIE - CPA,entreprise,,,,,,,
+2370,CAISSE D EPARGNE ET DE PREVOYANCE - CNEP BANQUE,personnel,,,,,,,
+2370,CAISSE D EPARGNE ET DE PREVOYANCE - CNEP BANQUE,professionnel,,,,,,,
+2370,CAISSE D EPARGNE ET DE PREVOYANCE - CNEP BANQUE,entreprise,,,,,,,
 8763,BANQUE AL BARAKA ALGERIE,personnel,,,,,,,
 8763,BANQUE AL BARAKA ALGERIE,professionnel,,,,,,,
 8763,BANQUE AL BARAKA ALGERIE,entreprise,,,,,,,
