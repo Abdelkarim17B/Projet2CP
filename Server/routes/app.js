@@ -1,7 +1,7 @@
 const express = require('express');
 PORT = process.env.PORT || 3000;
-const { client, connectDB } = require('../models/connectDatabase');
-const {createTables} = require('../models/createDatabase');
+//const { client, connectDB } = require('../models/connectDatabase');
+//const {createTables} = require('../models/createDatabase');
 
 const app = express();
 
