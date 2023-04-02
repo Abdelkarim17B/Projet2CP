@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Footer from "../Components/Layout/Footer"
 import Navbar from "../Components/Layout/Navbar"
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 interface FAQProps {
     question: string;
@@ -57,9 +58,12 @@ function Accueil() {
             {/* hero section*/}
             <div className="bg-[url('/HeroBg.png')] h-screen w-screen flex flex-col justify-center items-center gap-[10vh]">
                 <h1 className="max-w-[52vw] font-bold text-white text-[4.5rem] text-center">Trouvez la meilleure offre pour votre business</h1>
-                <div className="flex gap-[1vw]">
-                    <input className="h-[10vh] w-[29vw] px-[2vw] rounded-[4px]" placeholder="Citer la banque ici pour comparer" type="text" />
-                    <input className="bg-Red h-[10vh] font-bold px-[2vw] text-[1.5rem] text-white" type="button" value="Comparer" />
+                <div className="flex flex-col gap-[3vh] justify-center align-center items-center ">
+                    <div className="flex gap-[1vw]">
+                      <input className="h-[10vh] w-[29vw] px-[2vw] rounded-[4px]" placeholder="Citer la banque ici pour comparer" type="text" />
+                      <input className="h-[10vh] w-[29vw] px-[2vw] rounded-[4px]" placeholder="Citer la banque ici pour comparer" type="text" />
+                    </div>
+                    <input className="bg-Red max-w-[15vw] h-[10vh] font-bold px-[2vw] text-[1.5rem] text-white" type="button" value="Comparer" />
                 </div>
             </div>
 
