@@ -1,1 +1,1 @@
-id_admin,nom,prenom,mot_de_passe,cle_speciale,occupation
+id_admin,nom,prenom,email, mot_de_passe,cle_speciale,occupation

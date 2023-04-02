@@ -2,8 +2,8 @@ id_banque,nom_banque,type,versement_en_agence,versement_hors_agence,virement_en_
 542,BANQUE EXTERIEURE D ALGERIE - BEA,personnel,,,,,,,,,,,,
 542,BANQUE EXTERIEURE D ALGERIE - BEA,professionnel,,,,,,,,,,,,
 542,BANQUE EXTERIEURE D ALGERIE - BEA,entreprise,,,,,,,,,,,,
-186,BANQUE NATIONALE D ALGERIE - BNA,personnel,Gratuit,"0,5‰",20 DA,30 DA,,,Gratuit,"0,5‰",Gratuit,"≤ 50000 DA Gratuit, > 50000 DA 50 DA+ frais de transmission de l'image du cheque",2‰ Min 300 DA,Gratuit
-186,BANQUE NATIONALE D ALGERIE - BNA,professionnel,Gratuit,"0,5‰",Gratuit,20 DA,,,Gratuit,"0,5‰",Gratuit,"≤ 50000 DA Gratuit, > 50000 DA 50 DA+ frais de transmission de l'image du cheque",2‰ Min 300 DA,Gratuit
+186,BANQUE NATIONALE D ALGERIE - BNA,personnel,Gratuit,"0,5‰",20 DA,30 DA,,,Gratuit,"0,5‰",Gratuit,"≤ 50000 DA Gratuit, > 50000 DA 50 DA+ frais de transmission de l image du cheque",2‰ Min 300 DA,Gratuit
+186,BANQUE NATIONALE D ALGERIE - BNA,professionnel,Gratuit,"0,5‰",Gratuit,20 DA,,,Gratuit,"0,5‰",Gratuit,"≤ 50000 DA Gratuit, > 50000 DA 50 DA+ frais de transmission de l image du cheque",2‰ Min 300 DA,Gratuit
 186,BANQUE NATIONALE D ALGERIE - BNA,entreprise,Gratuit,"0,5‰",Gratuit,20 DA,,,Gratuit,"0,5‰",Gratuit,Gratuit,2‰ Min 300 DA,Gratuit
 278,BANQUE DE L AGRICULTURE ET DU DEVELOPPEMENT RURAL - BADR,personnel,Gratuit,Gratuit,"emis 300 DA, recu gratuit","emis 300 DA, recu gratuit",Gratuit,150 DA,,"0.5‰, minimum 100 DA, plafonné a 500000 DA","< 50000 10DA, < 5000000 200DA, > 5000000 0.25‰",,,
 278,BANQUE DE L AGRICULTURE ET DU DEVELOPPEMENT RURAL - BADR,professionnel,,,,,,,,,,,,

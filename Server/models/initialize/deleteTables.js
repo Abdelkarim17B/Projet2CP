@@ -1,9 +1,10 @@
-const {client, connectDB} = require('./connectDatabase');
+const {client} = require('../client');
+const {connectDB} = require('../connectDatabase');
+const {disconnectDB} = require('../disconnectDatabase');
 
-async function dropTables() {
+async function dropTables(client) {
   try {
-    await connectDB();
-    console.log('Connected to PostgreSQL database!');
+    await connectDB(client);
 
     const dropQuery = 'DROP SCHEMA public CASCADE;';
     await client.query(dropQuery);
@@ -15,8 +16,8 @@ async function dropTables() {
   } catch (err) {
     console.error('Error dropping tables', err);
   } finally {
-    await client.end();
+    await disconnectDB(client);
   }
 }
 
-dropTables();
+dropTables(client);
