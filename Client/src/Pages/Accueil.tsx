@@ -52,11 +52,11 @@ const FAQ: React.FC<FAQProps> = ({ question, answer }) => {
 
 function Accueil() {
     return (
-      <div>
-        <Navbar />
+      <div className="w-full">
+        <Navbar language="Français"/>
         <div className="flex flex-col gap-[12vh]">
             {/* hero section*/}
-            <div className="bg-[url('/HeroBg.png')] h-screen w-screen flex flex-col justify-center items-center gap-[10vh]">
+            <div className="bg-[url('/bgHero.png')] bg-cover h-screen bg-auto bg-no-repeat w-full flex flex-col justify-center items-center gap-[10vh]">
                 <h1 className="max-w-[52vw] font-bold text-white text-[4.5rem] text-center">Trouvez la meilleure offre pour votre business</h1>
                 <div className="flex flex-col gap-[3vh] justify-center align-center items-center ">
                     <div className="flex gap-[1vw]">
@@ -68,10 +68,10 @@ function Accueil() {
             </div>
 
             {/* Espace des annonces*/}
-            <div className="h-[80vh] w-screen flex justify-center items-center text-center font-medium text-[4rem] text-BlueDark">Espace Announces</div>
+            <div className="h-[80vh] w-full flex justify-center items-center text-center font-medium text-[4rem] text-BlueDark">Espace Announces</div>
 
             {/* How it works section*/}
-            <div className="bg-white flex flex-col gap-[9vh] py-[12.5vh]">
+            <div className="flex flex-col gap-[9vh] py-[12.5vh]">
                 <h2 className="text-center font-medium text-[4rem] text-BlueDark">Comment ça fonctionne</h2>
                 <div className="flex px-[9vw] justify-between">
                     <div className="flex flex-col justify-center items-center gap-[6vh]">
