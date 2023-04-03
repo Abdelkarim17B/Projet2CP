@@ -6,7 +6,7 @@ import Results from "../Components/Pages/ResultatComparison/Results"
 function ResultatComparison() {
     return ( 
         <div>
-            <Navbar />
+            <Navbar language="Français" />
             <div>
                 {/* les infos des deux banques*/}
                 <div className="flex px-[9vw] py-[30vh]">
