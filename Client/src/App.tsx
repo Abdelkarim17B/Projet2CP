@@ -1,12 +1,14 @@
-import Accueil from "./Pages/Accueil"
+import React, { useState } from 'react';
+import SearcBarAndList from './components/SearchBarAndList';
 
-function App() {
-
-  return (
-    <div className="bg-[#F9FBFB]">
-      <Accueil />
+const App: React.FC = ({}) =>
+{
+    return (
+    <div>
+      <SearcBarAndList />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
+
