@@ -1,4 +1,8 @@
+const express = require('express');
 
-function homeHandler(req, res) {
-    res.render('home');
+
+const homeHandler = (req, res) => {
+    res.send('home');
 }
+
+module.exports = homeHandler;
