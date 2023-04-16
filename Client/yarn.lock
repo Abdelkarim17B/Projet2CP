@@ -808,10 +808,22 @@
     "loose-envify" "^1.1.0"
     "scheduler" "^0.23.0"
 
+<<<<<<< HEAD
 "react-refresh@^0.14.0":
   "integrity" "sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ=="
   "resolved" "https://registry.npmjs.org/react-refresh/-/react-refresh-0.14.0.tgz"
   "version" "0.14.0"
+=======
+react-icons@^4.8.0:
+  version "4.8.0"
+  resolved "https://registry.npmjs.org/react-icons/-/react-icons-4.8.0.tgz"
+  integrity sha512-N6+kOLcihDiAnj5Czu637waJqSnwlMNROzVZMhfX68V/9bu9qHaMIJC4UdozWoOk57gahFCNHwVvWzm0MTzRjg==
+
+react-refresh@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.npmjs.org/react-refresh/-/react-refresh-0.14.0.tgz"
+  integrity sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==
+>>>>>>> ca4d1a2434f1ea019d4ad88d19d7e20982c5713c
 
 "react@^18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="

@@ -1,15 +1,29 @@
-function Navbar() {
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import React, { useState } from "react";
+
+interface Language {
+  language: string;
+}
+
+const Navbar: React.FC<Language> = ({ language }) => {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleOpen = () => {
+    setIsOpen(!isOpen);
+  };
+
     return (
-      <div className="h-[56px] md:h-[64px] xl:h-[100px] w-full px-[9vw] py-[3vh] bg-white absolute">
+      <div className="h-[56px] md:h-[64px] xl:h-[100px] w-full px-[9vw] py-[3vh] bg-white fixed shadow-xl">
         <div className="flex justify-between align-center items-center">
-            <h1 className="text-[2rem] font-semibold">Logo</h1>
+            <img className="" src="/logo.png"></img>
             <ul className="flex gap-[4vw] text-[1.5rem]">
-                <li className="NavActive">Accueil</li>
-                <li className="NavInactive">Classement</li>
-                <li className="NavInactive">Map</li>
-                <li className="NavInactive">Proposition</li>
-                <li className="NavInactive">Contactez</li>
+                <li className="NavInactive">Catalogue</li>
+                <li className="NavInactive">Populaire</li>
+                <li className="NavInactive">Suggestions</li>
+                <li className="NavInactive">Contactez-nous</li>
             </ul>
+            {(language == "Français" ) ? <div className="flex items-center gap-[10px]"><img src="/flagFrance.png" alt="français" /><p className="NavInactive">Fr</p></div> : <div className="flex items-center gap-[10px]"><img src="/flagAlgeria.png" alt="Arabe" /><p className="NavInactive">Ar</p></div>}
         </div>
       </div>
     )
