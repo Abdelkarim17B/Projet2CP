@@ -1,5 +1,3 @@
-const { Client } = require('./client');
-
 async function disconnectDB(client){
     try{
       await client.end();
