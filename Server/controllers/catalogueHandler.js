@@ -4,8 +4,25 @@ const { connectDB } = require('../models/connectDatabase');
 const { disconnectDB } = require('../models/disconnectDatabase');
 const getter = require('../models/bank/getBank');
 
-const catalogueHandler = (req, res) => {
+const catalogueHandler = async (req, res) => {
     res.send('catalogue');
+    try {
+    await connectDB(client);
+    const resultBanks = await getter.getAllBank(client)
+    if (resultBanks == null) {
+        console.log('Bank does not exist');
+    }
+    else {
+        console.log('Bank exists :', resultBanks);
+        //res.send(resultBanks);
+        }
+    }
+    catch (err) {
+        console.error('Error Testing Bank', err)
+    }
+    finally {
+        await disconnectDB(client);
+    }
 }
 
 const bankHandler = async (req,res) => {
@@ -20,6 +37,7 @@ const bankHandler = async (req,res) => {
         }
         else {
             console.log('Bank exists :', resultBank);
+           // res.send(resultBank);
         }
     }
     catch(err)
@@ -30,9 +48,6 @@ const bankHandler = async (req,res) => {
     {
         await disconnectDB(client);
     }
-
-    
-
 }
 
 

@@ -23,4 +23,18 @@ async function getBank(client, id){
     }
 }
 
-module.exports = {getBank};
+async function getAllBank(client) {
+    try 
+    {
+        const result = await client.query(`SELECT * FROM bank `);
+        console.log('All Banks are fetched!');
+        return result.rows;
+
+    }
+    catch(err)
+    {
+        console.error('Error fetching admin' , err)
+    }
+}
+
+module.exports = {getBank , getAllBank};
