@@ -2,8 +2,8 @@ const express = require('express');
 const routes = require('./routes/client');
 
 PORT = process.env.PORT || 3000;
-const {client} = require('../models/client');
-const { connectDB } = require('../models/connectDatabase');
+const {client} = require('./models/client');
+const { connectDB } = require('./models/connectDatabase');
 
 const app = express();
 
