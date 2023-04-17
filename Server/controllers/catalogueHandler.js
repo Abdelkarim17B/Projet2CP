@@ -7,7 +7,7 @@ const getter = require('../models/bank/getBank');
 const catalogueHandler = async (req, res) => {
     res.send('catalogue');
     try {
-    await connectDB(client);
+    //await connectDB(client);
     const resultBanks = await getter.getAllBank(client)
     if (resultBanks == null) {
         console.log('Bank does not exist');
@@ -21,7 +21,7 @@ const catalogueHandler = async (req, res) => {
         console.error('Error Testing Bank', err)
     }
     finally {
-        await disconnectDB(client);
+        //await disconnectDB(client);
     }
 }
 
@@ -30,7 +30,7 @@ const bankHandler = async (req,res) => {
     const bankId = req.params.id;
     try 
     {
-        await connectDB(client);
+        //await connectDB(client);
         const resultBank = await getter.getBank(client,bankId)
         if(resultBank == null) {
             console.log('Bank does not exist');
@@ -46,7 +46,7 @@ const bankHandler = async (req,res) => {
     }
     finally
     {
-        await disconnectDB(client);
+       // await disconnectDB(client);
     }
 }
 
