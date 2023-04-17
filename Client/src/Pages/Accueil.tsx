@@ -154,7 +154,6 @@ function Accueil() {
                 </div>
             </div>
         </div>
-        <Footer />
       </div>
     )
   }

@@ -10,7 +10,6 @@ function Populaire() {
 
     return(
         <div>
-            <Navbar language="Français"/>
             <div className="bg-[#F0EFF2]">
                 <div className="h-screen w-full flex flex-col justify-center items-center gap-[10vh]">
                     <h1 className="max-w-[83vw] font-bold text-BlueDark text-[4.5rem] text-center">Voici une collection de comparaisons courantes</h1>
@@ -36,17 +35,16 @@ function Populaire() {
                   speed={400}
                   easing="linear"
                   >
-                  <ComparisonPolpulaire imageUrl1="BNP.png" imageUrl2="/SocieteGenerale.png"/>
-                  <ComparisonPolpulaire imageUrl1="BNP.png" imageUrl2="/SocieteGenerale.png"/>
-                  <ComparisonPolpulaire imageUrl1="BNP.png" imageUrl2="/SocieteGenerale.png"/>
-                  <ComparisonPolpulaire imageUrl1="BNP.png" imageUrl2="/SocieteGenerale.png"/>
+                  <ComparisonPolpulaire imageUrl1="BNP.png" imageUrl2="/SocieteGenerale.svg"/>
+                  <ComparisonPolpulaire imageUrl1="BNP.png" imageUrl2="/SocieteGenerale.svg"/>
+                  <ComparisonPolpulaire imageUrl1="BNP.png" imageUrl2="/SocieteGenerale.svg"/>
+                  <ComparisonPolpulaire imageUrl1="BNP.png" imageUrl2="/SocieteGenerale.svg"/>
                   
                 </ReactSimplyCarousel>
                     
                     </div>
                 </div>
             </div>
-            <Footer />
         </div>
     )
 }
