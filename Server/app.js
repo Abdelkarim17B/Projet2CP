@@ -7,7 +7,7 @@ const { connectDB } = require('../models/connectDatabase');
 
 const app = express();
 
-connectDB(client);
+//  connectDB(client);
 
 app.get('/', (req, res) => {
   res.send('Main route');
