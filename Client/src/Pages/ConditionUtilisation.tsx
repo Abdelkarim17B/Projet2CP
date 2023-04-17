@@ -4,7 +4,6 @@ import Navbar from "../Components/Layout/Navbar"
 function ConditionUtilisation() {
     return(
         <div>
-            <Navbar language="Français"/>
             <div>
                 <div className="h-full w-full flex flex-col justify-center  pt-[10%] px-[9vw]">
                     <h1 className="font-bold text-[2rem] mb-[2%]">Terms & Conditions</h1>
@@ -23,7 +22,6 @@ Versus does not warrant and takes no liability that embeddable iframes from vers
                     
                 </div>
             </div>
-            <Footer />
         </div>
     )
 }

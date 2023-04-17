@@ -3,7 +3,6 @@ import Navbar from '../Components/Layout/Navbar'
 
 function Apropos() {
   return (<div>
-    <Navbar language="Français"/>
     <div className='h-full w-full flex flex-col justify-center py-[5%]'>
        <div className="relative ">
       <img className="absolute object-cover w-full h-auto" src="/BgApropos.png" alt="First Image" />
@@ -27,7 +26,6 @@ function Apropos() {
                 </div>
                 </div>
     </div>
-    <Footer />
     </div>
   )
 }

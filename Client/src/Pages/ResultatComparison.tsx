@@ -1,12 +1,9 @@
-import Footer from "../Components/Layout/Footer"
-import Navbar from "../Components/Layout/Navbar"
 import InfoBank from "../Components/Pages/ResultatComparison/InfoBank"
 import Results from "../Components/Pages/ResultatComparison/Results"
 
 function ResultatComparison() {
     return ( 
         <div>
-            <Navbar language="Français" />
             <div className="bg-[#F0EFF2]">
                 {/* les infos des deux banques*/}
                 <div className="flex px-[9vw] py-[30vh]">
@@ -20,7 +17,6 @@ function ResultatComparison() {
                 <Results Titre="Tenue chèque" Pro1="500 DA/An" Comp1="Gratuit" Perso1="200 DA/An" Pro2="Gratuit" Comp2="Gratuit" Perso2="Gratuit" />
                 <Results Titre="Tenue Epargne" Pro1="Gratuit" Comp1="Gratuit" Perso1="Gratuit" Pro2="Gratuit" Comp2="Gratuit" Perso2="Gratuit" />
             </div>
-            <Footer />
         </div>
     )
 }
