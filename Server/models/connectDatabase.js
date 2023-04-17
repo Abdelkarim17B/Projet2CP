@@ -1,7 +1,3 @@
-const { client } = require('./client');
-
-//console.log(client)
-
 async function connectDB(client) {
   try {
     await client.connect();

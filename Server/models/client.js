@@ -9,4 +9,6 @@ const client = new Client({
     database: process.env.PGDATABASE,
 });
 
+//  console.log('Client : ', client);
+
 module.exports = { client };

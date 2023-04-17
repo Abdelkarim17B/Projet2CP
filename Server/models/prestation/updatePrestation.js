@@ -1,6 +1,6 @@
 
 
-function updatePrestation() {
+async function updatePrestation() {
     return null;
 }
 
