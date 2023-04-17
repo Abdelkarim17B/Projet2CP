@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Footer from "../Components/Layout/Footer"
 import Navbar from "../Components/Layout/Navbar"
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { FaChevronDown ,FaChevronRight, FaChevronLeft, FaChevronUp } from "react-icons/fa";
+import ReactSimplyCarousel from 'react-simply-carousel';
+import Annonce from "../Components/Pages/Accueil/Annonce";
 
 interface FAQProps {
     question: string;
@@ -51,24 +52,52 @@ const FAQ: React.FC<FAQProps> = ({ question, answer }) => {
 
 
 function Accueil() {
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+
     return (
       <div className="w-full">
-        <Navbar language="Français"/>
-        <div className="flex flex-col gap-[12vh]">
+        <div className="flex flex-col gap-[5vh] bg-[#F0EFF2]">
             {/* hero section*/}
-            <div className="bg-[url('/bgHero.png')] bg-cover h-screen bg-auto bg-no-repeat w-full flex flex-col justify-center items-center gap-[10vh]">
+            <div className="bg-[url('/bgHero.png')] h-screen bg-bottom bg-cover w-full bg-no-repeat flex flex-col justify-center items-center gap-[10vh]">       
                 <h1 className="max-w-[52vw] font-bold text-white text-[4.5rem] text-center">Trouvez la meilleure offre pour votre business</h1>
                 <div className="flex flex-col gap-[3vh] justify-center align-center items-center ">
-                    <div className="flex gap-[1vw]">
-                      <input className="h-[10vh] w-[29vw] px-[2vw] rounded-[4px]" placeholder="Citer la banque ici pour comparer" type="text" />
-                      <input className="h-[10vh] w-[29vw] px-[2vw] rounded-[4px]" placeholder="Citer la banque ici pour comparer" type="text" />
-                    </div>
-                    <input className="bg-Red max-w-[15vw] h-[10vh] font-bold px-[2vw] text-[1.5rem] text-white" type="button" value="Comparer" />
+                  <div className="flex gap-[1vw]">
+                    <input className="h-[10vh] w-[29vw] px-[2vw] rounded-[4px]" placeholder="Citer la banque ici pourcomparer" type="text" />
+                    <input className="h-[10vh] w-[29vw] px-[2vw] rounded-[4px]" placeholder="Citer la banque ici pourcomparer" type="text" />
+                  </div>
+                  <input className="bg-Red max-w-[15vw] h-[10vh] font-bold px-[2vw] text-[1.5rem] text-white" type="button" value="Comparer" />
                 </div>
             </div>
 
             {/* Espace des annonces*/}
-            <div className="h-[80vh] w-full flex justify-center items-center text-center font-medium text-[4rem] text-BlueDark">Espace Announces</div>
+            <div className="h-[80vh] w-full flex flex-col justify-center items-center text-center gap-[5vh]">
+              <h2 className="text-center font-medium text-[4rem] text-BlueDark">Espace Announces</h2>
+                <ReactSimplyCarousel
+                  activeSlideIndex={activeSlideIndex}
+                  onRequestChange={setActiveSlideIndex}
+                  itemsToShow={1}
+                  itemsToScroll={1}
+                  forwardBtnProps={{ className:"self-center flex bg-white rounded-full cursor-pointer h-[96px] w-[96px]     justify-center items-center m-[3vw]",
+                  children: <FaChevronRight className="w-[18px] h-[23px] text-RedDark"/>,
+                  }}
+                  backwardBtnProps={{
+                  className:"self-center flex bg-white rounded-full cursor-pointer h-[96px] w-[96px] justify-center items-center m-[3vw]",
+                  children: <FaChevronLeft className="w-[18px] h-[23px] text-RedDark"/>,
+                  }}
+                  responsiveProps={[
+                    {
+                      itemsToShow: 3,
+                      itemsToScroll: 1,
+                    },]}
+                  speed={100}
+                  easing="linear"
+                  >
+                <Annonce imageUrl="/An3.png" Title="Ramadan Offre" Bank="BNA"/>
+                <Annonce imageUrl="/An3.png" Title="Ramadan Offre" Bank="BNA"/>
+                <Annonce imageUrl="/An3.png" Title="Ramadan Offre" Bank="BNA"/>
+                <Annonce imageUrl="/An3.png" Title="Ramadan Offre" Bank="BNA"/>
+                </ReactSimplyCarousel>
+            </div>
 
             {/* How it works section*/}
             <div className="flex flex-col gap-[9vh] py-[12.5vh]">

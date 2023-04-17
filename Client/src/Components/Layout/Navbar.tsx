@@ -1,5 +1,3 @@
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import React, { useState } from "react";
 
 interface Language {
   language: string;
@@ -7,14 +5,8 @@ interface Language {
 
 const Navbar: React.FC<Language> = ({ language }) => {
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleOpen = () => {
-    setIsOpen(!isOpen);
-  };
-
     return (
-      <div className="h-[56px] md:h-[64px] xl:h-[100px] w-full px-[9vw] py-[3vh] bg-white fixed shadow-xl">
+      <div className="h-[56px] md:h-[64px] xl:h-[100px] w-full px-[9vw] py-[3vh] bg-white fixed z-100 shadow-md mb-[5vh]">
         <div className="flex justify-between align-center items-center">
             <img className="" src="/logo.png"></img>
             <ul className="flex gap-[4vw] text-[1.5rem]">

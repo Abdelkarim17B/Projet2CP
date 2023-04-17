@@ -1,8 +1,8 @@
 
 function Footer() {
     return (
-    <div>
-      <div className="w-full px-[9vw] bg-[#ffffff]">
+    <div className="bg-white">
+      <div className="w-full px-[9vw] bg-white">
         <div className=" py-[4vh]">
             <div className="flex justify-between">
                 <ul className="flex gap-[4vw] text-[1.5rem]">
