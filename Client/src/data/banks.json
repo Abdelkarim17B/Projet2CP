@@ -1,5 +1,10 @@
 [{    "id": 1,    "Nom": "Bank A",    "Choix": true,    "ServiceEnligne": true,    "Nationnalité": "Algerian"  , "SiteWeb" : "https://bna.dz","TarifsCompte" : 1500}, 
 {    "id": 2,    "Nom": "Bank B",    "Choix": false,    "ServiceEnligne": true,    "Nationnalité": "French"  , "SiteWeb" : "https://bna.dz","TarifsCompte" : 2000},
 {    "id": 3,    "Nom": "Bank C",    "Choix": true,    "ServiceEnligne": true,    "Nationnalité": "Algerian"  , "SiteWeb" : "https://bna.dz","TarifsCompte" : 2000}, 
-{    "id": 4,    "Nom": "Bank D",    "Choix": true,    "ServiceEnligne": false,    "Nationnalité": "AAA"  , "SiteWeb" : "https://bna.dz","TarifsCompte" : 750},
-{    "id": 5,    "Nom": "Bank E",    "Choix": false,    "ServiceEnligne": true,    "Nationnalité": "French"  , "SiteWeb" : "https://bna.dz","TarifsCompte" : 1550}]
+{    "id": 4,    "Nom": "Bank D",    "Choix": true,    "ServiceEnligne": false,    "Nationnalité": "Other"  , "SiteWeb" : "https://bna.dz","TarifsCompte" : 750},
+{    "id": 5,    "Nom": "Bank E",    "Choix": false,    "ServiceEnligne": true,    "Nationnalité": "French"  , "SiteWeb" : "https://bna.dz","TarifsCompte" : 1550},
+{    "id": 6,    "Nom": "Bank F",    "Choix": true,    "ServiceEnligne": true,    "Nationnalité": "Algerian"  , "SiteWeb" : "https://bna.dz","TarifsCompte" : 1500}, 
+{    "id": 7,    "Nom": "Bank G",    "Choix": false,    "ServiceEnligne": true,    "Nationnalité": "French"  , "SiteWeb" : "https://bna.dz","TarifsCompte" : 2000},
+{    "id": 8,    "Nom": "Bank H",    "Choix": true,    "ServiceEnligne": true,    "Nationnalité": "Algerian"  , "SiteWeb" : "https://bna.dz","TarifsCompte" : 2000}, 
+{    "id": 9,    "Nom": "Bank I",    "Choix": true,    "ServiceEnligne": false,    "Nationnalité": "Other"  , "SiteWeb" : "https://bna.dz","TarifsCompte" : 750},
+{    "id": 10,    "Nom": "Bank J",    "Choix": false,    "ServiceEnligne": true,    "Nationnalité": "French"  , "SiteWeb" : "https://bna.dz","TarifsCompte" : 1550}]
