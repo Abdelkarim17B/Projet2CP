@@ -1,11 +1,9 @@
-import Footer from "../Components/Layout/Footer"
-import Navbar from "../Components/Layout/Navbar"
+import {Link} from "react-router-dom"
 
 function Suggestions(){
     return(
         <div>
-            <Navbar language="Français"/>
-                <div className="h-screen w-full flex flex-col justify-center items-center gap-[10vh]">
+                <div className="h-screen w-full flex flex-col justify-center items-center gap-[10vh] bg-[#F0EFF2]">
                     <h1 className="max-w-[83vw] font-bold text-BlueDark text-[4.5rem] text-center">Nous vous proposons la meilleure offre qui vous convient de la meilleure banque</h1>
                     <div>
                     <form className="w-[83vw] flex flex-col items-center gap-[4vh]">
@@ -51,7 +49,6 @@ function Suggestions(){
                     </form>
                     </div>
                 </div>
-            <Footer />
         </div>
     )
 }

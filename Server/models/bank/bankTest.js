@@ -9,8 +9,8 @@ const {getBank} = require('./getBank');
 
 /* Bank Test */
 const bankObject = {
-    id_banque : 1,
-    nom_banque: 'banque_01',
+    id_banque : 2,
+    nom_banque: 'banque_02',
     adresse: 'kais',
     num_tel: '0515484625',
     num_fax: '033548422',
