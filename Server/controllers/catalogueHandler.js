@@ -5,7 +5,6 @@ const { disconnectDB } = require('../models/disconnectDatabase');
 const getter = require('../models/bank/getBank');
 
 const catalogueHandler = async (req, res) => {
-    res.send('catalogue');
     try {
     //await connectDB(client);
     const resultBanks = await getter.getAllBank(client)
@@ -14,7 +13,7 @@ const catalogueHandler = async (req, res) => {
     }
     else {
         console.log('Bank exists :', resultBanks);
-        //res.send(resultBanks);
+        res.json(resultBanks);
         }
     }
     catch (err) {
@@ -26,7 +25,7 @@ const catalogueHandler = async (req, res) => {
 }
 
 const bankHandler = async (req,res) => {
-    res.send('ur seeing a bank');
+    
     const bankId = req.params.id;
     try 
     {
@@ -36,8 +35,8 @@ const bankHandler = async (req,res) => {
             console.log('Bank does not exist');
         }
         else {
-            console.log('Bank exists :', resultBank);
-           // res.send(resultBank);
+            res.json(resultBank);
+            console.log('Bank exists But its JSon :', resultBank);
         }
     }
     catch(err)
