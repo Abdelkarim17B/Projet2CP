@@ -2,12 +2,12 @@ const express = require('express');
 const routes = require('./routes/client');
 
 PORT = process.env.PORT || 3000;
-//const { client, connectDB } = require('../models/connectDatabase');
-//const {createTables} = require('../models/createDatabase');
+const {client} = require('./models/client');
+const { connectDB } = require('./models/connectDatabase');
 
 const app = express();
 
-//connectDB();
+connectDB(client);
 
 app.get('/', (req, res) => {
   res.send('Main route');
