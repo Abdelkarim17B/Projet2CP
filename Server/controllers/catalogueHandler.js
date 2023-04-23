@@ -45,12 +45,12 @@ const bankHandler = async (req,res) => {
         else {
 
             //6vBkPeehGTpplEjJfRJCJyXBkCTpMEp2
-            const tst = getterLocation.getBankLocation(resultBank.adresse,process.env.TKEY)
-            results = [resultBank, resultPres]
+            const resultLoc = getterLocation.getBankLocation(resultBank.adresse,process.env.TKEY)
+            results = [resultBank, resultPres , resultLoc];
             res.send(JSON.stringify(results));
             console.log('Bank exists But its JSon :', resultBank);
             //console.log(process.env.TKEY);
-            console.log('Bank coords are : ', tst);
+            //console.log('Bank coords are : ', tst);
         }
     }
     catch(err)
