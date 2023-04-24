@@ -8,20 +8,23 @@ const catalogueHandler = async (req, res) => {
     res.send('catalogue');
     try {
     await connectDB(client);
+    console.log('Connected to PostgreSQL database! from catalogueHandler');
     const resultBanks = await getter.getAllBank(client)
     if (resultBanks == null) {
         console.log('Bank does not exist');
     }
     else {
         console.log('Bank exists :', resultBanks);
-        //res.send(resultBanks);
+        res.send(resultBanks);
         }
     }
     catch (err) {
-        console.error('Error Testing Bank', err)
+        console.error('Error Testing Bank in bankHandler', err)
     }
     finally {
         await disconnectDB(client);
+        console.log('Disonnected from PostgreSQL database! from catalogueHandler');
+
     }
 }
 
@@ -37,7 +40,7 @@ const bankHandler = async (req,res) => {
         }
         else {
             console.log('Bank exists :', resultBank);
-           // res.send(resultBank);
+           res.send(resultBank);
         }
     }
     catch(err)
