@@ -5,6 +5,8 @@ const prestationTemplate = require('../template/prestation.json');
 
 async function getPrestation(client, id_banque, categoriesList, typesList) {
     response = generatePrestationResponse(id_banque, categoriesList, typesList, prestationTemplate)
+    try{
+    await connectDB(client);
     for (let category of categoriesList){
         for (let type of typesList) {
             try {
@@ -29,6 +31,14 @@ async function getPrestation(client, id_banque, categoriesList, typesList) {
             }
         }
     }
+}
+    catch (err) {
+        console.error('Error in retrieval process', err);
+    }
+    finally{
+        await disconnectDB(client);
+    }
+    
     return response;
 }
 

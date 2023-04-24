@@ -1,6 +1,8 @@
 const {client} = require('pg');
 
 async function createPrestation(client, prestationObject, categories, types) {
+    try {
+    await connectDB(client);
     for (let category of categories){
         for (let type of types) {
             try {
@@ -14,6 +16,13 @@ async function createPrestation(client, prestationObject, categories, types) {
                 console.error(`Error inserting data into ${category} table of ${type} type`, err);
             }
         }
+    }
+    }
+    catch (err) {
+        console.error('Error in insertion process', err);
+    }
+    finally{
+        await disconnectDB(client);
     }
 }
 
