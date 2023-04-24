@@ -1,4 +1,7 @@
 const {client} = require('pg');
+const { connectDB } = require('../connectDatabase');
+const { disconnectDB } = require('../disconnectDatabase');
+
 const {generatePrestationResponse} = require('../../helpers/generatePrestationResponse');
 const prestationTemplate = require('../template/prestation.json');
 

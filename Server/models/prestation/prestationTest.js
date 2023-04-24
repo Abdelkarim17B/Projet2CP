@@ -27,7 +27,6 @@ const prestationObjectExample = prestationObjectConstructor(id_banque, categorie
 
 async function PrestationTest(client, PrestationObject, categoriesList, categories, typesList, types,  test_type){
     try{
-        await connectDB(client);
         switch(test_type){
             case 'create':
                 await createPrestation(client, PrestationObject, categories, types);
@@ -61,7 +60,7 @@ async function PrestationTest(client, PrestationObject, categoriesList, categori
         console.error('Error Testing Prestation', err);
     }
     finally{
-        await disconnectDB(client);
+        console.log("Done Testing Prestation");
     }
 }
 

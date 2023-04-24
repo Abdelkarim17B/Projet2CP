@@ -1,4 +1,6 @@
 const {client} = require('pg');
+const { connectDB } = require('../connectDatabase');
+const { disconnectDB } = require('../disconnectDatabase');
 
 /* Input template */
 const adminObject = {

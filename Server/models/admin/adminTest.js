@@ -20,7 +20,6 @@ const adminObject = {
 
 async function adminTest(client, adminObject, test_type){
     try{
-        await connectDB(client);
         switch(test_type){
             case 'create':
                 await createAdmin(client, adminObject);
@@ -52,7 +51,7 @@ async function adminTest(client, adminObject, test_type){
         console.error('Error Testing admin', err);
     }
     finally{
-        await disconnectDB(client);
+        console.log("Done Testing admin");
     }
 }
 
