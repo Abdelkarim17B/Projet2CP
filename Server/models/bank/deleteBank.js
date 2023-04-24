@@ -14,11 +14,15 @@ const bankObject = {
 
 async function deleteBank(client, id){
     try{
+        await connectDB(client);
         await client.query(`DELETE FROM bank WHERE id_banque = ${id}`);
         console.log('Bank deleted!');
     }
     catch(err){
         console.error('Error deleting bank', err);
+    }
+    finally{
+        await disconnectDB(client);
     }
 }
 
