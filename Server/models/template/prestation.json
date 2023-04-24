@@ -1,0 +1,299 @@
+{
+    "personnel": {
+        
+      "gestion_de_compte": {
+          "ouverture_compte_courant": "",
+          "tenue_compte_courant": "",
+          "ouverture_compte_cheque": "",
+          "tenue_compte_cheque": "",
+          "ouverture_compte_epargne": "",
+          "tenue_compte_epargne": "",
+          "ouverture_compte_devise": "",
+          "tenue_compte_devise": "",
+          "fermeture_de_compte": ""
+      },
+
+      "gestion_a_distance": {
+          "e_banking_abonnement": "",
+          "e_banking_consultation_solde": "",
+          "e_banking_virement": "",
+          "e_banking_paiment": "",
+          "sms_banking_abonnement": "",
+          "sms_banking_virement_en_agence": "",
+          "sms_banking_virement_hors_agence": "",
+          "service_contact": ""
+      },
+
+      "option_de_payment": {
+          "versement_en_agence": "",
+          "versement_hors_agence": "",
+          "virement_en_agence": "",
+          "virement_hors_agence": "",
+          "prelevement_en_agence": "",
+          "prelevement_hors_agence": "",
+          "retraits_en_agence": "",
+          "retraits_hors_agence": "",
+          "payment_cheque_en_agence": "",
+          "payment_cheque_hors_agence": "",
+          "vente_devise": "",
+          "achat_devise": ""
+      },
+
+      "moyens_de_payment": {
+          "creation_bank_card": "",
+          "renouvelement_bank_card": "",
+          "remplacement_bank_card": "",
+          "edition_code_confidentiel_bank_card": "",
+          "retrait_intra_bancaire": "",
+          "retrait_inter_bancaire": "",
+          "creation_visa": "",
+          "renouvelement_visa": "",
+          "remplacement_visa": "",
+          "edition_code_confidentiel_visa": ""
+      },
+
+      "prets_et_credits": {
+          "decouvert_duree": "",
+          "decouvert_taux": "",
+          "credit_court_terme_taux": "",
+          "credit_moyen_terme_taux": "",
+          "credit_long_terme_taux": "",
+          "options_possibles": ""
+      },
+
+      "placement": {
+          "depots_a_court_terme": "",
+          "depots_a_moyen_terme": "",
+          "depots_a_long_terme": ""
+      },
+
+      "epargne": {
+          "epargne_duree_taux_01": "",
+          "epargne_duree_taux_02": "",
+          "epargne_duree_taux_03": "",
+          "epargne_duree_taux_04": "",
+          "epargne_duree_taux_05": "",
+          "epargne_duree_taux_06": "",
+          "epargne_duree_taux_07": "",
+          "epargne_duree_taux_08": "",
+          "epargne_duree_taux_09": "",
+          "epargne_duree_taux_10": ""
+      },
+
+      "coffre_fort": {
+          "petit": "",
+          "moyen": "",
+          "grand": "",
+          "cautionnement": ""
+      },
+
+      "financement_externe": {
+          "encaissement_cheque_etranger": "",
+          "virement_recu": "",
+          "virement_emis": "",
+          "exportation_domiciliation": "",
+          "importation_domiciliation": "",
+          "transfert_libre_prelevement_compte_dinars": "",
+          "transfert_libre_prelevement_compte_devise": ""
+      }      
+    },
+
+
+    "professionnel": {
+        
+      "gestion_de_compte": {
+          "ouverture_compte_courant": "",
+          "tenue_compte_courant": "",
+          "ouverture_compte_cheque": "",
+          "tenue_compte_cheque": "",
+          "ouverture_compte_epargne": "",
+          "tenue_compte_epargne": "",
+          "ouverture_compte_devise": "",
+          "tenue_compte_devise": "",
+          "fermeture_de_compte": ""
+      },
+
+      "gestion_a_distance": {
+          "e_banking_abonnement": "",
+          "e_banking_consultation_solde": "",
+          "e_banking_virement": "",
+          "e_banking_paiment": "",
+          "sms_banking_abonnement": "",
+          "sms_banking_virement_en_agence": "",
+          "sms_banking_virement_hors_agence": "",
+          "service_contact": ""
+      },
+
+      "option_de_payment": {
+          "versement_en_agence": "",
+          "versement_hors_agence": "",
+          "virement_en_agence": "",
+          "virement_hors_agence": "",
+          "prelevement_en_agence": "",
+          "prelevement_hors_agence": "",
+          "retraits_en_agence": "",
+          "retraits_hors_agence": "",
+          "payment_cheque_en_agence": "",
+          "payment_cheque_hors_agence": "",
+          "vente_devise": "",
+          "achat_devise": ""
+      },
+
+      "moyens_de_payment": {
+          "creation_bank_card": "",
+          "renouvelement_bank_card": "",
+          "remplacement_bank_card": "",
+          "edition_code_confidentiel_bank_card": "",
+          "retrait_intra_bancaire": "",
+          "retrait_inter_bancaire": "",
+          "creation_visa": "",
+          "renouvelement_visa": "",
+          "remplacement_visa": "",
+          "edition_code_confidentiel_visa": ""
+      },
+
+      "prets_et_credits": {
+          "decouvert_duree": "",
+          "decouvert_taux": "",
+          "credit_court_terme_taux": "",
+          "credit_moyen_terme_taux": "",
+          "credit_long_terme_taux": "",
+          "options_possibles": ""
+      },
+
+      "placement": {
+          "depots_a_court_terme": "",
+          "depots_a_moyen_terme": "",
+          "depots_a_long_terme": ""
+      },
+
+      "epargne": {
+          "epargne_duree_taux_01": "",
+          "epargne_duree_taux_02": "",
+          "epargne_duree_taux_03": "",
+          "epargne_duree_taux_04": "",
+          "epargne_duree_taux_05": "",
+          "epargne_duree_taux_06": "",
+          "epargne_duree_taux_07": "",
+          "epargne_duree_taux_08": "",
+          "epargne_duree_taux_09": "",
+          "epargne_duree_taux_10": ""
+      },
+
+      "coffre_fort": {
+          "petit": "",
+          "moyen": "",
+          "grand": "",
+          "cautionnement": ""
+      },
+
+      "financement_externe": {
+          "encaissement_cheque_etranger": "",
+          "virement_recu": "",
+          "virement_emis": "",
+          "exportation_domiciliation": "",
+          "importation_domiciliation": "",
+          "transfert_libre_prelevement_compte_dinars": "",
+          "transfert_libre_prelevement_compte_devise": ""
+      }     
+    },
+
+    "entreprise": {
+        
+      "gestion_de_compte": {
+          "ouverture_compte_courant": "",
+          "tenue_compte_courant": "",
+          "ouverture_compte_cheque": "",
+          "tenue_compte_cheque": "",
+          "ouverture_compte_epargne": "",
+          "tenue_compte_epargne": "",
+          "ouverture_compte_devise": "",
+          "tenue_compte_devise": "",
+          "fermeture_de_compte": ""
+      },
+
+      "gestion_a_distance": {
+          "e_banking_abonnement": "",
+          "e_banking_consultation_solde": "",
+          "e_banking_virement": "",
+          "e_banking_paiment": "",
+          "sms_banking_abonnement": "",
+          "sms_banking_virement_en_agence": "",
+          "sms_banking_virement_hors_agence": "",
+          "service_contact": ""
+      },
+
+      "option_de_payment": {
+          "versement_en_agence": "",
+          "versement_hors_agence": "",
+          "virement_en_agence": "",
+          "virement_hors_agence": "",
+          "prelevement_en_agence": "",
+          "prelevement_hors_agence": "",
+          "retraits_en_agence": "",
+          "retraits_hors_agence": "",
+          "payment_cheque_en_agence": "",
+          "payment_cheque_hors_agence": "",
+          "vente_devise": "",
+          "achat_devise": ""
+      },
+
+      "moyens_de_payment": {
+          "creation_bank_card": "",
+          "renouvelement_bank_card": "",
+          "remplacement_bank_card": "",
+          "edition_code_confidentiel_bank_card": "",
+          "retrait_intra_bancaire": "",
+          "retrait_inter_bancaire": "",
+          "creation_visa": "",
+          "renouvelement_visa": "",
+          "remplacement_visa": "",
+          "edition_code_confidentiel_visa": ""
+      },
+
+      "prets_et_credits": {
+          "decouvert_duree": "",
+          "decouvert_taux": "",
+          "credit_court_terme_taux": "",
+          "credit_moyen_terme_taux": "",
+          "credit_long_terme_taux": "",
+          "options_possibles": ""
+      },
+
+      "placement": {
+          "depots_a_court_terme": "",
+          "depots_a_moyen_terme": "",
+          "depots_a_long_terme": ""
+      },
+
+      "epargne": {
+          "epargne_duree_taux_01": "",
+          "epargne_duree_taux_02": "",
+          "epargne_duree_taux_03": "",
+          "epargne_duree_taux_04": "",
+          "epargne_duree_taux_05": "",
+          "epargne_duree_taux_06": "",
+          "epargne_duree_taux_07": "",
+          "epargne_duree_taux_08": "",
+          "epargne_duree_taux_09": "",
+          "epargne_duree_taux_10": ""
+      },
+
+      "coffre_fort": {
+          "petit": "",
+          "moyen": "",
+          "grand": "",
+          "cautionnement": ""
+      },
+
+      "financement_externe": {
+          "encaissement_cheque_etranger": "",
+          "virement_recu": "",
+          "virement_emis": "",
+          "exportation_domiciliation": "",
+          "importation_domiciliation": "",
+          "transfert_libre_prelevement_compte_dinars": "",
+          "transfert_libre_prelevement_compte_devise": ""
+      }     
+    }
+}
