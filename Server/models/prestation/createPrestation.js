@@ -3,6 +3,7 @@ const { connectDB } = require('../connectDatabase');
 const { disconnectDB } = require('../disconnectDatabase');
 
 async function createPrestation(client, prestationObject, categories, types) {
+
     try{
         await connectDB(client) ;
         for (let category of categories){
@@ -12,6 +13,7 @@ async function createPrestation(client, prestationObject, categories, types) {
                     //  console.log('Insertion Query : ', insertionQuery);
                     await client.query(insertionQuery);
 
+
                     console.log(`Data inserted successfully into ${category} table of ${type} type`);
                     }
                 catch (err) {
@@ -20,12 +22,14 @@ async function createPrestation(client, prestationObject, categories, types) {
             }
         }
     }
+
     catch(err){
         console.log('Error inserting process in presetation :', err);
     }
     finally{
         await disconnectDB(client) ;
     }
+
 }
 
 module.exports = {createPrestation};
