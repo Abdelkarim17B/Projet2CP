@@ -1,4 +1,6 @@
-const {Client} = require('pg');
+const {client} = require('pg');
+const { connectDB } = require('../connectDatabase');
+const { disconnectDB } = require('../disconnectDatabase');
 
 /* Input template */
 const bankObject = {
@@ -14,12 +16,20 @@ const bankObject = {
 
 async function deleteBank(client, id){
     try{
+
+        await connectDB(client) ;
+
         await client.query(`DELETE FROM bank WHERE id_banque = ${id}`);
         console.log('Bank deleted!');
     }
     catch(err){
         console.error('Error deleting bank', err);
     }
+
+    finally{
+        await disconnectDB(client) ;
+    }
+
 }
 
 module.exports = {deleteBank};

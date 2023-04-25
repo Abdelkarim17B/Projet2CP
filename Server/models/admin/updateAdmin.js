@@ -1,4 +1,6 @@
-const {Client} = require('pg');
+const {client} = require('pg');
+const { connectDB } = require('../connectDatabase');
+const { disconnectDB } = require('../disconnectDatabase');
 
 /* Input template */
 const adminObject = {
@@ -13,11 +15,18 @@ const adminObject = {
 
 async function updateAdmin(client, adminObject){
     try{
+
+        await connectDB(client) ;
+
         await client.query(`UPDATE admin SET nom = '${adminObject.nom}', prenom = '${adminObject.prenom}', email = '${adminObject.email}', mot_de_passe = '${adminObject.mot_de_passe}', cle_speciale = '${adminObject.cle_speciale}', occupation = '${adminObject.occupation}' WHERE id_admin = ${adminObject.id_admin}`);
         console.log('Admin updated!');
     }
     catch(err){
         console.error('Error updating admin', err);
+    }
+
+    finally{
+        await disconnectDB(client) ;
     }
 }
 

@@ -1,4 +1,6 @@
 const {client} = require('pg');
+const { connectDB } = require('../connectDatabase');
+const { disconnectDB } = require('../disconnectDatabase');
 
 /* Input template */
 const bankObject = {
@@ -14,6 +16,8 @@ const bankObject = {
 
 async function createBank(client, bankObject) {
     try {
+
+        await connectDB(client) ;
         await client.query(`
             INSERT INTO bank (id_banque, nom_banque, adresse, num_tel, num_fax, adresse_mail, logo, site_web)
             VALUES (${bankObject.id_banque}, '${bankObject.nom_banque}', '${bankObject.adresse}', '${bankObject.num_tel}', '${bankObject.num_fax}', '${bankObject.adresse_mail}', '${bankObject.logo}', '${bankObject.site_web}')
@@ -22,6 +26,11 @@ async function createBank(client, bankObject) {
     } catch (err) {
         console.error('Error inserting data into bank table', err);
     }
+
+    finally{
+        await disconnectDB(client) ;
+    }
+
 }
 
 module.exports = {createBank};
