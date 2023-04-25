@@ -2,19 +2,12 @@ const {client} = require('pg');
 const { connectDB } = require('../connectDatabase');
 const { disconnectDB } = require('../disconnectDatabase');
 
-/* Input template */
-const annonceObject = {
-    id_annonce : 1,
-    titre: 'Best bank in Algeria !',
-    description: 'Here is a description of the bank',
-    date: '24/04/2023',
-}
-
+const fs = require('fs');
 
 async function createAnnonce(client, annonceObject){
     try{
         await connectDB(client);
-        await client.query(`INSERT INTO annonce (id_annonce, titre, description, date) VALUES ('${annonceObject.id_annonce}','${annonceObject.titre}', '${annonceObject.description}', '${annonceObject.date}')`);
+        await client.query(`INSERT INTO annonce (id, title, subTitle, image) VALUES ('${annonceObject.id}','${annonceObject.title}', '${annonceObject.subTitle}', '${annonceObject.image}')`);
         console.log('annonce created!');
     }
     catch(err){

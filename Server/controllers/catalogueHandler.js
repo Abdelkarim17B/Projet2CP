@@ -13,6 +13,7 @@ const catalogueHandler = async (req, res) => {
     try {
     const resultBanks = await getter.getAllBank(client)
     if (resultBanks == null) {
+        
         console.log('Bank does not exist');
     }
     else {

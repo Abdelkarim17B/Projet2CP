@@ -8,7 +8,7 @@ id_annonce = 1 ;
 async function deleteAnnonce(client, id){
     try{
         await connectDB(client);
-        await client.query(`DELETE FROM annonce WHERE id_annonce = ${id}`);
+        await client.query(`DELETE FROM annonce WHERE id = ${id}`);
         console.log('annonce deleted!');
     }
     catch(err){
