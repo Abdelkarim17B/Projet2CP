@@ -1,9 +1,5 @@
 const express = require('express');
 
-const mapHandler = (req, res) => {
-    res.send('this is the map');
-}
-
 //handles '/suggestion/:id'
 const glossaryHandler = (req, res) => {
     res.send('this is the glossary');
@@ -18,7 +14,6 @@ const proposHandler = (req,res) => {
 }
 
 module.exports = {
-    mapHandler,
     glossaryHandler,
     contactHandler,
     proposHandler
