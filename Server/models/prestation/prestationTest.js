@@ -1,6 +1,4 @@
 const {client} = require('../client');
-const { connectDB } = require('../connectDatabase');
-const { disconnectDB } = require('../disconnectDatabase');
 
 const {prestationObjectConstructor} = require('../../helpers/prestationObjectConstructor.js');
 
@@ -43,24 +41,23 @@ async function PrestationTest(client, PrestationObject, categoriesList, categori
                 }
                 break;
 
-            /*case 'delete':
-                await deletePrestation(client, PrestationObject.id_banque);
+            case 'delete':
+                await deletePrestation(client, PrestationObject.id_banque, categoriesList);
                 console.log('Prestation deleted!');
                 break;
-
+            
             case 'update':
-                await updatePrestation(client, PrestationObject);
+                await updatePrestation(client, prestationObject, categories, types);
                 console.log('Prestation updated! with id : ', PrestationObject.id_banque);
                 break;
             
-            */
         }
     }
     catch(err){
         console.error('Error Testing Prestation', err);
     }
     finally{
-        console.log("Done Testing Prestation");
+        console.log('Done Testing Prestation');
     }
 }
 

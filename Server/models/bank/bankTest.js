@@ -1,6 +1,4 @@
 const {client} = require('../client');
-const { connectDB } = require('../connectDatabase');
-const { disconnectDB } = require('../disconnectDatabase');
 
 const {createBank} = require('./createBank');
 const {deleteBank} = require('./deleteBank');
@@ -21,7 +19,6 @@ const bankObject = {
 
 async function bankTest(client, bankObject, test_type){
     try{
-        await connectDB(client);
         switch(test_type){
             case 'create':
                 await createBank(client, bankObject);
@@ -53,7 +50,7 @@ async function bankTest(client, bankObject, test_type){
         console.error('Error Testing Bank', err);
     }
     finally{
-        await disconnectDB(client);
+        console.log('Done Testing Bank');
     }
 }
 

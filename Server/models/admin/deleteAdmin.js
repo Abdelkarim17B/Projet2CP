@@ -7,7 +7,7 @@ id_admin = 5 ;
 
 async function deleteAdmin(client, id){
     try{
-        await connectDB(client);
+        await connectDB(client) ;
         await client.query(`DELETE FROM admin WHERE id_admin = ${id}`);
         console.log('Admin deleted!');
     }
@@ -15,7 +15,7 @@ async function deleteAdmin(client, id){
         console.error('Error deleting admin', err);
     }
     finally{
-        await disconnectDB(client);
+        await disconnectDB(client) ;
     }
 }
 

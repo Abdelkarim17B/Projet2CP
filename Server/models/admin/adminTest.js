@@ -1,6 +1,4 @@
 const {client} = require('../client');
-const { connectDB } = require('../connectDatabase');
-const { disconnectDB } = require('../disconnectDatabase');
 
 const {createAdmin} = require('./createAdmin');
 const {deleteAdmin} = require('./deleteAdmin');
@@ -51,7 +49,7 @@ async function adminTest(client, adminObject, test_type){
         console.error('Error Testing admin', err);
     }
     finally{
-        console.log("Done Testing admin");
+        console.log('Test Admin Done!');
     }
 }
 

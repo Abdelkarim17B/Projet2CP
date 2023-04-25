@@ -1,4 +1,6 @@
-const {Client} = require('pg');
+const {client} = require('pg');
+const { connectDB } = require('../connectDatabase');
+const { disconnectDB } = require('../disconnectDatabase');
 
 /* Input template */
 const bankObject = {
@@ -14,7 +16,7 @@ const bankObject = {
 
 async function updateBank(client, bankObject){
     try{
-        await connectDB(client);
+        await connectDB(client) ;
         await client.query(`UPDATE bank SET nom_banque = '${bankObject.nom_banque}', adresse = '${bankObject.adresse}', num_tel = '${bankObject.num_tel}', num_fax = '${bankObject.num_fax}', adresse_mail = '${bankObject.adresse_mail}', logo = '${bankObject.logo}', site_web = '${bankObject.site_web}' WHERE id_banque = ${bankObject.id_banque}`);
         console.log('Bank updated!');
     }
@@ -22,7 +24,7 @@ async function updateBank(client, bankObject){
         console.error('Error updating bank', err);
     }
     finally{
-        await disconnectDB(client);
+        await disconnectDB(client) ;
     }
 }
 

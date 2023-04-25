@@ -7,7 +7,7 @@ id_admin = 5 ;
 
 async function getAdmin(client, id){
     try{
-        await connectDB(client);
+        await connectDB(client) ;
         const result = await client.query(`SELECT * FROM admin WHERE id_admin = ${id}`);
         console.log('Admin fetched!');
         return result.rows[0];
@@ -16,7 +16,7 @@ async function getAdmin(client, id){
         console.error('Error fetching admin', err);
     }
     finally{
-        await disconnectDB(client);
+        await disconnectDB(client) ;
     }
 }
 

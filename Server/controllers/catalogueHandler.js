@@ -1,8 +1,6 @@
 const express = require('express');
 const axios = require('axios');
 const { client } = require('../models/client');
-const { connectDB } = require('../models/connectDatabase');
-const { disconnectDB } = require('../models/disconnectDatabase');
 const getter = require('../models/bank/getBank');
 const getterPrestation = require('../models/prestation/getPrestation');
 const getterLocation = require('../helpers/getBankLocation');
@@ -18,16 +16,15 @@ const catalogueHandler = async (req, res) => {
         console.log('Bank does not exist');
     }
     else {
-        console.log('Bank exists :', resultBanks);
         res.json(resultBanks);
         }
     }
     catch (err) {
-        console.error('Error Testing Bank in bankHandler', err)
+        console.error('Error catalogue Handler', err)
     }
     finally
     {
-        // await disconnectDB(client);
+        console.log('Done catalogue Handler');
     }
 }
 
@@ -37,8 +34,26 @@ const bankHandler = async (req,res) => {
     try 
     {
        // await connectDB(client);
-        const resultBank = await getter.getBank(client,bankId);
-        const resultPres = await getterPrestation.getPrestation(client, bankId, categoriesList, typesList);
+        try{
+            const resultBank = await getter.getBank(client,bankId);
+        }
+        catch(err){
+            console.log('Error getting Bank', err);
+        }
+        finally{
+            console.log('Done getting Bank');
+        }
+
+        try{
+            const resultPres = await getterPrestation.getPrestation(client, bankId, categoriesList, typesList);
+        }
+        catch(err){
+            console.log('Error getting prestation', err);
+        }
+        finally{
+            console.log('Done getting prestation');
+        }
+        
         if (resultBank == null && resultPres == null) {
             console.log('Bank does not exist OR Error Fetching the response');
         }
@@ -49,6 +64,8 @@ const bankHandler = async (req,res) => {
             results = [resultBank, resultPres , resultLoc];
             res.send(JSON.stringify(results));
             console.log('Bank exists But its JSon :', resultBank);
+            console.log('Bank prestation But its JSon :', resultPres);
+            console.log('Bank location But its JSon :', resultLoc);
             //console.log(process.env.TKEY);
             //console.log('Bank coords are : ', tst);
         }
@@ -59,6 +76,7 @@ const bankHandler = async (req,res) => {
     }
     finally
     {
+        console.log('Done catalogue Handler');
        // await disconnectDB(client);
     }
 }
