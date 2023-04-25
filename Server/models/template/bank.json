@@ -1,0 +1,10 @@
+{
+    "id_banque" : 1,
+    "nom_banque": "banque_01",
+    "adresse": "kais",
+    "num_tel": "0515484625",
+    "num_fax": "033548422",
+    "adresse_mail": "banque_01@gmail.com",
+    "logo": "logo.png",
+    "site_web": "banque_01.com"
+}
