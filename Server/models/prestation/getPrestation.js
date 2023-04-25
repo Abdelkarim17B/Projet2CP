@@ -7,6 +7,7 @@ const prestationTemplate = require('../template/prestation.json');
 
 
 async function getPrestation(client, id_banque, categoriesList, typesList) {
+
     try{
         await connectDB(client) ;
 
@@ -27,6 +28,7 @@ async function getPrestation(client, id_banque, categoriesList, typesList) {
                             if (queryResponse.rows[0].prestation != ''){
                                 response[category][prestation][type] = queryResponse.rows[0][prestation];
                             }
+
                         }
                     }
                 }
@@ -43,6 +45,7 @@ async function getPrestation(client, id_banque, categoriesList, typesList) {
         await disconnectDB(client) ;
     }
     
+
     return response;
 }
 

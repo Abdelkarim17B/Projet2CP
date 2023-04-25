@@ -21,11 +21,13 @@ const catalogueHandler = async (req, res) => {
         }
     }
     catch (err) {
+
         console.error('Error catalogue Handler', err)
     }
     finally
     {
         console.log('Done catalogue Handler');
+
     }
 }
 

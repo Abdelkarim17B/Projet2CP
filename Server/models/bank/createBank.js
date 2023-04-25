@@ -16,6 +16,7 @@ const bankObject = {
 
 async function createBank(client, bankObject) {
     try {
+
         await connectDB(client) ;
         await client.query(`
             INSERT INTO bank (id_banque, nom_banque, adresse, num_tel, num_fax, adresse_mail, logo, site_web)
@@ -25,9 +26,11 @@ async function createBank(client, bankObject) {
     } catch (err) {
         console.error('Error inserting data into bank table', err);
     }
+
     finally{
         await disconnectDB(client) ;
     }
+
 }
 
 module.exports = {createBank};

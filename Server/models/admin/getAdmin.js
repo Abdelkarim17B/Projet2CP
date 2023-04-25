@@ -15,9 +15,11 @@ async function getAdmin(client, id){
     catch(err){
         console.error('Error fetching admin', err);
     }
+
     finally{
         await disconnectDB(client) ;
     }
+
 }
 
 module.exports = {getAdmin};

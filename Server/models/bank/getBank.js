@@ -1,6 +1,9 @@
+
 const {client} = require('pg');
 const { connectDB } = require('../connectDatabase');
 const { disconnectDB } = require('../disconnectDatabase');
+=======
+
 
 /* Input template */
 const bankObject = {
@@ -16,7 +19,9 @@ const bankObject = {
 
 async function getBank(client, id){
     try{
+
         await connectDB(client) ;
+
         const result = await client.query(`SELECT * FROM bank WHERE id_banque = ${id}`);
         console.log('Bank fetched!');
         return result.rows[0];
@@ -24,9 +29,11 @@ async function getBank(client, id){
     catch(err){
         console.error('Error fetching admin', err);
     }
+
     finally{
         await disconnectDB(client) ;
     }
+
 }
 
 async function getAllBank(client) {
