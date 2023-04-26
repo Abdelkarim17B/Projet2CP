@@ -24,6 +24,7 @@ module.exports = {
       Gray: "#8D99AE",
       Gray66: "#B4BCCA",
       Gray33: "#D9DDE4",
+      Black : "#000000"
     },
     extend: {},
   },
