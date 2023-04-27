@@ -2,10 +2,6 @@ const {client} = require('pg');
 const { connectDB } = require('../connectDatabase');
 const { disconnectDB } = require('../disconnectDatabase');
 
-const fs = require('fs');
-const path = require('path');
-const imagePath = path.join(__dirname, 'haick.jpg');
-
 async function updateAnnonce(client, annonceObject){
     try{
         await connectDB(client);

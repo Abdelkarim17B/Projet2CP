@@ -1,20 +1,17 @@
 const {client} = require('../client');
-const fs = require('fs');
-const path = require('path');
 
 const {createAnnonce} = require('./createAnnonce');
 const {deleteAnnonce} = require('./deleteAnnonce');
 const {updateAnnonce} = require('./updateAnnonce');
 const {getAnnonce} = require('./getAnnonce');
 
-const imagePath = path.join(__dirname, 'haick.jpg');
 
 /* Annonce Test */
 const annonceObject = {
-    id : 5,
+    id : 4,
     title: 'Best bank in Algeria !',
     subTitle: 'Here is a description of the bank',
-    image: Buffer.from(fs.readFileSync(imagePath)).toString('base64'),
+    image: 'https://i.postimg.cc/WzrZ8xry/haick.jpg',
 }
 
 //console.log(client);
@@ -56,4 +53,4 @@ async function AnnonceTest(client, annonceObject, test_type){
     }
 }
 
-AnnonceTest(client, annonceObject, 'get');
+AnnonceTest(client, annonceObject, 'create');
