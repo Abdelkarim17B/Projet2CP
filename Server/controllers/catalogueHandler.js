@@ -46,9 +46,9 @@ const bankHandler = async (req,res) => {
             const resultLoc = getterLocation.getBankLocation(resultBank.adresse,process.env.TKEY)
             results = [resultBank, resultPres , resultLoc];
             res.send(JSON.stringify(results));
-            console.log('Bank exists But its JSon :', resultBank);
-            console.log('Bank prestation But its JSon :', resultPres);
-            console.log('Bank location But its JSon :', resultLoc);
+            //console.log('Bank exists But its JSon :', resultBank);
+            //console.log('Bank prestation But its JSon :', resultPres);
+            //console.log('Bank location But its JSon :', resultLoc);
         }
     }
     catch(err)
@@ -75,7 +75,7 @@ const compaHandler = async (req,res) => {
         else 
         {
             finalResultBank1 = [resultBank1 , resultPres1];
-            console.log('Bank exists But its JSon :', finalResultBank1);
+            //console.log('Bank exists But its JSon :', finalResultBank1);
         }
 
     }
@@ -93,7 +93,7 @@ const compaHandler = async (req,res) => {
         }
         else {
             finalResultBank2 = [resultBank2, resultPres2];
-            console.log('Bank exists But its JSon :', finalResultBank2);
+            //console.log('Bank exists But its JSon :', finalResultBank2);
         }
 
     }
