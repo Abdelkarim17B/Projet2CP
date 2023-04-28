@@ -16,6 +16,7 @@ async function updateBank(client, bankObject){
     try{
         await client.query(`UPDATE bank SET nom_banque = '${bankObject.nom_banque}', adresse = '${bankObject.adresse}', num_tel = '${bankObject.num_tel}', num_fax = '${bankObject.num_fax}', adresse_mail = '${bankObject.adresse_mail}', logo = '${bankObject.logo}', site_web = '${bankObject.site_web}' WHERE id_banque = ${bankObject.id_banque}`);
         console.log('Bank updated!');
+        return bankObject;
     }
     catch(err){
         console.error('Error updating bank', err);

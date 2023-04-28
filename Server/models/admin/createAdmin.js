@@ -1,4 +1,5 @@
 const {client} = require('pg');
+//later disscuss if we should use shorid method to generate random ids for the admins
 
 /* Input template */
 const adminObject = {
