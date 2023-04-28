@@ -1,23 +1,23 @@
-const {client} = require('pg');
+const { client } = require('pg');
 const { connectDB } = require('../connectDatabase');
 const { disconnectDB } = require('../disconnectDatabase');
 
 /* Input template */
-id_annonce = 1 ;
+id_annonce = 1;
 
-async function deleteAnnonce(client, id){
-    try{
-      //  await connectDB(client);
-        await client.query(`DELETE FROM annonce WHERE id_annonce = ${id}`);
+async function deleteAnnonce(client, id) {
+    try {
+       // await connectDB(client);
+        await client.query(`DELETE FROM annonce WHERE id = ${id}`);
         console.log('annonce deleted!');
     }
-    catch(err){
+    catch (err) {
         console.error('Error deleting annonce', err);
     }
-    finally{
-        //await disconnectDB(client);
+    finally {
+       // await disconnectDB(client);
     }
 }
 
-module.exports = {deleteAnnonce};
+module.exports = { deleteAnnonce };
 

@@ -1,5 +1,6 @@
 const {client} = require('pg');
 
+
 /* Input template */
 const bankObject = {
     id_banque : 1,
@@ -14,6 +15,7 @@ const bankObject = {
 
 async function createBank(client, bankObject) {
     try {
+
         await client.query(`
             INSERT INTO bank (id_banque, nom_banque, adresse, num_tel, num_fax, adresse_mail, logo, site_web)
             VALUES (${bankObject.id_banque}, '${bankObject.nom_banque}', '${bankObject.adresse}', '${bankObject.num_tel}', '${bankObject.num_fax}', '${bankObject.adresse_mail}', '${bankObject.logo}', '${bankObject.site_web}')

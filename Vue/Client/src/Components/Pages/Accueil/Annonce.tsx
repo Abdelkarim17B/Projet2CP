@@ -1,8 +1,8 @@
 
 interface Props{
-    imageUrl: string;
-    Title: string;
-    Bank: string;
+    imageUrl: String;
+    Title: String;
+    Bank: String;
 }
 
 function Annonce(props: Props) {

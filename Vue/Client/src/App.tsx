@@ -1,4 +1,5 @@
 import { createBrowserRouter,createRoutesFromElements, Route,RouterProvider, useParams } from "react-router-dom";
+import React from "react";
 
 import Layout from "./Components/Layout/Layout";
 import Accueil from "./Pages/Acceuil";
@@ -9,8 +10,7 @@ import Glossary from "./Pages/Glossary"
 import ConditionUtilisation from "./Pages/ConditionUtilisation";
 import Error from "./Pages/Error";
 import ProfileBank from "./Pages/ProfileBank";
-import ResultatCmp from "./Pages/ResultatCmp";
-
+const LazyResultat = React.lazy(() => import('./Pages/ResultatCmp'));
 
 
 const router = createBrowserRouter(
@@ -25,7 +25,10 @@ const router = createBrowserRouter(
       <Route path="contactez" element={<ContactezNous />} />
       <Route path="glossary" element={ <Glossary /> } />
       <Route path="condition" element={<ConditionUtilisation />} />
-      <Route path="Resultat" element={<ResultatCmp />}>
+      <Route path="Resultat" 
+        element={<React.Suspense fallback='loading ...'>
+          <LazyResultat />
+        </React.Suspense>}>
 
       </Route>
       <Route path='*' element={<Error />}/>

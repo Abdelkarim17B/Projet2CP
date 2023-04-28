@@ -11,7 +11,7 @@ function generatePrestationResponse (id_banque, categoriesList, typesList, prest
         for (let prestation of categoryPrestation){
             response[category][prestation] = {}
             for (let type of typesList) {
-                response[category][prestation][type] = "undefined";
+                response[category][prestation][type] = "/";
             }
         }
     }

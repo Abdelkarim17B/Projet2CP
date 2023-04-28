@@ -35,6 +35,7 @@ async function getAllBank(client) {
     {
         console.error('Error fetching admin' , err)
     }
+
 }
 
 module.exports = {getBank , getAllBank};

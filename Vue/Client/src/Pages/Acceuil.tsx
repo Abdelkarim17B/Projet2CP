@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {  FaChevronRight, FaChevronLeft, } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import ReactSimplyCarousel from 'react-simply-carousel';
 import Annonce from "../Components/Pages/Accueil/Annonce";
 import FAQ from "../Components/Pages/Accueil/FAQ";
 import Selector from "../Components/Pages/Accueil/Selector";
-
+import {AnnonceModel} from "../Model/Announce"
 
 function Accueil() {
 
@@ -13,12 +13,21 @@ function Accueil() {
   const chooseFirst = (first) => {
     setFirst(first);
   };
-
   const [second, setSecond] = useState("");
   const chooseSecond = (second) => {
     setSecond(second);
   };
 
+  const [announces , setAnnounces] = useState<AnnonceModel[]>([]);
+  useEffect(() => {
+    const AnnounceFetching = async () => {
+      const data = await (
+        await fetch('http://localhost:3000/home')
+      ).json();
+        setAnnounces(data);
+    };
+    AnnounceFetching();
+  }, []);
 
 
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
@@ -63,10 +72,10 @@ function Accueil() {
                   speed={100}
                   easing="linear"
                   >
-                <Annonce imageUrl="/An3.png" Title="Ramadan Offre" Bank="BNA"/>
-                <Annonce imageUrl="/An3.png" Title="Ramadan Offre" Bank="BNA"/>
-                <Annonce imageUrl="/An3.png" Title="Ramadan Offre" Bank="BNA"/>
-                <Annonce imageUrl="/An3.png" Title="Ramadan Offre" Bank="BNA"/>
+                {announces && 
+                  announces.map(ad => <Annonce Bank={ad.subtitle} imageUrl={ad.image} Title={ad.title} />)
+                }
+                
                 </ReactSimplyCarousel>
             </div>
 
