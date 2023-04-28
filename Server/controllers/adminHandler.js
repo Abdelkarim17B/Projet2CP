@@ -66,6 +66,7 @@ const profileModifier = async (req,res) =>
     try 
     {
         const admin = await adminModif.updateAdmin(client,adminID,update);
+        res.send('Done Modifiying');
     }
     catch(err)
     {
