@@ -2,7 +2,6 @@ const express = require('express');
 const { connectDB } = require('../models/connectDatabase');
 const { disconnectDB } = require('../models/disconnectDatabase');
 
-const admincreator = require('../models/admin/createAdmin');
 const adminGetter = require('../models/admin/getAdmin');
 const adminModif = require('../models/admin/updateAdmin')
 const adminDeleter= require('../models/admin/deleteAdmin');
@@ -34,27 +33,6 @@ const profileReader = async (req,res) => {
     {
         disconnectDB(client);
     }
-}
-
-const profileCreator = async (req,res) => {
-    const client = await connectDB();
-    const creationObject = req.body;
-
-    try 
-    {
-        const admin = await admincreator.createAdmin(client,creationObject);
-        res.send('admin created')
-    }
-    catch(err)
-    {
-        console.log("this is an error" , err)
-        res.sendStatus(500);
-    }
-    finally
-    {
-        disconnectDB(client);
-    }
-
 }
 
 const profileModifier = async (req,res) => 
@@ -103,8 +81,7 @@ const profileDeleter = async (req,res) => {
 
 
 module.exports = {
-    profileReader,
-    profileCreator, 
+    profileReader, 
     profileModifier,
     profileDeleter
 };
