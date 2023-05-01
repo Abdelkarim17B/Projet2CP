@@ -12,7 +12,7 @@ import {GrEdit} from 'react-icons/gr';
 type ComposantAnnonceUpdate = {
     id : number;
     title : string;
-    subtitle : string;
+    subTitle : string;
     image : string;
 }
 
@@ -287,7 +287,7 @@ function AdminListeDesAnnonces(){
         const newUpdatedAnnonce : ComposantAnnonceUpdate = {
             id : AnnonceModifier.id,
             title : AnnonceModifier.title,
-            subtitle : AnnonceModifier.subTitle,
+            subTitle : AnnonceModifier.subTitle,
             image : AnnonceModifier.image,
         } 
         try {
@@ -297,6 +297,7 @@ function AdminListeDesAnnonces(){
                 JSON.stringify(newUpdatedAnnonce),
                 {
                     headers: {
+                        "Content-Type": "application/json" ,
                         'Authorization': 'Bearer ' + token,
                     },
                 }
