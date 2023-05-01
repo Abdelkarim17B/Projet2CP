@@ -8,7 +8,8 @@ const { disconnectDB } = require('../disconnectDatabase');
 async function deletePrestation(client, id_banque, categoriesList) {
     try {
         for (let category in categoriesList) {
-            await client.query(`DELETE FROM ${category} WHERE id_banque = ${id_banque}`);
+            const querydelete = `DELETE FROM ${categoriesList[category]} WHERE id_banque = ${id_banque}`
+            await client.query(querydelete);
         }
     }
     catch (err) {

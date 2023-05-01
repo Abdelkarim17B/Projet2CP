@@ -43,7 +43,7 @@ const bankHandler = async (req,res) => {
             console.log('Bank does not exist OR Error Fetching the response');
         }
         else {
-            const resultLoc = getterLocation.getBankLocation(resultBank.adresse,process.env.TKEY)
+            const resultLoc = await getterLocation.getBankLocation(resultBank.adresse,process.env.TKEY)
             results = [resultBank, resultPres , resultLoc];
             res.send(JSON.stringify(results));
             //console.log('Bank exists But its JSon :', resultBank);

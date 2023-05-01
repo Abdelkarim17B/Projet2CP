@@ -6,6 +6,8 @@ import logoSG from "/LogoSG.png"
 import { GoSearch } from "react-icons/go"
 import { useEffect, useState } from "react"
 
+
+
 type ComposantBanque = {
     id : number;
     nom : string;
@@ -38,8 +40,10 @@ const listeBanque: ComposantBanque[] = [
   ];
 
 function AdminListeDesBnaques(){
+
     const [requeteRecherche,setRequeteRecherche] = useState<string>("");
     const [listeBanqueAff,setListeBanqueAff] = useState<ComposantBanque[]>(listeBanque);
+
     function updateRequeteRecherche(event : React.ChangeEvent<HTMLInputElement>) : void {
         setRequeteRecherche(event.target.value);
         console.log(requeteRecherche);
@@ -51,6 +55,7 @@ function AdminListeDesBnaques(){
         );
         setListeBanqueAff(nouvelleListe);
     },[requeteRecherche])
+
     return(
         <div className="bg-Gray33 flex flex-col h-full gap-[100px] min-h-screen">
             <div className="flex flex-row gap-[613px] justify-center mt-24">
@@ -65,8 +70,12 @@ function AdminListeDesBnaques(){
             
             <div className="grid grid-cols-3 gap-[44px] justify-items-center mb-24">
                 {listeBanqueAff.map((Banque) =>(
-                    <div key={Banque.id} className="bg-white w-[504px] h-[257px] rounded-sm flex items-center justify-center">
-                        <img src={Banque.logo} alt={Banque.nom}/>
+                    <div key={Banque.id} className="w-[504px] h-[257px] rounded-sm flex items-center justify-center bg-Red">
+                        <img className="" src={Banque.logo} alt={Banque.nom}/>
+                        <div className="felx justify-stretch items-end z-20">
+                            <div className="bg-Red"></div>
+                            <div className="bg-BlueDark"></div>
+                        </div>
                     </div>
                 ))}
             </div>            
