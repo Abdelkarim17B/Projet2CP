@@ -4,6 +4,8 @@ const { disconnectDB } = require('../models/disconnectDatabase');
 const admincreator = require('../models/admin/createAdmin');
 const { getAdminByEmail } = require('../models/admin/getAdminByEmail');
 
+const jwt = require("jsonwebtoken");
+
 const loginHandler = async (req, res) => {
 
     const email = req.body.email;
