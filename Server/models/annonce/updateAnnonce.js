@@ -2,9 +2,9 @@ const { client } = require('pg');
 const { connectDB } = require('../connectDatabase');
 const { disconnectDB } = require('../disconnectDatabase');
 
-async function updateAnnonce(client, annonceObject) {
+async function updateAnnonce(client, id , annonceObject) {
     try {
-        await client.query(`UPDATE annonce SET id = '${annonceObject.id_annonce}', title = '${annonceObject.title}', subTitle = '${annonceObject.subTitle}', image = '${annonceObject.image}'`);
+        await client.query(`UPDATE annonce SET id = '${annonceObject.id_annonce}', title = '${annonceObject.title}', subTitle = '${annonceObject.subTitle}', image = '${annonceObject.image}' WHERE id_banque = ${id}`);
         console.log('annonce updated!');
     }
     catch (err) {

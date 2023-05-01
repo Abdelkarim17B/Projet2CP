@@ -1,4 +1,4 @@
-const {Client} = require('pg');
+const {client} = require('pg');
 
 /* Input template */
 const bankObject = {
