@@ -11,10 +11,11 @@ const adminObject = {
     occupation: 'Alger',
 }
 
-async function updateAdmin(client, adminObject){
+async function updateAdmin(client, id , adminObject){
     try{
-        await client.query(`UPDATE admin SET nom = '${adminObject.nom}', prenom = '${adminObject.prenom}', email = '${adminObject.email}', mot_de_passe = '${adminObject.mot_de_passe}', cle_speciale = '${adminObject.cle_speciale}', occupation = '${adminObject.occupation}' WHERE id_admin = ${adminObject.id_admin}`);
+        await client.query(`UPDATE admin SET nom = '${adminObject.nom}', prenom = '${adminObject.prenom}', email = '${adminObject.email}', mot_de_passe = '${adminObject.mot_de_passe}', cle_speciale = '${adminObject.cle_speciale}', occupation = '${adminObject.occupation}' WHERE id_admin = ${id}`);
         console.log('Admin updated!');
+        
     }
     catch(err){
         console.error('Error updating admin', err);
