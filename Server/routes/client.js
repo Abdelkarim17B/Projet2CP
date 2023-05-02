@@ -2,6 +2,7 @@ const express = require('express');
 //const homeHandler = require('../controllers/homeHandler');
 const catalogueHandler = require('../controllers/catalogueHandler');
 const diversHandler = require('../controllers/diversHandler');
+
 const route = express.Router();
 
 //important
@@ -14,6 +15,7 @@ route.get('/comparaison/:idb1/:idb2',catalogueHandler.compaHandler);
 route.get('/glossary' , diversHandler.glossaryHandler);
 route.get('/contact', diversHandler.contactHandler);
 route.get('/apropos', diversHandler.proposHandler);
+
 
 route.use((req,res) =>{
     res.status(404).send('Not found')
