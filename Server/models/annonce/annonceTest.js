@@ -1,25 +1,28 @@
-const { client } = require('../client');
+const { client } = require('pg');
 
 const { createAnnonce } = require('./createAnnonce');
 const { deleteAnnonce } = require('./deleteAnnonce');
 const { updateAnnonce } = require('./updateAnnonce');
 const { getAnnonce } = require('./getAnnonce');
+const { connectDB } = require('../connectDatabase');
+const { disconnectDB } = require('../disconnectDatabase');
 
 
 /* Annonce Test */
 const annonceObject = {
     id: 4,
-    title: 'Best bank in Algeria !',
-    subTitle: 'Here is a description of the bank',
+    titre: 'Best bank in Algeria !',
+    sous_titre: 'Here is a description of the bank',
     image: 'https://i.postimg.cc/WzrZ8xry/haick.jpg',
 }
 
-//console.log(client);
-
-async function AnnonceTest(client, annonceObject, test_type) {
+async function AnnonceTest(annonceObject, test_type) {
+    const client = await connectDB()
     try {
+        console.log('The client in try', client);
         switch (test_type) {
             case 'create':
+                console.log('The client in create', client);
                 await createAnnonce(client, annonceObject);
                 console.log('Annonce created! with id : ', annonceObject.id);
                 break;
@@ -49,8 +52,10 @@ async function AnnonceTest(client, annonceObject, test_type) {
         console.error('Error Testing Annonce', err);
     }
     finally {
+        console.log('The client in finally', client);
+        await disconnectDB(client)
         console.log("Done Testing Annonce");
     }
 }
 
-AnnonceTest(client, annonceObject, 'create');
+AnnonceTest(annonceObject, 'create');
