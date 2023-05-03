@@ -22,7 +22,7 @@ async function getAnnonce(client, id) {
 
 module.exports = { getAnnonce };
 
-async function getAllAnnouces(client) 
+async function getAllAnnonces(client) 
 {
     try 
     {
@@ -37,4 +37,4 @@ async function getAllAnnouces(client)
 
 }
 
-module.exports = {getAnnonce,getAllAnnouces};
+module.exports = {getAnnonce,getAllAnnonces};

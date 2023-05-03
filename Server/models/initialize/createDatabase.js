@@ -9,6 +9,7 @@ const table_names = [
   "admin",
   "annonce",
   "bank",
+  "stat",
   "gestion_de_compte",
   "gestion_a_distance",
   "option_de_payment",
@@ -21,19 +22,15 @@ const table_names = [
 ];
 
 async function createTables(client) {
+  const client = await connectDB();
   try {
-    await connectDB(client);
-
     for (const table of table_names) {
         const file = path.join(__dirname,"../../dataset/tables", `${table}.csv`);
         //console.log(file);
       const data = fs.readFileSync(file, 'utf8');
       const columns = data.split('\n')[0].split(',').map(col => {
-        if (col === 'id_banque' || col === 'id_admin') {
+        if (col === 'id_banque' || col === 'id_admin' || col === 'id_annonce' || col === 'valeur_statistique') {
           return `${col} INTEGER`;
-        }
-        if(col === 'description'){
-          return `${col} TEXT`;
         }
         return `${col} VARCHAR(255)`;
       });
