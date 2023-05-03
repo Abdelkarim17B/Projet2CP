@@ -1,7 +1,4 @@
 id_banque,nom_banque,type,encaissement_cheque_etranger,virement_recu,virement_emis,exportation_domiciliation,importation_domiciliation,transfert_libre_prelevement_compte_dinars,transfert_libre_prelevement_compte_devise
-542,BANQUE EXTERIEURE D ALGERIE - BEA,personnel,,,,,,,
-542,BANQUE EXTERIEURE D ALGERIE - BEA,professionnel,,,,,,,
-542,BANQUE EXTERIEURE D ALGERIE - BEA,entreprise,,,,,,,
 186,BANQUE NATIONALE D ALGERIE - BNA,personnel,500 DA /Appoint + frais du correspondant,,,,,,
 186,BANQUE NATIONALE D ALGERIE - BNA,professionnel,,,,1000 DA/ dossier,2 000 DA/ dossier,"1,50‰ avec min 2500 DA+ frais SWIFT 1000DA+ commission de change BA1‰","1,50‰ avec min 2500 DA+ frais SWIFT 1000 DA"
 186,BANQUE NATIONALE D ALGERIE - BNA,entreprise,Gratuit,,,1000 DA/ dossier,2 000 DA/ dossier,"1,50‰ avec min 2500 DA+ frais SWIFT 1000DA+ commission de change BA1‰","1,50‰ avec min 2500 DA+ frais SWIFT 1000 DA"
@@ -12,26 +9,17 @@ id_banque,nom_banque,type,encaissement_cheque_etranger,virement_recu,virement_em
 736,BANQUE DE DEVELOPPEMENT LOCAL - BDL,professionnel,,,,1000,3000,"0,25% min: 2 000 DA","0,25% min: 2 000 DA"
 736,BANQUE DE DEVELOPPEMENT LOCAL - BDL,entreprise,,,,3000,3000,"0,25% min: 2 000 DA","0,25% min: 2 000 DA"
 469,CREDIT POPULAIRE D ALGERIE - CPA,personnel,,,,,,,
-469,CREDIT POPULAIRE D ALGERIE - CPA,professionnel,,,,,,,
-469,CREDIT POPULAIRE D ALGERIE - CPA,entreprise,,,,,,,
-2370,CAISSE D EPARGNE ET DE PREVOYANCE - CNEP BANQUE,personnel,,,,,,,
-2370,CAISSE D EPARGNE ET DE PREVOYANCE - CNEP BANQUE,professionnel,,,,,,,
-2370,CAISSE D EPARGNE ET DE PREVOYANCE - CNEP BANQUE,entreprise,,,,,,,
-8763,BANQUE AL BARAKA ALGERIE,personnel,,,,,,,
-8763,BANQUE AL BARAKA ALGERIE,professionnel,,,,,,,
-8763,BANQUE AL BARAKA ALGERIE,entreprise,,,,,,,
-214,ARAB BANKING CORPORATION ALGERIE - ABC,personnel,,,,,,,
-214,ARAB BANKING CORPORATION ALGERIE - ABC,professionnel,,,,,,,
-214,ARAB BANKING CORPORATION ALGERIE - ABC,entreprise,,,,,,,
+469,CREDIT POPULAIRE D ALGERIE - CPA,professionnel,,,,3000DA/dossier,3000DA/dossier,,
+469,CREDIT POPULAIRE D ALGERIE - CPA,entreprise,,,,3000 DA/dossier,3000 DA/dossier,,
+214,ARAB BANKING CORPORATION ALGERIE - ABC,personnel,"en agence: 1 000 DZD, hors: 2 000 DZD +frais envoi",,,3 000 DZD,3 000 DZD,Cours Vente de la banque à la date du règlement,
+214,ARAB BANKING CORPORATION ALGERIE - ABC,professionnel,"en agence: 1 000 DZD, hors: 2 000 DZD +frais envoi",,,3 000 DZD,3 000 DZD,Cours Vente de la banque à la date du règlement,
+214,ARAB BANKING CORPORATION ALGERIE - ABC,entreprise,"en agence: 1 000 DZD, hors: 2 000 DZD +frais envoi",,,3 000 DZD,3 000 DZD,Cours Vente de la banque à la date du règlement,
 353,NATIXIS BANQUE,personnel,,,,,,,
 353,NATIXIS BANQUE,professionnel,,,,,,,
 353,NATIXIS BANQUE,entreprise,,,,,,,
 876,SOCIETE GENERALE ALGERIE,personnel,,,,,,,
 876,SOCIETE GENERALE ALGERIE,professionnel,,,,,,,
 876,SOCIETE GENERALE ALGERIE,entreprise,,,,,,,
-693,CITYBANK N.A. ALGERIA,personnel,,,,,,,
-693,CITYBANK N.A. ALGERIA,professionnel,,,,,,,
-693,CITYBANK N.A. ALGERIA,entreprise,,,,,,,
 175,ARAB BANK PLC ALGERIA,personnel,,,,,,,
 175,ARAB BANK PLC ALGERIA,professionnel,,,,,,,
 175,ARAB BANK PLC ALGERIA,entreprise,,selon montat commençant 2000 DA pour <= 30000 USD/EUR,0.25% + 0.1% Com. B.A + 3000 frais swift,4000,3000,Marge de change 0.1%,3000 frais swift
@@ -56,6 +44,3 @@ id_banque,nom_banque,type,encaissement_cheque_etranger,virement_recu,virement_em
 205,AL SALAM BANK - ALGERIA - SPA,personnel,,,,"4 000,00 DA","3 000,00 DA",,
 205,AL SALAM BANK - ALGERIA - SPA,professionnel,,,,"4 000,00 DA","3 000,00 DA",,
 205,AL SALAM BANK - ALGERIA - SPA,entreprise,,,,"4 000,00 DA","3 000,00 DA",,
-983,H.S.B.C. ALGERIE (succursale de banque),personnel,,,,,,,
-983,H.S.B.C. ALGERIE (succursale de banque),professionnel,,,,,,,
-983,H.S.B.C. ALGERIE (succursale de banque),entreprise,,,,,,,

@@ -1,7 +1,4 @@
 id_banque,nom_banque,type,decouvert_duree,decouvert_taux,credit_court_terme_taux,credit_moyen_terme_taux,credit_long_terme_taux,options_possibles
-542,BANQUE EXTERIEURE D ALGERIE - BEA,personnel,,,,,,
-542,BANQUE EXTERIEURE D ALGERIE - BEA,professionnel,,,,,,
-542,BANQUE EXTERIEURE D ALGERIE - BEA,entreprise,,,,,,
 186,BANQUE NATIONALE D ALGERIE - BNA,personnel,,,,,,
 186,BANQUE NATIONALE D ALGERIE - BNA,professionnel,< 24 mois,"8,50%",,"5,25%","5,50%","Industrie, Agriculture, Pêche, Tourisme, NTIC et numériques"
 186,BANQUE NATIONALE D ALGERIE - BNA,entreprise,< 24 mois ,"8,50%",,"5,25%","5,50%","Industrie, Agriculture, Pêche, Tourisme, NTIC et numériques"
@@ -11,27 +8,18 @@ id_banque,nom_banque,type,decouvert_duree,decouvert_taux,credit_court_terme_taux
 736,BANQUE DE DEVELOPPEMENT LOCAL - BDL,personnel,,,,,,"voitures, equipements"
 736,BANQUE DE DEVELOPPEMENT LOCAL - BDL,professionnel,,,,,,
 736,BANQUE DE DEVELOPPEMENT LOCAL - BDL,entreprise,,,,,,
-469,CREDIT POPULAIRE D ALGERIE - CPA,personnel,,,,,,
-469,CREDIT POPULAIRE D ALGERIE - CPA,professionnel,,,,,,
-469,CREDIT POPULAIRE D ALGERIE - CPA,entreprise,,,,,,
-2370,CAISSE D EPARGNE ET DE PREVOYANCE - CNEP BANQUE,personnel,,,,,,
-2370,CAISSE D EPARGNE ET DE PREVOYANCE - CNEP BANQUE,professionnel,,,,,,
-2370,CAISSE D EPARGNE ET DE PREVOYANCE - CNEP BANQUE,entreprise,,,,,,
-8763,BANQUE AL BARAKA ALGERIE,personnel,,,,,,
-8763,BANQUE AL BARAKA ALGERIE,professionnel,,,,,,
-8763,BANQUE AL BARAKA ALGERIE,entreprise,,,,,,
-214,ARAB BANKING CORPORATION ALGERIE - ABC,personnel,,,,,,
-214,ARAB BANKING CORPORATION ALGERIE - ABC,professionnel,,,,,,
-214,ARAB BANKING CORPORATION ALGERIE - ABC,entreprise,,,,,,
+469,CREDIT POPULAIRE D ALGERIE - CPA,personnel,,,"epargnant: 5.75%, sinon 6.25%","epargnant: 5.75%, sinon 6.25%","epargnant: 5.75%, sinon 6.25%","Vehicule de tourisme 5000DA, autre 4000 DA"
+469,CREDIT POPULAIRE D ALGERIE - CPA,professionnel,,,3-5 ans: 8-9 %,5-7 ans: 9-10%,7-15 ans: 10-11%,
+469,CREDIT POPULAIRE D ALGERIE - CPA,entreprise,,,3-5 ans: 8-9%,5-7 ans: 9-10%,7-15 ans: 10-11%,
+214,ARAB BANKING CORPORATION ALGERIE - ABC,personnel,,TRD+3% An,,TRD+2%,TRD+2%,"Moumkin, Carousty, Soukna"
+214,ARAB BANKING CORPORATION ALGERIE - ABC,professionnel,,TRD+3% An,,TRD+2%,TRD+2%,"Moumkin, Carousty, Soukna"
+214,ARAB BANKING CORPORATION ALGERIE - ABC,entreprise,,TRD+3% An,,TRD+2%,TRD+2%,"Moumkin, Carousty, Soukna"
 353,NATIXIS BANQUE,personnel,,,,,,
 353,NATIXIS BANQUE,professionnel,,,,,,
 353,NATIXIS BANQUE,entreprise,,,,,,
 876,SOCIETE GENERALE ALGERIE,personnel,,,,,,
 876,SOCIETE GENERALE ALGERIE,professionnel,,,,,,
 876,SOCIETE GENERALE ALGERIE,entreprise,,,,,,
-693,CITYBANK N.A. ALGERIA,personnel,,,,,,
-693,CITYBANK N.A. ALGERIA,professionnel,,,,,,
-693,CITYBANK N.A. ALGERIA,entreprise,,,,,,
 175,ARAB BANK PLC ALGERIA,personnel,,,,,,
 175,ARAB BANK PLC ALGERIA,professionnel,,,,,,
 175,ARAB BANK PLC ALGERIA,entreprise,,,,,,
@@ -56,6 +44,3 @@ id_banque,nom_banque,type,decouvert_duree,decouvert_taux,credit_court_terme_taux
 205,AL SALAM BANK - ALGERIA - SPA,personnel,,,,,,
 205,AL SALAM BANK - ALGERIA - SPA,professionnel,,,,,,
 205,AL SALAM BANK - ALGERIA - SPA,entreprise,,,,,,
-983,H.S.B.C. ALGERIE (succursale de banque),personnel,,,,,,
-983,H.S.B.C. ALGERIE (succursale de banque),professionnel,,,,,,
-983,H.S.B.C. ALGERIE (succursale de banque),entreprise,,,,,,
