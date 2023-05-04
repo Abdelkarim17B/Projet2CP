@@ -56,7 +56,7 @@ function ResultatCmp() {
 
                 {/* les resultats de la comparaison*/}
                 {offreFirst && offreSecond && 
-                    <div className="mb-[30vh]">
+                    <div className="mb-[30vh] flex flex-col gap-[32vh]">
                         <table className="w-[82vw]">
                             <thead>
                                 <tr>

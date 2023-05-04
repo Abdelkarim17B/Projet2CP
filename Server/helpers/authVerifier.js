@@ -9,7 +9,7 @@ const verifyToken = (req,res,next) => {
     const token = req.headers.authorization ;
 
     const options = {
-        expiresIn: "24h",
+        expiresIn: "2h",
     };
 
     if (!token)

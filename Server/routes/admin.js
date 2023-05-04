@@ -5,9 +5,8 @@ const authHandler = require('../controllers/authHandler');
 const changesHandler = require('../controllers/actionsHandles');
 
 const verifier = require('../helpers/authVerifier');
-
+const { verify } = require('jsonwebtoken');
 const routeAd = express.Router();
-
 
 routeAd.get('/profil/:id',verifier ,adminHandler.profileReader);
 routeAd.put('/profil/:id' , verifier,adminHandler.profileModifier);

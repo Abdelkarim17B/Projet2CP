@@ -18,8 +18,9 @@ const connectDB = async() => {
   } catch (err) {
     console.error('Error connecting to PostgreSQL database', err);
   }
+  finally{
     return client
-
+  }   
 }
 
 module.exports = {connectDB};

@@ -138,6 +138,8 @@ const announceUpdateHandler = async(req,res) => {
     const client = await connectDB();
     const announceObject = req.body;
     const idAnnounce = req.params.id;
+    console.log("THE ID : ",idAnnounce);
+    console.log("The object : ",req.body);
     try {
         const announce = await annouceUpdater.updateAnnonce(client,idAnnounce,announceObject);
         res.send("Done Updating");
