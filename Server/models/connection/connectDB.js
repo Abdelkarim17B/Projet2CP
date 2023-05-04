@@ -1,10 +1,9 @@
-//const { client } = require('./client');
 const { Client } = require('pg');
 require('dotenv').config();
 
 async function connectDB(database) {
     if(database === 'general'){
-        const client = new Client({
+        client = new Client({
             host: process.env.PGHOSTDB,
             port: process.env.PGPORTDB,
             user: process.env.PGUSERDB,
@@ -14,7 +13,7 @@ async function connectDB(database) {
     }
 
     if(database === 'admin'){
-        const client = new Client({
+        client = new Client({
             host: process.env.PGHOSTDBADMIN,
             port: process.env.PGPORTDBADMIN,
             user: process.env.PGUSERDBADMIN,
@@ -22,6 +21,8 @@ async function connectDB(database) {
             database: process.env.PGDATABASEDBADMIN,
           });
     }
+
+    //console.log("client from connection : ", client.connectionParameters);
 
   try {
     await client.connect();
