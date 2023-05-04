@@ -9,6 +9,7 @@ import AdminRecupCompte from './Pages/AdminRecupCompte';
 import AdminEnterResetMail from './Pages/AdminEnterResetMail';
 import AdminListeDesBnaques from './Pages/AdminListeDesBanques';
 import AdminListeDesAnnonces from './Pages/AdminListeAnonces';
+
 const App: React.FC = ({}) =>
 {
     return (
