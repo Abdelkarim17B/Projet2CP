@@ -12,13 +12,17 @@ import Error from "./Pages/Error";
 import ProfileBank from "./Pages/ProfileBank";
 const LazyResultat = React.lazy(() => import('./Pages/ResultatCmp'));
 
+const banksLoader = async () => {
+  const res = await fetch('http://localhost:3000/catalogue/')
+  return res.json()
+}
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route index element={<Accueil />} />
+      <Route index element={<Accueil />} loader={banksLoader}/>
       <Route path="catalogue">
-        <Route index element={<Catalogue />}></Route>
+        <Route index element={<Catalogue />} loader={banksLoader}></Route>
         <Route path=":id" element={<ProfileBank />}/>
       </Route>
       <Route path="propos" element={<Apropos />} />
@@ -27,9 +31,8 @@ const router = createBrowserRouter(
       <Route path="condition" element={<ConditionUtilisation />} />
       <Route path="Resultat" 
         element={<React.Suspense fallback='loading ...'>
-          <LazyResultat />
-        </React.Suspense>}>
-
+                  <LazyResultat />
+                </React.Suspense>}>
       </Route>
       <Route path='*' element={<Error />}/>
     </Route>
@@ -45,3 +48,7 @@ function App(){
 }
 
 export default App;
+
+
+
+ 

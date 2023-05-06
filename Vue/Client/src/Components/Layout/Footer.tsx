@@ -5,7 +5,7 @@ function Footer() {
     <div className="bg-white">
       <div className="w-full px-[9vw] bg-white">
         <div className=" py-[4vh]">
-            <div className="flex justify-between">
+            <div className="flex md:flex-row flex-col md:justify-between gap-[6vh] items-center">
                 <ul className="flex gap-[4vw] text-[1.5rem]">
                     <li className="text-BlueDark text-[1.1rem]">
                         <Link to="/Condition">Condition d’utilisation</Link>

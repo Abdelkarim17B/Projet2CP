@@ -4,7 +4,7 @@ const { disconnectDB } = require('../disconnectDatabase');
 
 async function updateAnnonce(client, id , annonceObject) {
     try {
-        await client.query(`UPDATE annonce SET title = '${annonceObject.titre}', subTitle = '${annonceObject.sous_titre}', image = '${annonceObject.image}' WHERE id = ${id}`);
+        await client.query(`UPDATE annonce SET title = '${annonceObject.title}', subTitle = '${annonceObject.subTitle}', image = '${annonceObject.image}' WHERE id = ${id}`);
         console.log('annonce updated!');
         return annonceObject;
     }

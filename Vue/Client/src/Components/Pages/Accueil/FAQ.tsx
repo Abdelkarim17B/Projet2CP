@@ -15,12 +15,12 @@ function FAQElement(props: FAQProps) {
   };
 
   return (
-    <div className={`${!isOpen ? 'px-[2vw] border-2 py-[4vh] border-Blue66 rounded-[8px] flex flex-col gap-[2vh] transition duration-700' : 'px-[2vw] border-2 py-[4vh] border-Blue66 rounded-[8px] flex flex-col gap-[2vh] bg-BlueDark text-white shadow-[0_35px_60px_15px_rgba(43, 45, 66, 1)] transition duration-700'}`}>
+    <div className={`${!isOpen ? 'px-[4vw] border-2 py-[4vh] border-Blue66 rounded-[8px] flex flex-col gap-[2vh] transition duration-700' : 'px-[4vw] border-2 py-[4vh] border-Blue66 rounded-[8px] flex flex-col gap-[2vh] bg-BlueDark text-white shadow-[0_35px_60px_15px_rgba(43, 45, 66, 1)] transition duration-700'}`}>
 
-      <button onClick={toggleOpen} className="flex w-[100%] justify-between text-[1.6rem]">
+      <button onClick={toggleOpen} className="flex w-[100%] justify-between text-[1.3rem] md:text-[1.6rem]">
         {props.question} {isOpen ? <FaChevronUp /> : <FaChevronDown />}
       </button>
-      {isOpen && <div className="text-[1.2rem]">{props.answer}</div>}
+      {isOpen && <div className="md:text-[1.2rem]">{props.answer}</div>}
     </div> 
   );
 };

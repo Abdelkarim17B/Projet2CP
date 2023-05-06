@@ -1,11 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 const csv = require('csv-parser');
-
-const {connectDB} = require('../connection/connectDB');
-const {disconnectDB} = require('../connection/disconnectDB');
+const {client} = require('../client');
+const { connectDB } = require('../connectDatabase');
+const { disconnectDB } = require('../disconnectDatabase');
 
 const table_names = [
+  "admin",
+  "annonce",
   "bank",
   "gestion_de_compte",
   "gestion_a_distance",
@@ -18,18 +20,18 @@ const table_names = [
   "financement_externe"
 ];
 
-async function processTable(table, client) {
-  console.log("-----> CLIENT from processTable", client.connectionParameters.host);
-
+function processTable(table, client) {
   const filePath = path.join(__dirname, "../../dataset/tables", `${table}.csv`);
   const stream = fs.createReadStream(filePath).pipe(csv());
 
+  let count = 0;
+  let firstRow = null;
 
   stream.on('data', (row) => {
     try {
       const cols = Object.keys(row).join(', ');
       let values = Object.keys(row).map((col) => {
-        if (col === 'id_banque') {
+        if (col === 'id_banque' || col === 'id_admin') {
           return row[col];
         } else {
           return `'${row[col]}'`;
@@ -37,12 +39,25 @@ async function processTable(table, client) {
       }).join(', ');
 
       let query_ins = `INSERT INTO ${table} (${cols}) VALUES (${values})`;
+  
+      count++;
+      if (count === 1) {
+          firstRow = row;
+        }
+
+      console.log("Inserting following query : ", query_ins, "count : ", count )
       client.query(query_ins);
-      console.log("query_ins: ", query_ins)
 
     } catch (err) {
       console.log(`Error inserting into table ${table} while query = ${query_ins}:`);
       console.error(err);
+    }
+  });
+
+  stream.on('end', () => {
+    console.log(`Finished inserting ${count} rows into table ${table}`);
+    if (firstRow) {
+      console.log(`The first row of table ${table} is:`, firstRow);
     }
   });
 
@@ -51,38 +66,24 @@ async function processTable(table, client) {
   });
 }
 
-async function fillDB(table_names) {
-  const client = await connectDB('general')
-  //console.log(client.connectionParameters);
-  //const result = await client.query('SELECT COUNT(*) FROM bank');
-  //console.log(result.rows);
-
-    try{
+function fillDB(client) {
+  connectDB(client)
+    .then(() => {
       for (let table of table_names) {
         console.log("table: ", table);
-        try{
-          console.log("---------------> Start processing table : ", table);
-          await processTable(table, client);
-          console.log("---------------> Finish processing table : ", table);
-        }
-        catch(err){
-          console.error("Error processing table : ", table, err);
-        }
-        finally{
+        processTable(table, client);
         console.log("Finished processing table : ", table);
-        }
       }
-    }
+    })
+    .catch((err) => {
+      console.log('Error inserting data into tables:', table);
+      console.error(err);
+    })
+    .finally(() => {
 
-    catch(err){
-      console.error("Error inserting process");
-    }
-
-    finally{
+      //disconnectDB(client);
       console.log('Finished inserting data into tables');
-    };
-
-  //await disconnectDB(client);
+    });
 }
 
-fillDB(table_names);
+fillDB(client);
