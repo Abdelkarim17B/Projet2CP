@@ -1,4 +1,4 @@
-const {client} = require('pg');
+const {client} = require('../client');
 const { connectDB } = require('../connectDatabase');
 const { disconnectDB } = require('../disconnectDatabase');
 

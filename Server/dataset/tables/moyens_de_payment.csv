@@ -1,4 +1,7 @@
 id_banque,nom_banque,type,creation_bank_card,renouvelement_bank_card,remplacement_bank_card,edition_code_confidentiel_bank_card,retrait_intra_bancaire,retrait_inter_bancaire,creation_visa,renouvelement_visa,remplacement_visa,edition_code_confidentiel_visa
+542,BANQUE EXTERIEURE D ALGERIE - BEA,personnel,,,,,,,,,,
+542,BANQUE EXTERIEURE D ALGERIE - BEA,professionnel,,,,,,,,,,
+542,BANQUE EXTERIEURE D ALGERIE - BEA,entreprise,,,,,,,,,,
 186,BANQUE NATIONALE D ALGERIE - BNA,personnel,Gratuit,,,Classique/ Gold/ Epargne 150 DA/ 200 DA/ 150 DA,20 DA HT,35 DA TTC,,,,
 186,BANQUE NATIONALE D ALGERIE - BNA,professionnel,Gratuit,Gratuit,, Classique/ Gold 150/ 200 DA,20 DA HT,35 DA TTC,,,,
 186,BANQUE NATIONALE D ALGERIE - BNA,entreprise,Gratuit,Gratuit,,Classique/ Gold 150/ 200 DA,20 DA HT,35 DA TTC,,,,
@@ -8,18 +11,27 @@ id_banque,nom_banque,type,creation_bank_card,renouvelement_bank_card,remplacemen
 736,BANQUE DE DEVELOPPEMENT LOCAL - BDL,personnel,"classique gratuit, gold gratuit",,"classique 400da, gold 800da","classique 200, gold 300",20 da,35 da,"classique 2000 DA, gold 5000 DA, platinium 14000 DA","classique 2000 DA, gold 5000 DA, platinium 14000 DA","classique 2000 DA, gold 5000 DA, platinium 14000 DA","500da, platinium 1000 DA"
 736,BANQUE DE DEVELOPPEMENT LOCAL - BDL,professionnel,"classique gratuit, gold gratuit",,"classique 400da, gold 800da","classique 200, gold 300",20 da,35 da,"classique 2000 DA, gold 5000 DA, platinium 14000 DA","classique 2000 DA, gold 5000 DA, platinium 14000 DA","classique 2000 DA, gold 5000 DA, platinium 14000 DA","500da, platinium 1000 DA"
 736,BANQUE DE DEVELOPPEMENT LOCAL - BDL,entreprise,,,,,,,,,,
-469,CREDIT POPULAIRE D ALGERIE - CPA,personnel,Gratuit,Gratuit,,Gratuit,25 DA,40 DA,"Classique 6000DA/an, Gold 9000DA/an",,,
-469,CREDIT POPULAIRE D ALGERIE - CPA,professionnel,Gratuit,Gratuit,Gratuit,Gratuit,25 DA,40 DA,,,,
-469,CREDIT POPULAIRE D ALGERIE - CPA,entreprise,Gratuit,Gratuit,Gratuit,Gratuit,25 DA,40 DA,,,,
-214,ARAB BANKING CORPORATION ALGERIE - ABC,personnel,Gratuit: 850DZD/an(gold) 650DZD/an(classique),Gratuit,Gratuit,250 DZD,Gratuit,35 DZD,,,,
-214,ARAB BANKING CORPORATION ALGERIE - ABC,professionnel,Gratuit: 850DZD/an(gold) 650DZD/an(classique),Gratuit,Gratuit,250 DZD,Gratuit,35 DZD,,,,
-214,ARAB BANKING CORPORATION ALGERIE - ABC,entreprise,Gratuit: 850DZD/an(gold) 650DZD/an(classique),Gratuit,Gratuit,250 DZD,Gratuit,35 DZD,,,,
-353,NATIXIS BANQUE,personnel,Gratuit,1 190 DA ,,500 DA,Gratuit,Gratuit,"First: 5 000 DA, Gold: 14 000 DA, Platinium: 35 000 DA","First: 5 000 DA, Gold: 14 000 DA, Platinium: 35 000 DA","First: 5 000 DA, Gold: 14 000 DA, Platinium: 35 000 DA",
-353,NATIXIS BANQUE,professionnel,Gratuit,1 190 DA ,,500 DA,Gratuit,Gratuit,"First: 5 000 DA, Gold: 14 000 DA, Platinium: 35 000 DA","First: 5 000 DA, Gold: 14 000 DA, Platinium: 35 000 DA","First: 5 000 DA, Gold: 14 000 DA, Platinium: 35 000 DA",
-353,NATIXIS BANQUE,entreprise,Gratuit,1 190 DA ,,500 DA,Gratuit,Gratuit,"First: 5 000 DA, Gold: 14 000 DA, Platinium: 35 000 DA","First: 5 000 DA, Gold: 14 000 DA, Platinium: 35 000 DA","First: 5 000 DA, Gold: 14 000 DA, Platinium: 35 000 DA",
+469,CREDIT POPULAIRE D ALGERIE - CPA,personnel,,,,,,,,,,
+469,CREDIT POPULAIRE D ALGERIE - CPA,professionnel,,,,,,,,,,
+469,CREDIT POPULAIRE D ALGERIE - CPA,entreprise,,,,,,,,,,
+2370,CAISSE D EPARGNE ET DE PREVOYANCE - CNEP BANQUE,personnel,,,,,,,,,,
+2370,CAISSE D EPARGNE ET DE PREVOYANCE - CNEP BANQUE,professionnel,,,,,,,,,,
+2370,CAISSE D EPARGNE ET DE PREVOYANCE - CNEP BANQUE,entreprise,,,,,,,,,,
+8763,BANQUE AL BARAKA ALGERIE,personnel,,,,,,,,,,
+8763,BANQUE AL BARAKA ALGERIE,professionnel,,,,,,,,,,
+8763,BANQUE AL BARAKA ALGERIE,entreprise,,,,,,,,,,
+214,ARAB BANKING CORPORATION ALGERIE - ABC,personnel,,,,,,,,,,
+214,ARAB BANKING CORPORATION ALGERIE - ABC,professionnel,,,,,,,,,,
+214,ARAB BANKING CORPORATION ALGERIE - ABC,entreprise,,,,,,,,,,
+353,NATIXIS BANQUE,personnel,,,,,,,,,,
+353,NATIXIS BANQUE,professionnel,,,,,,,,,,
+353,NATIXIS BANQUE,entreprise,,,,,,,,,,
 876,SOCIETE GENERALE ALGERIE,personnel,,,,,,,,,,
 876,SOCIETE GENERALE ALGERIE,professionnel,,,,,,,,,,
 876,SOCIETE GENERALE ALGERIE,entreprise,,,,,,,,,,
+693,CITYBANK N.A. ALGERIA,personnel,,,,,,,,,,
+693,CITYBANK N.A. ALGERIA,professionnel,,,,,,,,,,
+693,CITYBANK N.A. ALGERIA,entreprise,,,,,,,,,,
 175,ARAB BANK PLC ALGERIA,personnel,gratuit,gratuit,"550,00","550,00","20,00","29,41","gold Limite Minimale 1000 EUR - 5000da/an , platinium Limite Minimelc 5 000.00 EUR - 12000da/an, signature Limite Minimelc 10 000.00 EUR - 20000da/an","gold 5000 da, platinium 12 000 da, signarture 20 000 da",,1500
 175,ARAB BANK PLC ALGERIA,professionnel,,,,,,,,,,
 175,ARAB BANK PLC ALGERIA,entreprise,gratuit,gratuit,2000,200,20,29.41,,,,
@@ -44,3 +56,6 @@ id_banque,nom_banque,type,creation_bank_card,renouvelement_bank_card,remplacemen
 205,AL SALAM BANK - ALGERIA - SPA,personnel,"classique 450,00, premium 550,00, gold 650,00 / an",,,200,20,29.41,"prepaye 2000,00, classique 4000,00, gold 6500,00, platinium 14000,00 / an",,,1000
 205,AL SALAM BANK - ALGERIA - SPA,professionnel,"classique 450,00, premium 550,00, gold 650,00 / an",,,200,20,29.41,"prepaye 2000,00, classique 4000,00, gold 6500,00, platinium 14000,00 / an",,,1000
 205,AL SALAM BANK - ALGERIA - SPA,entreprise,"classique 450,00, premium 550,00, gold 650,00 / an",,,200,20,29.41,"prepaye 2000,00, classique 4000,00, gold 6500,00, platinium 14000,00 / an",,,1000
+983,H.S.B.C. ALGERIE (succursale de banque),personnel,,,,,,,,,,
+983,H.S.B.C. ALGERIE (succursale de banque),professionnel,,,,,,,,,,
+983,H.S.B.C. ALGERIE (succursale de banque),entreprise,,,,,,,,,,
