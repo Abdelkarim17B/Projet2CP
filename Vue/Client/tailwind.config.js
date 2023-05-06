@@ -26,7 +26,11 @@ export default {
       Gray66: "#B4BCCA",
       Gray33: "#D9DDE4",
     },
-    extend: {},
+    extend: {
+      animation: {
+        'spin-slow': 'spin 5s linear infinite',
+      }
+    }
   },
   plugins: [],
 };

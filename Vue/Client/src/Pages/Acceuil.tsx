@@ -69,7 +69,7 @@ function Accueil() {
                         itemsToShow: 6,
                         itemsToScroll: 1,
                       },]}
-                    speed={2000}
+                    speed={3500}
                     easing="linear"
                     >
                   {banks && 
