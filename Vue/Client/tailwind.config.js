@@ -3,8 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
-      sm: "480px",
-      md: "1280px",
+      sm: "280px",
+      md: "720px",
+      lg: "1280px",
       xl: "1920px",
     },
     colors: {
@@ -25,7 +26,11 @@ export default {
       Gray66: "#B4BCCA",
       Gray33: "#D9DDE4",
     },
-    extend: {},
+    extend: {
+      animation: {
+        'spin-slow': 'spin 5s linear infinite',
+      }
+    }
   },
   plugins: [],
 };
