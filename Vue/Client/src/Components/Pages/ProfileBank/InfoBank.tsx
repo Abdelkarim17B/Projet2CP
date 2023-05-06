@@ -13,7 +13,7 @@ function InfoBank(props: Bank){
                 <div className="flex justify-center items-center bg-white rounded-[4px] py-[2vh] px-[1vw] font-light"><h2>{props.num_fax}</h2></div>
                 <div className="flex justify-center items-center bg-white rounded-[4px] py-[2vh] px-[1vw] font-light"><h2>{props.adresse_mail}</h2></div>
                 <Link to={props.site_web}><div className="flex justify-center items-center bg-white rounded-[4px] py-[2vh] px-[1vw] font-light"><h2>{props.site_web}</h2></div>
-</Link>
+                </Link>
             </div>
         </div>
     )
