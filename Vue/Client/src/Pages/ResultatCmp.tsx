@@ -35,6 +35,8 @@ function ResultatCmp() {
         setOffreFirst((data.Bank1)[1]);
         setOffreSecond((data.Bank2)[1]);
       console.log({data})
+      console.log("here what you need : ",data.Bank1[1])
+      console.log("here what you need : ",data.Bank2[1])
     };
     BankFetching();
   }, []);

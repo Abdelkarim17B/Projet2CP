@@ -9,6 +9,8 @@ import AdminRecupCompte from './Pages/AdminRecupCompte';
 import AdminEnterResetMail from './Pages/AdminEnterResetMail';
 import AdminListeDesBnaques from './Pages/AdminListeDesBanques';
 import AdminListeDesAnnonces from './Pages/AdminListeAnonces';
+import AdminAjouterBanque from './Pages/AdminAjouterBanque';
+
 
 const App: React.FC = ({}) =>
 {
@@ -21,6 +23,7 @@ const App: React.FC = ({}) =>
           <Route path='/AdminEnterResetMail' element={<AdminEnterResetMail/>} />
           <Route path="/AdminListeDesAnnonces" element={<AdminListeDesAnnonces/>} />
           <Route path='/AdminListeDesBanques' element={<AdminListeDesBnaques/>} />
+          <Route path='/AdminAjouterBanque' element={<AdminAjouterBanque/>} />
         </Routes>
       </BrowserRouter>
     )
