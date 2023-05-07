@@ -30,7 +30,7 @@ function NavbarAdmin() {
             <div className="flex flex-col gap-[2vh] items-end">
               <div className="flex flex-row items-center gap-[1rem]">
                 <img src={"/profile.svg"} alt="profile" />
-                
+                <p className="font-semibold text-[1.5rem]">Tarek Benameur</p>
                 <button onClick={()=>setIsOpen(!isOpen)}>
                   {isOpen ? <FaChevronUp /> : <FaChevronDown />}
                 </button>
