@@ -16,8 +16,6 @@ route.get('/glossary' , diversHandler.glossaryHandler);
 route.get('/contact', diversHandler.contactHandler);
 route.get('/apropos', diversHandler.proposHandler);
 
-route.get('/stats' , diversHandler.statsHandler);
-
 
 route.use((req,res) =>{
     res.status(404).send('Not found')
