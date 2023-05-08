@@ -1,26 +1,32 @@
 import {AiOutlineEdit,AiOutlinePlus} from "react-icons/ai"
+import { NavLink } from "react-router-dom"
 function AdminProfile() {
     return (
       <div className='h-screen w-screen flex justify-center'>
         <div className='flex flex-col gap-[4vw] mt-[10rem] '>
-        <div className="flex flex-row items-center gap-[28rem]">
+        
+                <div className='flex '>
+            
+            <form className='flex flex-col gap-[3vh]'>
+            <div className="flex flex-row items-center gap-[28rem]">
                 <div className="flex flex-row items-center gap-[2rem]">
                     <img className="scale-[210%]" src={"/profile.svg"} alt="profile" />
                     <h2 className='text-[4rem] font-semibold text-BlueDark'>Tarek Benameur</h2>
                 </div>
                <div className="flex flex-row items-center gap-[2rem]">
-                    <button className='border-4 border-BlueDark bg-BlueDark text-white w-[14vw] py-[1.5vh] text-[1.5rem] font-bold rounded-[5px] flex items-center justify-center gap-[1vw]' >
+               <NavLink to="/profile/ajouter">
+                    <button className='border-4 border-BlueDark bg-BlueDark text-white w-[14vw] py-[1.5vh] text-[1.5rem] font-bold rounded-[5px] flex items-center justify-center gap-[1vw]'  >
                         <AiOutlinePlus />
                         <p>Ajouter Admin</p>
                     </button>
+                </NavLink>
+                <NavLink to="/profile/modifier">
                     <button className='border-4 border-Red bg-Red text-white w-[14vw] py-[1.5vh] text-[1.5rem] font-bold rounded-[5px] flex items-center justify-center gap-[2vw]' >
                         <AiOutlineEdit />
                         <p>Modifier</p>
                     </button>
-                </div> 
-                <div className='flex '>
-            <form action="" className='flex flex-col gap-[25vh]'>
-            <form className='flex flex-col gap-[3vh]'>
+                </NavLink>
+                </div> </div>
                   <div className="flex flex-row gap-[5vw]"> 
                     <div className='flex flex-col gap-[1vh]'>
                         <h3 className='text-[2rem] font-medium text-BlueDark'>Nom</h3>
@@ -50,14 +56,10 @@ function AdminProfile() {
 
                     
                 </form>
-
-
-                
-            </form>
             
         </div>
         </div>
-        </div>
+        
       </div>
     )
   }

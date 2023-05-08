@@ -35,16 +35,24 @@ function AdminAjouterAdmin() {
       }).then(resetForm).catch(() => console.log("message not sent"))
     }
     
+  function handleAnnuler(event: MouseEvent<HTMLButtonElement, MouseEvent>): void {
+    throw new Error('Function not implemented.');
+  }
+
     return (
       <div className='h-full w-full flex justify-center'>
         <div className='flex flex-col gap-[4vw] mt-[10rem] '>
-        <div className="flex flex-row items-center gap-[28rem]">
+        
+                <div className='flex '>
+            
+            <form className='flex flex-col gap-[3vh]'>
+            <div className="flex flex-row items-center gap-[28rem]">
                 <div className="flex flex-row items-center gap-[2rem]">
                     <img className="scale-[210%] " src={"/profile.svg"} alt="profile" />
                     <h2 className='text-[4rem] font-semibold text-BlueDark'>Tarek Benameur</h2>
                 </div>
                <div className="flex flex-row items-center gap-[2rem]">
-                    <button className='border-4 border-BlueDark  text-BlueDark w-[14vw] py-[1.5vh] text-[1.5rem] font-bold rounded-[5px] flex items-center justify-center gap-[1vw]' >
+                    <button className='border-4 border-BlueDark  text-BlueDark w-[14vw] py-[1.5vh] text-[1.5rem] font-bold rounded-[5px] flex items-center justify-center gap-[1vw]' onClick={handleAnnuler} >
                         
                         <p>Annuler</p>
                     </button>
@@ -54,9 +62,6 @@ function AdminAjouterAdmin() {
                     </button>
                 </div> 
                 </div>
-                <div className='flex '>
-            <form action="" className='flex flex-col gap-[25vh]'>
-            <form className='flex flex-col gap-[3vh]'>
                   <div className="flex flex-row gap-[5vw]"> 
                     <div className='flex flex-col gap-[1vh]'>
                         <h3 className='text-[2rem] font-medium text-BlueDark'>Nom</h3>
@@ -89,7 +94,7 @@ function AdminAjouterAdmin() {
 
 
                 
-            </form>
+            
             
         </div>
                 
