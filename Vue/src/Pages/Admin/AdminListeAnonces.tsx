@@ -38,7 +38,7 @@ const ADMIN_MODIFIER_ANNONCE_URL : string = "/admin/annouce/Update/";
 
 function AdminListeDesAnnonces(){
     const [listeAnnonceAff,setListeAnnonceAff] = useState<ComposantAnnonce[]>([]);
-    const [listeAnnonce , setListeAnnonce] = useState<ComposantAnnonce []>([])
+    const [listeAnnonce , setListeAnnonce] = useState<ComposantAnnonce[]>([])
     useEffect(() => {
         const fetchData = async () => {
           try {

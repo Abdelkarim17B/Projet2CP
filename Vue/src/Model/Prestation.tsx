@@ -95,7 +95,7 @@ interface financementExterne{
 }
 
 export interface PrestationModel{
-    id_banque: Number;
+    id_banque: number;
     nom_banque: String;
     gestion_de_compte : gestionDeCompte;
     gestion_a_distance : gestionaDistance;
