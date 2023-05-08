@@ -10,7 +10,7 @@ const { disconnectDB } = require('../disconnectDatabase');
 
 /* Annonce Test */
 const annonceObject = {
-    id: 4,
+    id: 630,
     titre: 'Best bank in Algeria !',
     sous_titre: 'Here is a description of the bank',
     image: 'https://i.postimg.cc/WzrZ8xry/haick.jpg',
@@ -19,7 +19,7 @@ const annonceObject = {
 async function AnnonceTest(annonceObject, test_type) {
     const client = await connectDB()
     try {
-        console.log('The client in try', client);
+        //console.log('The client in try', client);
         switch (test_type) {
             case 'create':
                 console.log('The client in create', client);
@@ -52,10 +52,10 @@ async function AnnonceTest(annonceObject, test_type) {
         console.error('Error Testing Annonce', err);
     }
     finally {
-        console.log('The client in finally', client);
+        //console.log('The client in finally', client);
         await disconnectDB(client)
         console.log("Done Testing Annonce");
     }
 }
 
-AnnonceTest(annonceObject, 'create');
+AnnonceTest(annonceObject, 'get');

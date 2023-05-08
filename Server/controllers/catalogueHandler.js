@@ -61,6 +61,7 @@ const bankHandler = async (req,res) => {
     }
 }
 
+const {getComparaisonNumber, incrementComparaisonNumber} = require('../models/stat/comparaisonNumber')
 const compaHandler = async (req,res) => {
     idbank1 = req.params.idb1;
     idbank2 = req.params.idb2;
@@ -104,6 +105,8 @@ const compaHandler = async (req,res) => {
 
     finally
     {
+        
+        incrementComparaisonNumber(working_client); 
         const CompResults =
         {
             Bank1 : finalResultBank1,

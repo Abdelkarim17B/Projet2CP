@@ -1,6 +1,8 @@
 const {client} = require('pg')
+const {connectDB} = require('../connectDatabase');
+const {disconnectDB} = require('../disconnectDatabase');
 
-async function getStat(client){
+async function getStatAdmin(client){
     stat = {}
     try{
         // adminNumber
@@ -36,4 +38,4 @@ async function getStat(client){
     return stat;
 }
 
-module.exports = {getStat}
+module.exports = {getStatAdmin};

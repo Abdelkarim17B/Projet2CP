@@ -1,0 +1,5 @@
+banky.database.general@gmail.com
+Banky@2cp.DB
+
+banky.database.manager@gmail.com
+Banky@2cp.adminDB
