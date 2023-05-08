@@ -42,7 +42,7 @@ const prestationCreationHandler = async (req,res) => {
     try
     {
         const newPres = await prestetationAdder.createPrestation(client,creationObject,categoriesList,typesList);
-        res.sendStatus(201).json(bank)
+        res.sendStatus(201).json(newPres);
     }
     catch(err)
     {
