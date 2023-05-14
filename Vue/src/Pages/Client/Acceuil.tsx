@@ -139,27 +139,22 @@ function Accueil() {
             </div>
 
             {/* Statistiques section*/}
-            <div className="flex flex-col gap-[9vh] py-[12.5vh] text-Light bg-BlueDark mb-[24vh]">
+             <div className="flex flex-col gap-[9vh] py-[12.5vh] text-Light bg-BlueDark mb-[24vh]">
                 <h2 className="text-white lg:text-[4.5rem] md:text-[3.3rem] text-[2.5rem] text-center font-medium ">Statistiques</h2>
                 <div className="flex lg:flex-row flex-col px-[9vw] lg:justify-between items-center">
                     <div className="flex flex-col justify-center items-center align-center text-[2rem] px-[4vw]">
-                        <h3 className="font-medium lg:text-[4.4rem] md:text-[3rem] text-[2rem]">520</h3>
+                        <h3 className="font-medium lg:text-[4.4rem] md:text-[3rem] text-[2rem]">14</h3>
                         <p>Banques</p> 
                     </div>
                     <div className="h-[13vh] w-[1px] bg-Light lg:rotate-0 rotate-90"></div> 
                     <div className="flex flex-col justify-center items-center align-center text-[2rem] px-[4vw]">
-                        <h3 className="font-medium lg:text-[4.4rem] md:text-[3rem] text-[2rem]">30K</h3>
-                        <p>Utilisateurs</p> 
-                    </div> 
-                    <div className="h-[13vh] w-[1px] bg-Light lg:rotate-0 rotate-90"></div> 
-                    <div className="flex flex-col justify-center items-center align-center text-[2rem] px-[4vw]">
-                        <h3 className="font-medium lg:text-[4.4rem] md:text-[3rem] text-[2rem]">8K</h3>
+                        <h3 className="font-medium lg:text-[4.4rem] md:text-[3rem] text-[2rem]">10k</h3>
                         <p>Comparaisons</p> 
                     </div> 
                     <div className="h-[13vh] w-[1px] bg-Light lg:rotate-0 rotate-90"></div> 
                     <div className="flex flex-col justify-center items-center align-center text-[2rem] px-[4vw]">
-                        <h3 className="font-medium lg:text-[4.4rem] md:text-[3rem] text-[2rem]">22K</h3>
-                        <p>Offres</p> 
+                        <h3 className="font-medium lg:text-[4.4rem] md:text-[3rem] text-[2rem]">3</h3>
+                        <p>Annonces</p> 
                     </div>
                 </div>
             </div>
