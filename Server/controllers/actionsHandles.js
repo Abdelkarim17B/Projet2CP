@@ -19,7 +19,7 @@ const getterPrestation = require('../models/prestation/getPrestation');
 const categoriesList = ['gestion_de_compte', 'gestion_a_distance', 'option_de_payment', 'moyens_de_payment', 'prets_et_credits', 'placement', 'epargne', 'coffre_fort', 'financement_externe']
 const typesList = ['personnel', 'professionnel', 'entreprise']
 
-
+const {prestationObjectConstructor} = require('../helpers/prestationObjContructor.js');
 
 const bankCreationHandler = async (req, res) => {
     const client = await connectDB();
@@ -38,11 +38,12 @@ const bankCreationHandler = async (req, res) => {
 
 const prestationCreationHandler = async (req,res) => {
     const client = await connectDB();
-    const creationObject = req.body;
+    const creationObject = prestationObjectConstructor(req.body.id_banque,['gestion_de_compte', 'gestion_a_distance', 'option_de_payment', 'moyens_de_payment', 'prets_et_credits', 'placement', 'epargne', 'coffre_fort', 'financement_externe'],['personnel','professionnel', 'entreprise'],req.body);
+    console.log(creationObject);
     try
     {
         const newPres = await prestetationAdder.createPrestation(client,creationObject,categoriesList,typesList);
-        res.sendStatus(201).json(bank)
+        res.sendStatus(201).json(newPres)
     }
     catch(err)
     {

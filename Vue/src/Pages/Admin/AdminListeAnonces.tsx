@@ -313,15 +313,15 @@ function AdminListeDesAnnonces(){
         <div>
             <div className="flex flex-col h-full gap-[100px] min-h-screen items-center justify-center pt-[20vh]">
                 <div className="flex flex-row gap-[613px] justify-center mt-24">
-                    <div className="bg-white w-[630px] h-[90px] flex items-center justify-between px-10">
+                    {/*<div className="bg-white w-[630px] h-[90px] flex items-center justify-between px-10">
                         <input type="text" id="RechercheAnnonceAdmin" className="text-[28px] outline-none rounded-sm w-3/4" onChange={updateRequeteRecherche}></input>
                         <GoSearch size="30px" className="text-Gray"/>
-                    </div>
+    </div>*/}
                     <div>
                         <button className="w-[357px] h-[90px] bg-Red rounded-sm text-center text-[28px] text-white font-semibold" onClick={(e) => {setIsOpen(true)}}> Ajouter Annonce</button>
                     </div>
                 </div>
-                <div className="grid grid-cols-3 gap-[60px] justify-items-center mb-24">
+                <div className="grid grid-cols-3 gap-[60px] max-w-[82vw] w-[82vw] justify-items-center mb-24">
                     {(listeAnnonceAff.length == 0) ? (
                         <div className="text-72 font-bold">
                             Pas d'Annonces {/*FIX IT LATER*/}

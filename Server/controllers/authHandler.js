@@ -16,7 +16,7 @@ const loginHandler = async (req, res) => {
         }
         const admin = await getAdminByEmail(client, email);
         if (admin && admin.mot_de_passe === password) {
-            const payload = { id: admin.id_admin, nom: admin.nom, prenom: admin.prenom , email: admin.email, role: 'admin'  };
+            const payload = {email:admin.email , role:'admin' , };
             const token = jwt.sign(payload, process.env.JWT_SECRET_KEY, {expiresIn: "2h"});
             res.status(200).json({ message: 'Logged in successfully!' , JWTtoken : token });
         }
