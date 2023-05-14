@@ -66,8 +66,9 @@ function AdminAuth() {
             });
             localStorage.setItem('token', response.data.JWTtoken);
             console.log(localStorage.getItem('token'));
-            setUser(true)
+            setUser(true);
             navigate("/admin/dashboard");
+            window.location.reload();
         } catch (error) {
             if(!(error as any).response){
                 toast.error('Connexion au serveur impossible', {
@@ -128,7 +129,7 @@ function AdminAuth() {
             <div className="flex justify-between items-center h-screen bg-Gray33">
                 {/*Image 1*/}
                 <div className="w-[302px] h-[340px]">
-                    <img src="Img1AdminAuth.png"/>
+                    <img src="/Img1AdminAuth.png"/>
                 </div>
                 {/*Connexion*/}
                 <form className="w-[630px] h-[593px]  flex flex-col justify-between items-center" onSubmit={handleOnSubmit}>
@@ -152,7 +153,7 @@ function AdminAuth() {
                     </div>
                 </form>
                 <div className="w-[409px] h-[460px] self-start">{/*Image 2*/}
-                    <img src="Img2AdminAuth.png"/>
+                    <img src="/Img2AdminAuth.png"/>
                 </div>
             </div>
             <ToastContainer />

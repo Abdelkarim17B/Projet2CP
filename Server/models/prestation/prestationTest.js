@@ -6,6 +6,7 @@ const {createPrestation} = require('./createPrestation');
 const {deletePrestation} = require('./deletePrestation');
 const {updatePrestation} = require('./updatePrestation');
 const {getPrestation} = require('./getPrestation');
+const { connectDB } = require('../connectDatabase');
 
 /* client */
 //  console.log('Client : ', client);
@@ -23,7 +24,8 @@ const prestationObjectExample = prestationObjectConstructor(id_banque, categorie
 
 //  console.log('Prestation Object : ', prestationObjectExample);
 
-async function PrestationTest(client, PrestationObject, categoriesList, categories, typesList, types,  test_type){
+async function PrestationTest(PrestationObject, categoriesList, categories, typesList, types,  test_type){
+    const client = await connectDB() ;
     try{
         switch(test_type){
             case 'create':
@@ -61,7 +63,7 @@ async function PrestationTest(client, PrestationObject, categoriesList, categori
     }
 }
 
-PrestationTest(client, prestationObjectExample, categoriesList, categories, typesList, types, 'get');
+PrestationTest(prestationObjectExample, categoriesList, categories, typesList, types, 'get');
 
 
 /* PrestationObject :
