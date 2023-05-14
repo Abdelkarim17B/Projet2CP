@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect  } from 'react';
 import { useParams } from 'react-router-dom';
 import {Bank} from "../../Model/Bank"
 import {PrestationModel} from "../../Model/Prestation"
 import {AiOutlineDelete} from "react-icons/ai"
 import axios from "../../api/axios"
-
+import { useNavigate } from 'react-router-dom';
 const ADMIN_UPDATE_BANQUE_URL : string = "/admin/catalogue/";
 const ADMIN_UPDATE_PRESTATION : string = "/admin/prestationmodifier";
 const ADMIN_CATALOGUE : string = "/catalogue/";
@@ -480,6 +480,7 @@ type infosBanque = {
 
 
 function AdminModifierBanque() {
+    const navigate = useNavigate();
     const { id } = useParams();
     const [bank, setBank] = useState<infosBanque>();
     const [offre, setOffre] = useState<PrestationModel>();
@@ -789,8 +790,9 @@ function AdminModifierBanque() {
           try {
             const response = await axios.get(ADMIN_CATALOGUE+id);
             console.log(response.data);
-            setBank(response[0]);
-            setOffre(response[1]);
+            setBank(response.data[0]);
+            setOffre(response.data[1]);
+            console.log("what i get : ",response.data[1]);
           } catch (error) {
             console.log(error);
           }
@@ -871,12 +873,12 @@ function AdminModifierBanque() {
             console.log(error);
         }
     }
-    {/* 
+
     async function handleModification(event : React.FormEvent<HTMLFormElement>){
         const token = localStorage.getItem("token");
         event.preventDefault();
         try {
-            const response = axios.put(ADMIN_UPDATE_BANQUE_URL+bankModifier.id_banque,JSON.stringify(bankModifier),
+            const response = await axios.put(ADMIN_UPDATE_BANQUE_URL+bankModifier.id_banque,JSON.stringify(bankModifier),
             {
                 headers: {
                     "Content-Type": "application/json" ,
@@ -884,11 +886,20 @@ function AdminModifierBanque() {
                 },
             }
             )
+            const response2 = await axios.put(ADMIN_UPDATE_PRESTATION,JSON.stringify(prestationModifier),
+            {
+                headers: {
+                    "Content-Type": "application/json" ,
+                    'Authorization': 'Bearer ' + token,
+                },
+            }
+            )
+            console.log("Here : : : :  ",response2);
         } catch (error) {
             console.log(error);
         }
 
-    }*/}
+    }
   
   return (
         <div className='px-[9vw] flex flex-col gap-[4vh] py-[20vh]'>
@@ -902,7 +913,7 @@ function AdminModifierBanque() {
             </div>}
             { bankModifier ? ( 
             <div className='flex flex-col flex-start justify-between'>
-                <form action="" className='flex flex-col gap-[2vh]'>
+                <form onSubmit={handleModification} className='flex flex-col gap-[2vh]'>
                     <div className='flex flex-col gap-[1vh]'>
                         <h3 className='text-[1.1rem] font-medium text-BlueDark'>Nom</h3>
                         <input placeholder='Nom de la banque' className='py-[4vh] w-[40vw] pl-[2vw] rounded-[4px]' value={bankModifier.nom_banque} 

@@ -7,7 +7,7 @@ async function updatePrestation(client, prestationObject, categories, types) {
         for (let category of categories) {
             for (let type of types) {
                 try {
-                    const updateQuery = `UPDATE ${category} SET (id_banque, nom_banque, type` + Object.keys(prestationObject[category]).map(key => `, ${key}`).join('') + ` ) VALUES (${prestationObject.id_banque}, '${prestationObject.nom_banque}', '${type}'` + Object.keys(prestationObject[category]).map(key => `, '${prestationObject[category][key][type]}'`).join('') + `) ;`
+                    const updateQuery = `UPDATE ${category} SET id_banque = ${prestationObject.id_banque}, nom_banque = '${prestationObject.nom_banque}', type = '${type}'` + Object.keys(prestationObject[category]).map(key => `, ${key} = '${prestationObject[category][key][type]}'`).join('') + `;`
                     //  console.log('update Query : ', updateQuery);
                     await client.query(updateQuery);
 

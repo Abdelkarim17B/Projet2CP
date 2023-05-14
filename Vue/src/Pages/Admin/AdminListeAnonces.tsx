@@ -135,7 +135,7 @@ function AdminListeDesAnnonces(){
                 title : "",
                 subTitle : ""
             })
-            toast.success('Vous etes desormais connecte', {
+            toast.success('Annonce ajouter', {
                 position: "top-center",
                 autoClose: 5000,
                 hideProgressBar: true,
@@ -305,9 +305,11 @@ function AdminListeDesAnnonces(){
             console.log("response : ",response);
             console.log("the server response : ",response.statusText);
             setModifIsOpen(false);
+            window.location.reload();
         } catch (error) {
             console.log("well ...");
         }
+        
     }
     return(
         <div>

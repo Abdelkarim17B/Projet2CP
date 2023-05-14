@@ -1,5 +1,6 @@
 import { useState ,useEffect} from "react";
 import axios from "../../api/axios";
+import { useNavigate } from "react-router";
 
 const ADMIN_LISTE_BANQUE_URL : string = "/catalogue" ;
 const ADMIN_AOUTER_BANQUE_URL : string = "/admin/catalogue/BankAdder";
@@ -161,6 +162,7 @@ type prestation = {
 }
 
 function AdminAjouterBanque(){
+    const navigate = useNavigate();
     const [listeBnaque,setListeBanque] = useState<infosBanque[]>([]);
     useEffect(() => {
         const fetchData = async () => {
@@ -619,6 +621,7 @@ function AdminAjouterBanque(){
                 ...banque,
                 id_banque : generateRandomID()
             });
+            navigate("/admin/banques");
         }
     }
     async function handleBnaqueSubmission(event : React.FormEvent<HTMLFormElement>){
@@ -627,399 +630,589 @@ function AdminAjouterBanque(){
         
     }
     return(
-        <div className="bg-Gray33">
-            <p className="pl-48 text-[84px] font-semibold text-BlueDark">Ajouter une Banque</p>
-            <p className="pl-24 text-[48px] font-semibold text-[#000000]">Information Banque :</p>
-            {/*Section Infos Banque*/}
-            <div className="flex flex-col pl-20 mt-8">
-                <form onSubmit={handleBnaqueSubmission}>
-                    <label className="text-[30px] font-semibold pl-6">Nom :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ." required onChange={(e)=>{handleNomChange(e.target.value)}} value={banque.nom_banque} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+        <div className='px-[9vw] flex flex-col gap-[4vh] py-[20vh]'>
+    <h2 className='text-[4rem] font-bold text-BlueDark'>Ajouter une banque</h2>
+    <div className='flex flex-start justify-between'>
+        {/*Section Infos Banque*/}
+        <div className="flex flex-col mt-8">
+            <form onSubmit={handleBnaqueSubmission}>
+                <div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Nom :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ." required onChange={(e)=>{handleNomChange(e.target.value)}}
+                        value={banque.nom_banque} className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Adresse :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....." required onChange={(e)=>{handleAdresseChange(e.target.value)}} value={banque.adresse} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                </div>
+                <div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Adresse :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." required onChange={(e)=>{handleAdresseChange(e.target.value)}}
+                        value={banque.adresse} className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Numéro de telephone :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..." required onChange={(e)=>{handleNumTelChange(e.target.value)}} value={banque.num_tel} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                </div>
+                <div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Numéro de telephone :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." required onChange={(e)=>{handleNumTelChange(e.target.value)}}
+                        value={banque.num_tel} className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Numéro FAX :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..." required onChange={(e)=>{handleNumFaxChange(e.target.value)}} value={banque.num_fax} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                </div>
+                <div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Numéro FAX :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." required onChange={(e)=>{handleNumFaxChange(e.target.value)}}
+                        value={banque.num_fax} className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Adresse Mail :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..." required onChange={(e)=>{handleAdresseMailChange(e.target.value)}} value={banque.adresse_mail} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                </div>
+                <div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Adresse Mail :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." required onChange={(e)=>{handleAdresseMailChange(e.target.value)}}
+                        value={banque.adresse_mail} className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Lien du Logo :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..." required onChange={(e)=>{handleLogoChange(e.target.value)}} value={banque.logo} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                </div>
+                <div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Lien du Logo :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." required onChange={(e)=>{handleLogoChange(e.target.value)}}
+                        value={banque.logo} className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Site web :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..." required onChange={(e)=>{handleSiteWebChange(e.target.value)}} value={banque.site_web} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                </div>
+                <div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Site web :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." required onChange={(e)=>{handleSiteWebChange(e.target.value)}}
+                        value={banque.site_web} className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                </form>
-            </div>
-            <p className="pl-24 text-[48px] font-semibold text-[#000000]">Information Prestation :</p>
-            <div className="flex flex-col pl-20 mt-8">
+                </div>
+            </form>
+        </div>
+        <div className="flex flex-col pl-20 mt-8">
 
 
 
 
-                <form onSubmit={onSubmitPresation}>
+            <form onSubmit={onSubmitPresation} className="flex flex-col gap-[5vh] ">
                 {/*GESTION COMPTE*/}
-
-                    <label className="text-[40px] font-semibold pl-6">Gestion de Compte : </label><br />
-                    <label className="text-[30px] font-semibold pl-6">Overture de compte courant :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_gestion_de_compte_perso({...gestion_de_compte_perso, ouverture_compte_courant : e.target.value})}} value={gestion_de_compte_perso.ouverture_compte_courant} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <h2 className="text-[40px] font-semibold ">Gestion de Compte : </h2>
+                <div className="flex flex-col gap-[1vh]"><br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Overture de compte courant :</label>
+                    <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_gestion_de_compte_perso({...gestion_de_compte_perso,
+                        ouverture_compte_courant : e.target.value})}}
+                        value={gestion_de_compte_perso.ouverture_compte_courant} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_gestion_de_compte_pro({...gestion_de_compte_pro , ouverture_compte_courant : e.target.value})}} value={gestion_de_compte_pro.ouverture_compte_courant} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_gestion_de_compte_pro({...gestion_de_compte_pro ,
+                        ouverture_compte_courant : e.target.value})}}
+                        value={gestion_de_compte_pro.ouverture_compte_courant} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_gestion_de_compte_ent({...gestion_de_compte_ent , ouverture_compte_courant : e.target.value})}} value={gestion_de_compte_ent.ouverture_compte_courant} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_gestion_de_compte_ent({...gestion_de_compte_ent ,
+                        ouverture_compte_courant : e.target.value})}}
+                        value={gestion_de_compte_ent.ouverture_compte_courant} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
+                </div>
 
 
 
 
 
-                    <hr/>
+                <hr />
 
 
 
 
 
-                    <label className="text-[30px] font-semibold pl-6">Tenue compte courant :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_gestion_de_compte_perso({...gestion_de_compte_perso, tenue_compte_courant : e.target.value})}} value={gestion_de_compte_perso.tenue_compte_courant} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]"><label
+                        className="text-[1.1rem] font-medium text-BlueDark">Tenue compte courant :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_gestion_de_compte_perso({...gestion_de_compte_perso,
+                        tenue_compte_courant : e.target.value})}} value={gestion_de_compte_perso.tenue_compte_courant}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_gestion_de_compte_pro({...gestion_de_compte_pro , tenue_compte_courant : e.target.value})}} value={gestion_de_compte_pro.tenue_compte_courant} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_gestion_de_compte_pro({...gestion_de_compte_pro ,
+                        tenue_compte_courant : e.target.value})}} value={gestion_de_compte_pro.tenue_compte_courant}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_gestion_de_compte_ent({...gestion_de_compte_ent , tenue_compte_courant : e.target.value})}} value={gestion_de_compte_ent.tenue_compte_courant} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_gestion_de_compte_ent({...gestion_de_compte_ent ,
+                        tenue_compte_courant : e.target.value})}} value={gestion_de_compte_ent.tenue_compte_courant}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
+                </div>
+
+
+                <hr />
 
 
 
-                    <hr/>
-
-
-
-                    <label className="text-[30px] font-semibold pl-6">Ouverture compte cheque :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_gestion_de_compte_perso({...gestion_de_compte_perso, ouverture_compte_cheque : e.target.value})}} value={gestion_de_compte_perso.ouverture_compte_cheque} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]"><label
+                        className="text-[1.1rem] font-medium text-BlueDark">Ouverture compte cheque :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_gestion_de_compte_perso({...gestion_de_compte_perso,
+                        ouverture_compte_cheque : e.target.value})}}
+                        value={gestion_de_compte_perso.ouverture_compte_cheque} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_gestion_de_compte_pro({...gestion_de_compte_pro , ouverture_compte_cheque : e.target.value})}} value={gestion_de_compte_pro.ouverture_compte_cheque} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_gestion_de_compte_pro({...gestion_de_compte_pro ,
+                        ouverture_compte_cheque : e.target.value})}}
+                        value={gestion_de_compte_pro.ouverture_compte_cheque} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_gestion_de_compte_ent({...gestion_de_compte_ent , ouverture_compte_cheque : e.target.value})}} value={gestion_de_compte_ent.ouverture_compte_cheque} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_gestion_de_compte_ent({...gestion_de_compte_ent ,
+                        ouverture_compte_cheque : e.target.value})}}
+                        value={gestion_de_compte_ent.ouverture_compte_cheque} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
+                </div>
+
+                <hr />
 
 
-                    <hr/>
 
 
-
-
-                    <label className="text-[30px] font-semibold pl-6">Tenue compte cheque :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_gestion_de_compte_perso({...gestion_de_compte_perso, tenue_compte_cheque : e.target.value})}} value={gestion_de_compte_perso.tenue_compte_cheque} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]"><label
+                        className="text-[1.1rem] font-medium text-BlueDark">Tenue compte cheque :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_gestion_de_compte_perso({...gestion_de_compte_perso, tenue_compte_cheque
+                        : e.target.value})}} value={gestion_de_compte_perso.tenue_compte_cheque} className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_gestion_de_compte_pro({...gestion_de_compte_pro , tenue_compte_cheque : e.target.value})}} value={gestion_de_compte_pro.tenue_compte_cheque} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_gestion_de_compte_pro({...gestion_de_compte_pro ,
+                        tenue_compte_cheque : e.target.value})}} value={gestion_de_compte_pro.tenue_compte_cheque}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_gestion_de_compte_ent({...gestion_de_compte_ent , tenue_compte_cheque : e.target.value})}} value={gestion_de_compte_ent.tenue_compte_cheque} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_gestion_de_compte_ent({...gestion_de_compte_ent ,
+                        tenue_compte_cheque : e.target.value})}} value={gestion_de_compte_ent.tenue_compte_cheque}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
+                </div>
+
+
+                <hr />
 
 
 
-                    <hr/>
-
-
-
-                    <label className="text-[30px] font-semibold pl-6">Ouverture compte epargne :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ." onChange={(e)=>{set_gestion_de_compte_perso({...gestion_de_compte_perso, ouverture_compte_epargne : e.target.value})}} value={gestion_de_compte_perso.ouverture_compte_epargne} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]"><label
+                        className="text-[1.1rem] font-medium text-BlueDark">Ouverture compte epargne :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_gestion_de_compte_perso({...gestion_de_compte_perso,
+                        ouverture_compte_epargne : e.target.value})}}
+                        value={gestion_de_compte_perso.ouverture_compte_epargne} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_gestion_de_compte_pro({...gestion_de_compte_pro , ouverture_compte_epargne : e.target.value})}} value={gestion_de_compte_pro.ouverture_compte_epargne} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_gestion_de_compte_pro({...gestion_de_compte_pro ,
+                        ouverture_compte_epargne : e.target.value})}}
+                        value={gestion_de_compte_pro.ouverture_compte_epargne} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_gestion_de_compte_ent({...gestion_de_compte_ent , ouverture_compte_epargne : e.target.value})}} value={gestion_de_compte_ent.ouverture_compte_epargne} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_gestion_de_compte_ent({...gestion_de_compte_ent ,
+                        ouverture_compte_epargne : e.target.value})}}
+                        value={gestion_de_compte_ent.ouverture_compte_epargne} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
+                </div>
+
+                <hr />
 
 
-                    <hr/>
 
 
-
-
-                    <label className="text-[30px] font-semibold pl-6">Tenue compte epargne :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_gestion_de_compte_perso({...gestion_de_compte_perso, tenue_compte_epargne : e.target.value})}} value={gestion_de_compte_perso.tenue_compte_epargne} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6">
+                <div className="flex flex-col gap-[1vh]"><label
+                        className="text-[1.1rem] font-medium text-BlueDark">Tenue compte epargne :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_gestion_de_compte_perso({...gestion_de_compte_perso,
+                        tenue_compte_epargne : e.target.value})}} value={gestion_de_compte_perso.tenue_compte_epargne}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]">
                         </input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_gestion_de_compte_pro({...gestion_de_compte_pro , tenue_compte_epargne : e.target.value})}} value={gestion_de_compte_pro.tenue_compte_epargne} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_gestion_de_compte_pro({...gestion_de_compte_pro ,
+                        tenue_compte_epargne : e.target.value})}} value={gestion_de_compte_pro.tenue_compte_epargne}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_gestion_de_compte_ent({...gestion_de_compte_ent , tenue_compte_epargne : e.target.value})}} value={gestion_de_compte_ent.tenue_compte_epargne} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_gestion_de_compte_ent({...gestion_de_compte_ent ,
+                        tenue_compte_epargne : e.target.value})}} value={gestion_de_compte_ent.tenue_compte_epargne}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
+                </div>
 
+                <hr />
 
-                    <hr/>
 
 
 
-
-                    <label className="text-[30px] font-semibold pl-6">Overture compte devise :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_gestion_de_compte_perso({...gestion_de_compte_perso, ouverture_compte_devise : e.target.value})}} value={gestion_de_compte_perso.ouverture_compte_devise} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]"><label
+                        className="text-[1.1rem] font-medium text-BlueDark">Overture compte devise :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_gestion_de_compte_perso({...gestion_de_compte_perso,
+                        ouverture_compte_devise : e.target.value})}}
+                        value={gestion_de_compte_perso.ouverture_compte_devise} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_gestion_de_compte_pro({...gestion_de_compte_pro , ouverture_compte_devise : e.target.value})}} value={gestion_de_compte_pro.ouverture_compte_devise} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_gestion_de_compte_pro({...gestion_de_compte_pro ,
+                        ouverture_compte_devise : e.target.value})}}
+                        value={gestion_de_compte_pro.ouverture_compte_devise} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_gestion_de_compte_ent({...gestion_de_compte_ent , ouverture_compte_devise : e.target.value})}} value={gestion_de_compte_ent.ouverture_compte_devise} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_gestion_de_compte_ent({...gestion_de_compte_ent ,
+                        ouverture_compte_devise : e.target.value})}}
+                        value={gestion_de_compte_ent.ouverture_compte_devise} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-
+                </div>
 
-                    <hr/>
+                <hr />
 
 
 
 
 
-                    <label className="text-[30px] font-semibold pl-6">Tenue compte devise :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_gestion_de_compte_perso({...gestion_de_compte_perso, tenue_compte_devise : e.target.value})}} value={gestion_de_compte_perso.tenue_compte_devise} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]"><label
+                        className="text-[1.1rem] font-medium text-BlueDark">Tenue compte devise :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_gestion_de_compte_perso({...gestion_de_compte_perso, tenue_compte_devise
+                        : e.target.value})}} value={gestion_de_compte_perso.tenue_compte_devise} className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_gestion_de_compte_pro({...gestion_de_compte_pro , tenue_compte_devise : e.target.value})}} value={gestion_de_compte_pro.tenue_compte_devise} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_gestion_de_compte_pro({...gestion_de_compte_pro ,
+                        tenue_compte_devise : e.target.value})}} value={gestion_de_compte_pro.tenue_compte_devise}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_gestion_de_compte_ent({...gestion_de_compte_ent , tenue_compte_devise : e.target.value})}} value={gestion_de_compte_ent.tenue_compte_devise} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_gestion_de_compte_ent({...gestion_de_compte_ent ,
+                        tenue_compte_devise : e.target.value})}} value={gestion_de_compte_ent.tenue_compte_devise}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
+                </div>
 
 
+                <hr />
 
-                    <hr/>
 
 
-
-                    <label className="text-[30px] font-semibold pl-6">Fermeture de compte :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_gestion_de_compte_perso({...gestion_de_compte_perso, fermeture_de_compte : e.target.value})}} value={gestion_de_compte_perso.fermeture_de_compte} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]"><label
+                        className="text-[1.1rem] font-medium text-BlueDark">Fermeture de compte :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_gestion_de_compte_perso({...gestion_de_compte_perso, fermeture_de_compte
+                        : e.target.value})}} value={gestion_de_compte_perso.fermeture_de_compte} className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_gestion_de_compte_pro({...gestion_de_compte_pro , fermeture_de_compte : e.target.value})}} value={gestion_de_compte_pro.fermeture_de_compte} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_gestion_de_compte_pro({...gestion_de_compte_pro ,
+                        fermeture_de_compte : e.target.value})}} value={gestion_de_compte_pro.fermeture_de_compte}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_gestion_de_compte_ent({...gestion_de_compte_ent , fermeture_de_compte : e.target.value})}} value={gestion_de_compte_ent.fermeture_de_compte} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_gestion_de_compte_ent({...gestion_de_compte_ent ,
+                        fermeture_de_compte : e.target.value})}} value={gestion_de_compte_ent.fermeture_de_compte}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
+                </div>
 
 
+                {/*E
+                BANKING-------------------------------++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--------------------*/}
 
-                    {/*E BANKING-------------------------------++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--------------------*/}
 
 
-
-                    <label className="text-[40px] font-semibold pl-6">Gestion a distance : </label><br />
-                    <label className="text-[30px] font-semibold pl-6">E-Banking abonnement :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_gestion_a_distance_perso({...gestion_a_distance_perso ,e_banking_abonnement : e.target.value})}} value={gestion_a_distance_perso.e_banking_abonnement} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]"><label className="text-[40px] font-semibold ">Gestion a
+                        distance : </label><br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">E-Banking abonnement :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_gestion_a_distance_perso({...gestion_a_distance_perso
+                        ,e_banking_abonnement : e.target.value})}} value={gestion_a_distance_perso.e_banking_abonnement}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_gestion_a_distance_pro({...gestion_a_distance_pro ,e_banking_abonnement : e.target.value})}} value={gestion_a_distance_pro.e_banking_abonnement} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_gestion_a_distance_pro({...gestion_a_distance_pro
+                        ,e_banking_abonnement : e.target.value})}} value={gestion_a_distance_pro.e_banking_abonnement}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_gestion_a_distance_ent({...gestion_a_distance_ent,e_banking_abonnement : e.target.value})}} value={gestion_a_distance_ent.e_banking_abonnement} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_gestion_a_distance_ent({...gestion_a_distance_ent,e_banking_abonnement :
+                        e.target.value})}} value={gestion_a_distance_ent.e_banking_abonnement} className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-
+                </div>
 
 
 
 
-                    <hr/>
+                <hr />
 
 
 
 
 
-                    <label className="text-[30px] font-semibold pl-6">E-Banking consultation solde :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_gestion_a_distance_perso({...gestion_a_distance_perso ,e_banking_consultation_solde : e.target.value})}} value={gestion_a_distance_perso.e_banking_consultation_solde} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]"><label
+                        className="text-[1.1rem] font-medium text-BlueDark">E-Banking consultation solde :</label>
+                    <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_gestion_a_distance_perso({...gestion_a_distance_perso
+                        ,e_banking_consultation_solde : e.target.value})}}
+                        value={gestion_a_distance_perso.e_banking_consultation_solde} className="py-[2vh] w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_gestion_a_distance_pro({...gestion_a_distance_pro ,e_banking_consultation_solde : e.target.value})}} value={gestion_a_distance_pro.e_banking_consultation_solde} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_gestion_a_distance_pro({...gestion_a_distance_pro
+                        ,e_banking_consultation_solde : e.target.value})}}
+                        value={gestion_a_distance_pro.e_banking_consultation_solde} className="py-[2vh] w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_gestion_a_distance_ent({...gestion_a_distance_ent,e_banking_consultation_solde : e.target.value})}} value={gestion_a_distance_ent.e_banking_consultation_solde} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_gestion_a_distance_ent({...gestion_a_distance_ent,e_banking_consultation_solde
+                        : e.target.value})}} value={gestion_a_distance_ent.e_banking_consultation_solde}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
+                </div>
 
 
+                <hr />
 
-                    <hr/>
 
 
-
-                    <label className="text-[30px] font-semibold pl-6">E-Banking virement:</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_gestion_a_distance_perso({...gestion_a_distance_perso ,e_banking_virement : e.target.value})}} value={gestion_a_distance_perso.e_banking_virement} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]"><label
+                        className="text-[1.1rem] font-medium text-BlueDark">E-Banking virement:</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_gestion_a_distance_perso({...gestion_a_distance_perso
+                        ,e_banking_virement : e.target.value})}} value={gestion_a_distance_perso.e_banking_virement}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_gestion_a_distance_pro({...gestion_a_distance_pro ,e_banking_virement : e.target.value})}} value={gestion_a_distance_pro.e_banking_virement} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_gestion_a_distance_pro({...gestion_a_distance_pro
+                        ,e_banking_virement : e.target.value})}} value={gestion_a_distance_pro.e_banking_virement}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_gestion_a_distance_ent({...gestion_a_distance_ent,e_banking_virement : e.target.value})}} value={gestion_a_distance_ent.e_banking_virement} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_gestion_a_distance_ent({...gestion_a_distance_ent,e_banking_virement :
+                        e.target.value})}} value={gestion_a_distance_ent.e_banking_virement} className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
+                </div>
 
+                <hr />
 
-                    <hr/>
 
 
 
-
-                    <label className="text-[30px] font-semibold pl-6">E-Banking paiment:</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_gestion_a_distance_perso({...gestion_a_distance_perso ,e_banking_paiment : e.target.value})}} value={gestion_a_distance_perso.e_banking_paiment} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]"><label
+                        className="text-[1.1rem] font-medium text-BlueDark">E-Banking paiment:</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_gestion_a_distance_perso({...gestion_a_distance_perso ,e_banking_paiment
+                        : e.target.value})}} value={gestion_a_distance_perso.e_banking_paiment} className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_gestion_a_distance_pro({...gestion_a_distance_pro ,e_banking_paiment : e.target.value})}} value={gestion_a_distance_pro.e_banking_paiment} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_gestion_a_distance_pro({...gestion_a_distance_pro
+                        ,e_banking_paiment : e.target.value})}} value={gestion_a_distance_pro.e_banking_paiment}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_gestion_a_distance_ent({...gestion_a_distance_ent,e_banking_paiment : e.target.value})}} value={gestion_a_distance_ent.e_banking_paiment} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_gestion_a_distance_ent({...gestion_a_distance_ent,e_banking_paiment :
+                        e.target.value})}} value={gestion_a_distance_ent.e_banking_paiment} className="py-[2vh] w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
                     </div>
-
+                </div>
 
 
-                    <hr/>
+                <hr />
 
 
 
-                    <label className="text-[30px] font-semibold pl-6">SMS Banking abonnement :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_gestion_a_distance_perso({...gestion_a_distance_perso ,sms_banking_abonnement : e.target.value})}} value={gestion_a_distance_perso.sms_banking_abonnement} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]"><label className="text-[1.1rem] font-medium text-BlueDark">SMS
+                        Banking abonnement :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_gestion_a_distance_perso({...gestion_a_distance_perso
+                        ,sms_banking_abonnement : e.target.value})}}
+                        value={gestion_a_distance_perso.sms_banking_abonnement} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_gestion_a_distance_pro({...gestion_a_distance_pro ,sms_banking_abonnement : e.target.value})}} value={gestion_a_distance_pro.sms_banking_abonnement} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_gestion_a_distance_pro({...gestion_a_distance_pro
+                        ,sms_banking_abonnement : e.target.value})}}
+                        value={gestion_a_distance_pro.sms_banking_abonnement} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_gestion_a_distance_ent({...gestion_a_distance_ent,sms_banking_abonnement : e.target.value})}} value={gestion_a_distance_ent.sms_banking_abonnement} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_gestion_a_distance_ent({...gestion_a_distance_ent,sms_banking_abonnement
+                        : e.target.value})}} value={gestion_a_distance_ent.sms_banking_abonnement} className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
+                </div>
 
 
-                    <hr/>
+                <hr />
 
 
 
 
-                    <label className="text-[30px] font-semibold pl-6">SMS Banking virement en agence :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_gestion_a_distance_perso({...gestion_a_distance_perso ,sms_banking_virement_en_agence : e.target.value})}} value={gestion_a_distance_perso.sms_banking_virement_en_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]"><label className="text-[1.1rem] font-medium text-BlueDark">SMS
+                        Banking virement en agence :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_gestion_a_distance_perso({...gestion_a_distance_perso
+                        ,sms_banking_virement_en_agence : e.target.value})}}
+                        value={gestion_a_distance_perso.sms_banking_virement_en_agence} className="py-[2vh] w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_gestion_a_distance_pro({...gestion_a_distance_pro ,sms_banking_virement_en_agence : e.target.value})}} value={gestion_a_distance_pro.sms_banking_virement_en_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_gestion_a_distance_pro({...gestion_a_distance_pro
+                        ,sms_banking_virement_en_agence : e.target.value})}}
+                        value={gestion_a_distance_pro.sms_banking_virement_en_agence} className="py-[2vh] w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_gestion_a_distance_ent({...gestion_a_distance_ent,sms_banking_virement_en_agence : e.target.value})}} value={gestion_a_distance_ent.sms_banking_virement_en_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_gestion_a_distance_ent({...gestion_a_distance_ent,sms_banking_virement_en_agence
+                        : e.target.value})}} value={gestion_a_distance_ent.sms_banking_virement_en_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
+                </div>
 
 
-                    <hr/>
+                <hr />
 
 
 
 
-                    <label className="text-[30px] font-semibold pl-6">SMS Banking virement hors agence :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_gestion_a_distance_perso({...gestion_a_distance_perso , sms_banking_virement_hors_agence : e.target.value})}} value={gestion_a_distance_perso.sms_banking_virement_hors_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]"><label className="text-[1.1rem] font-medium text-BlueDark">SMS
+                        Banking virement hors agence :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_gestion_a_distance_perso({...gestion_a_distance_perso ,
+                        sms_banking_virement_hors_agence : e.target.value})}}
+                        value={gestion_a_distance_perso.sms_banking_virement_hors_agence} className="py-[2vh] w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_gestion_a_distance_pro({...gestion_a_distance_pro ,sms_banking_virement_hors_agence : e.target.value})}} value={gestion_a_distance_pro.sms_banking_virement_hors_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_gestion_a_distance_pro({...gestion_a_distance_pro
+                        ,sms_banking_virement_hors_agence : e.target.value})}}
+                        value={gestion_a_distance_pro.sms_banking_virement_hors_agence} className="py-[2vh] w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_gestion_a_distance_ent({...gestion_a_distance_ent,sms_banking_virement_hors_agence : e.target.value})}} value={gestion_a_distance_ent.sms_banking_virement_hors_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_gestion_a_distance_ent({...gestion_a_distance_ent,sms_banking_virement_hors_agence
+                        : e.target.value})}} value={gestion_a_distance_ent.sms_banking_virement_hors_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
+                </div>
 
 
 
 
-                    <hr/>
+                <hr />
 
 
 
 
 
-                    <label className="text-[30px] font-semibold pl-6">Service Contact :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_gestion_a_distance_perso({...gestion_a_distance_perso ,service_contact : e.target.value})}} value={gestion_a_distance_perso.service_contact} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]"><label
+                        className="text-[1.1rem] font-medium text-BlueDark">Service Contact :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_gestion_a_distance_perso({...gestion_a_distance_perso ,service_contact :
+                        e.target.value})}} value={gestion_a_distance_perso.service_contact} className="py-[2vh] w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_gestion_a_distance_pro({...gestion_a_distance_pro ,service_contact : e.target.value})}} value={gestion_a_distance_pro.service_contact} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_gestion_a_distance_pro({...gestion_a_distance_pro
+                        ,service_contact : e.target.value})}} value={gestion_a_distance_pro.service_contact}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_gestion_a_distance_ent({...gestion_a_distance_ent, service_contact : e.target.value})}} value={gestion_a_distance_ent.service_contact} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_gestion_a_distance_ent({...gestion_a_distance_ent,
+                        service_contact : e.target.value})}} value={gestion_a_distance_ent.service_contact}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
+                </div>
 
 
 
@@ -1027,1116 +1220,1832 @@ function AdminAjouterBanque(){
 
 
 
-                    {/*OPTION DE PAIMENT ++++++++++++++++++++++++++++++++++++------------------------------------------------------++++++++++++++++++++++++++++++++++++++++++++++ */}
+                {/*OPTION DE PAIMENT
+                ++++++++++++++++++++++++++++++++++++------------------------------------------------------++++++++++++++++++++++++++++++++++++++++++++++
+                */}
 
-                    <label className="text-[40px] font-semibold pl-6">Option de paiment : </label><br />
-                    <label className="text-[30px] font-semibold pl-6">Verssement en agence :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso ,versement_en_agence : e.target.value})}} value={option_de_payment_perso.versement_en_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]"><label className="text-[40px] font-semibold ">Option de paiment
+                        : </label><br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Verssement en agence :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso ,versement_en_agence
+                        : e.target.value})}} value={option_de_payment_perso.versement_en_agence} className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro , versement_en_agence : e.target.value})}} value={option_de_payment_pro.versement_en_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro ,
+                        versement_en_agence : e.target.value})}} value={option_de_payment_pro.versement_en_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent, versement_en_agence : e.target.value})}} value={option_de_payment_ent.versement_en_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent,
+                        versement_en_agence : e.target.value})}} value={option_de_payment_ent.versement_en_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
+                </div>
 
 
 
 
+                <hr />
 
-                    <hr/>
 
 
 
 
-
-                    <label className="text-[30px] font-semibold pl-6">Verssement hors agence :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso ,versement_hors_agence : e.target.value})}} value={option_de_payment_perso.versement_hors_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]"><label
+                        className="text-[1.1rem] font-medium text-BlueDark">Verssement hors agence :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso
+                        ,versement_hors_agence : e.target.value})}}
+                        value={option_de_payment_perso.versement_hors_agence} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro , versement_hors_agence : e.target.value})}} value={option_de_payment_pro.versement_hors_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro ,
+                        versement_hors_agence : e.target.value})}} value={option_de_payment_pro.versement_hors_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent, versement_hors_agence : e.target.value})}} value={option_de_payment_ent.versement_hors_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent,
+                        versement_hors_agence : e.target.value})}} value={option_de_payment_ent.versement_hors_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
+                </div>
 
 
 
-                    <hr/>
+                <hr />
 
 
 
-                    <label className="text-[30px] font-semibold pl-6">Virement en agence :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso ,virement_en_agence : e.target.value})}} value={option_de_payment_perso.virement_en_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]"><label
+                        className="text-[1.1rem] font-medium text-BlueDark">Virement en agence :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso ,virement_en_agence
+                        : e.target.value})}} value={option_de_payment_perso.virement_en_agence} className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro , virement_en_agence : e.target.value})}} value={option_de_payment_pro.virement_en_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro ,
+                        virement_en_agence : e.target.value})}} value={option_de_payment_pro.virement_en_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent, virement_en_agence : e.target.value})}} value={option_de_payment_ent.virement_en_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent,
+                        virement_en_agence : e.target.value})}} value={option_de_payment_ent.virement_en_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
+                </div>
 
 
-                    <hr/>
+                <hr />
 
 
 
 
-                    <label className="text-[30px] font-semibold pl-6">Virement hors agence :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso ,virement_hors_agence : e.target.value})}} value={option_de_payment_perso.virement_hors_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]"><label
+                        className="text-[1.1rem] font-medium text-BlueDark">Virement hors agence :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso
+                        ,virement_hors_agence : e.target.value})}} value={option_de_payment_perso.virement_hors_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro , virement_hors_agence : e.target.value})}} value={option_de_payment_pro.virement_hors_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro ,
+                        virement_hors_agence : e.target.value})}} value={option_de_payment_pro.virement_hors_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent, virement_hors_agence : e.target.value})}} value={option_de_payment_ent.virement_hors_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent,
+                        virement_hors_agence : e.target.value})}} value={option_de_payment_ent.virement_hors_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
+                </div>
 
 
 
-                    <hr/>
+                <hr />
 
 
 
-                    <label className="text-[30px] font-semibold pl-6">Prelevement en agence :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso ,prelevement_en_agence : e.target.value})} }value={option_de_payment_perso.prelevement_en_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]"><label
+                        className="text-[1.1rem] font-medium text-BlueDark">Prelevement en agence :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso
+                        ,prelevement_en_agence : e.target.value})}
+                        }value={option_de_payment_perso.prelevement_en_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro , prelevement_en_agence : e.target.value})}} value={option_de_payment_pro.prelevement_en_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro ,
+                        prelevement_en_agence : e.target.value})}} value={option_de_payment_pro.prelevement_en_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent, prelevement_en_agence : e.target.value})}} value={option_de_payment_ent.prelevement_en_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent,
+                        prelevement_en_agence : e.target.value})}} value={option_de_payment_ent.prelevement_en_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
+
+
+                </div>
 
+                <hr />
 
-                    <hr/>
+                <div className="flex flex-col gap-[1vh]">
 
 
 
 
-                    <label className="text-[30px] font-semibold pl-6">Prelevement hors agence :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso ,prelevement_hors_agence : e.target.value})}} value={option_de_payment_perso.prelevement_hors_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Prelevement hors agence :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso
+                        ,prelevement_hors_agence : e.target.value})}}
+                        value={option_de_payment_perso.prelevement_hors_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro , prelevement_hors_agence : e.target.value})}} value={option_de_payment_pro.prelevement_hors_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro ,
+                        prelevement_hors_agence : e.target.value})}}
+                        value={option_de_payment_pro.prelevement_hors_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent, prelevement_hors_agence : e.target.value})}} value={option_de_payment_ent.prelevement_hors_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent,
+                        prelevement_hors_agence : e.target.value})}}
+                        value={option_de_payment_ent.prelevement_hors_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
 
 
-                    <hr/>
+                </div>
 
+                <hr />
 
+                <div className="flex flex-col gap-[1vh]">
 
 
-                    <label className="text-[30px] font-semibold pl-6">Retrait en agence :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso ,retraits_en_agence : e.target.value})}} value={option_de_payment_perso.retraits_en_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Retrait en agence :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso
+                        ,retraits_en_agence : e.target.value})}} value={option_de_payment_perso.retraits_en_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro , retraits_en_agence : e.target.value})}} value={option_de_payment_pro.retraits_en_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro ,
+                        retraits_en_agence : e.target.value})}} value={option_de_payment_pro.retraits_en_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent, retraits_en_agence : e.target.value})}} value={option_de_payment_ent.retraits_en_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent,
+                        retraits_en_agence : e.target.value})}} value={option_de_payment_ent.retraits_en_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
+
 
 
 
+                </div>
 
-                    <hr/>
+                <hr />
 
+                <div className="flex flex-col gap-[1vh]">
 
 
 
 
-                    <label className="text-[30px] font-semibold pl-6">Retrait hors agence :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso ,retraits_hors_agence : e.target.value})}} value={option_de_payment_perso.retraits_hors_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Retrait hors agence :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso
+                        ,retraits_hors_agence : e.target.value})}} value={option_de_payment_perso.retraits_hors_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro , retraits_hors_agence : e.target.value})}} value={option_de_payment_pro.retraits_hors_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro ,
+                        retraits_hors_agence : e.target.value})}} value={option_de_payment_pro.retraits_hors_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent, retraits_hors_agence : e.target.value})}} value={option_de_payment_ent.retraits_hors_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent,
+                        retraits_hors_agence : e.target.value})}} value={option_de_payment_ent.retraits_hors_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
+
+
 
 
+                </div>
 
+                <hr />
 
-                                        <hr/>
+                <div className="flex flex-col gap-[1vh]">
 
 
 
 
-                    <label className="text-[30px] font-semibold pl-6">Paiment cheque en agence :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso ,payment_cheque_en_agence : e.target.value})}} value={option_de_payment_perso.payment_cheque_en_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Paiment cheque en agence :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso
+                        ,payment_cheque_en_agence : e.target.value})}}
+                        value={option_de_payment_perso.payment_cheque_en_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro , payment_cheque_en_agence : e.target.value})}} value={option_de_payment_pro.payment_cheque_en_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro ,
+                        payment_cheque_en_agence : e.target.value})}}
+                        value={option_de_payment_pro.payment_cheque_en_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent, payment_cheque_en_agence : e.target.value})}} value={option_de_payment_ent.payment_cheque_en_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent,
+                        payment_cheque_en_agence : e.target.value})}}
+                        value={option_de_payment_ent.payment_cheque_en_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
 
 
 
-                    <hr/>
+                </div>
 
+                <hr />
 
+                <div className="flex flex-col gap-[1vh]">
 
-                    <label className="text-[30px] font-semibold pl-6">Paiment cheque hors agence :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ." onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso ,payment_cheque_hors_agence : e.target.value})}} value={option_de_payment_perso.payment_cheque_hors_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Paiment cheque hors agence :</label>
+                    <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso
+                        ,payment_cheque_hors_agence : e.target.value})}}
+                        value={option_de_payment_perso.payment_cheque_hors_agence} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro , payment_cheque_hors_agence : e.target.value})}} value={option_de_payment_pro.payment_cheque_hors_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro ,
+                        payment_cheque_hors_agence : e.target.value})}}
+                        value={option_de_payment_pro.payment_cheque_hors_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent, payment_cheque_hors_agence : e.target.value})}} value={option_de_payment_ent.payment_cheque_hors_agence} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent,
+                        payment_cheque_hors_agence : e.target.value})}}
+                        value={option_de_payment_ent.payment_cheque_hors_agence}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
+
 
+                </div>
 
-                    <hr/>
+                <hr />
 
+                <div className="flex flex-col gap-[1vh]">
 
 
 
-                    <label className="text-[30px] font-semibold pl-6">Vente devise :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso ,vente_devise : e.target.value})}} value={option_de_payment_perso.vente_devise} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Vente devise :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso
+                        ,vente_devise : e.target.value})}} value={option_de_payment_perso.vente_devise}
+                        className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro , vente_devise : e.target.value})}} value={option_de_payment_pro.vente_devise} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro ,
+                        vente_devise : e.target.value})}} value={option_de_payment_pro.vente_devise} className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent, vente_devise : e.target.value})}} value={option_de_payment_ent.vente_devise} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent,
+                        vente_devise : e.target.value})}} value={option_de_payment_ent.vente_devise} className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
+
+
+                </div>
 
+                <hr />
 
-                    <hr/>
+                <div className="flex flex-col gap-[1vh]">
 
 
 
 
-                    <label className="text-[30px] font-semibold pl-6">Achat devise :</label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso ,achat_devise : e.target.value})}} value={option_de_payment_perso.achat_devise} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Achat devise :</label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_option_de_payment_perso({...option_de_payment_perso
+                        ,achat_devise : e.target.value})}} value={option_de_payment_perso.achat_devise}
+                        className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro , achat_devise : e.target.value})}} value={option_de_payment_pro.achat_devise} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_option_de_payment_pro({...option_de_payment_pro ,
+                        achat_devise : e.target.value})}} value={option_de_payment_pro.achat_devise} className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent, achat_devise : e.target.value})}} value={option_de_payment_ent.achat_devise} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_option_de_payment_ent({...option_de_payment_ent,
+                        achat_devise : e.target.value})}} value={option_de_payment_ent.achat_devise} className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
 
 
 
                     {/**MOEYN DE PAIMENT */}
-                    
-
-                    <label className="text-[40px] font-semibold pl-6">Moyen de paiment : </label><br />
-                    <label className="text-[30px] font-semibold pl-6"></label>Creation carte bancaire : <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_moyen_de_paiment_perso({...moyens_de_payment_perso ,creation_bank_card : e.target.value })}} value={moyens_de_payment_perso.creation_bank_card} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_moyen_de_paiment_pro({...moyens_de_payment_pro ,creation_bank_card : e.target.value })}} value={moyens_de_payment_pro.creation_bank_card} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_moyen_de_paiment_ent({...moyens_de_payment_ent,creation_bank_card : e.target.value})}} value={moyens_de_payment_ent.creation_bank_card} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div>
 
 
-
-                    <hr/>
-
-                    <label className="text-[30px] font-semibold pl-6"></label>Renouvelement carte bancaire : <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_moyen_de_paiment_perso({...moyens_de_payment_perso ,renouvelement_bank_card : e.target.value})}} value={moyens_de_payment_perso.renouvelement_bank_card} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[40px] font-semibold ">Moyen de paiment : </label><br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Creation carte bancaire : <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_moyen_de_paiment_perso({...moyens_de_payment_perso
+                        ,creation_bank_card : e.target.value })}} value={moyens_de_payment_perso.creation_bank_card}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_moyen_de_paiment_pro({...moyens_de_payment_pro ,renouvelement_bank_card : e.target.value })}} value={moyens_de_payment_pro.renouvelement_bank_card} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_moyen_de_paiment_pro({...moyens_de_payment_pro
+                        ,creation_bank_card : e.target.value })}} value={moyens_de_payment_pro.creation_bank_card}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_moyen_de_paiment_ent({...moyens_de_payment_ent,renouvelement_bank_card : e.target.value})}} value={moyens_de_payment_ent.renouvelement_bank_card} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_moyen_de_paiment_ent({...moyens_de_payment_ent,creation_bank_card :
+                        e.target.value})}} value={moyens_de_payment_ent.creation_bank_card} className="py-[2vh] w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
                     </div>
 
 
 
+                </div>
 
-                    <hr/>
+                <hr />
 
-                    <label className="text-[30px] font-semibold pl-6"></label>Remplacement carte bancaire : <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_moyen_de_paiment_perso({...moyens_de_payment_perso ,remplacement_bank_card : e.target.value})}} value={moyens_de_payment_perso.remplacement_bank_card} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]">
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Renouvelement carte bancaire :
+                    <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_moyen_de_paiment_perso({...moyens_de_payment_perso
+                        ,renouvelement_bank_card : e.target.value})}}
+                        value={moyens_de_payment_perso.renouvelement_bank_card}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_moyen_de_paiment_pro({...moyens_de_payment_pro ,remplacement_bank_card : e.target.value })}} value={moyens_de_payment_pro.remplacement_bank_card} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_moyen_de_paiment_pro({...moyens_de_payment_pro
+                        ,renouvelement_bank_card : e.target.value })}}
+                        value={moyens_de_payment_pro.renouvelement_bank_card}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_moyen_de_paiment_ent({...moyens_de_payment_ent,remplacement_bank_card : e.target.value})}} value={moyens_de_payment_ent.remplacement_bank_card} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div>
-
-
-
-                    <hr/>
-
-                    <label className="text-[30px] font-semibold pl-6"></label>Edition code confidentiel carte bancaire : <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_moyen_de_paiment_perso({...moyens_de_payment_perso ,edition_code_confidentiel_bank_card : e.target.value})}} value={moyens_de_payment_perso.edition_code_confidentiel_bank_card} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_moyen_de_paiment_pro({...moyens_de_payment_pro ,edition_code_confidentiel_bank_card : e.target.value })}} value={moyens_de_payment_pro.edition_code_confidentiel_bank_card} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_moyen_de_paiment_ent({...moyens_de_payment_ent,edition_code_confidentiel_bank_card : e.target.value})}} value={moyens_de_payment_ent.edition_code_confidentiel_bank_card} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_moyen_de_paiment_ent({...moyens_de_payment_ent,renouvelement_bank_card :
+                        e.target.value})}} value={moyens_de_payment_ent.renouvelement_bank_card} className="py-[2vh]
+                        w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
                     </div>
 
 
 
 
-                    <hr/>
+                </div>
 
-                    <label className="text-[30px] font-semibold pl-6"></label>Retrait intra-bancaire <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_moyen_de_paiment_perso({...moyens_de_payment_perso ,retrait_intra_bancaire : e.target.value})}} value={moyens_de_payment_perso.retrait_intra_bancaire} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Remplacement carte bancaire :
+                    <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_moyen_de_paiment_perso({...moyens_de_payment_perso
+                        ,remplacement_bank_card : e.target.value})}}
+                        value={moyens_de_payment_perso.remplacement_bank_card}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_moyen_de_paiment_pro({...moyens_de_payment_pro ,retrait_intra_bancaire : e.target.value })}} value={moyens_de_payment_pro.retrait_intra_bancaire} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_moyen_de_paiment_pro({...moyens_de_payment_pro
+                        ,remplacement_bank_card : e.target.value })}}
+                        value={moyens_de_payment_pro.remplacement_bank_card}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_moyen_de_paiment_ent({...moyens_de_payment_ent,retrait_intra_bancaire : e.target.value})}} value={moyens_de_payment_ent.retrait_intra_bancaire} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div>
-
-
-
-
-
-
-                    <hr/>
-
-                    <label className="text-[30px] font-semibold pl-6"></label>Retrait inter-bancaire <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_moyen_de_paiment_perso({...moyens_de_payment_perso ,retrait_inter_bancaire : e.target.value})}} value={moyens_de_payment_perso.retrait_inter_bancaire} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_moyen_de_paiment_pro({...moyens_de_payment_pro ,retrait_inter_bancaire : e.target.value })}} value={moyens_de_payment_pro.retrait_inter_bancaire} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_moyen_de_paiment_ent({...moyens_de_payment_ent, retrait_inter_bancaire : e.target.value})}} value={moyens_de_payment_ent.retrait_inter_bancaire} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_moyen_de_paiment_ent({...moyens_de_payment_ent,remplacement_bank_card :
+                        e.target.value})}} value={moyens_de_payment_ent.remplacement_bank_card} className="py-[2vh]
+                        w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
                     </div>
 
 
 
+                </div>
 
+                <hr />
 
-                    <hr/>
+                <div className="flex flex-col gap-[1vh]">
 
-                    <label className="text-[30px] font-semibold pl-6"></label>Creation carete VISA <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_moyen_de_paiment_perso({...moyens_de_payment_perso , creation_visa: e.target.value})}} value={moyens_de_payment_perso.creation_visa} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Edition code confidentiel carte
+                    bancaire
+                    : <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_moyen_de_paiment_perso({...moyens_de_payment_perso
+                        ,edition_code_confidentiel_bank_card : e.target.value})}}
+                        value={moyens_de_payment_perso.edition_code_confidentiel_bank_card} className="py-[2vh] w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_moyen_de_paiment_pro({...moyens_de_payment_pro ,creation_visa : e.target.value })}} value={moyens_de_payment_pro.creation_visa} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_moyen_de_paiment_pro({...moyens_de_payment_pro
+                        ,edition_code_confidentiel_bank_card : e.target.value })}}
+                        value={moyens_de_payment_pro.edition_code_confidentiel_bank_card} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_moyen_de_paiment_ent({...moyens_de_payment_ent,creation_visa : e.target.value})}} value={moyens_de_payment_ent.creation_visa} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div>
-
-
-
-
-
-                    <hr/>
-
-                    <label className="text-[30px] font-semibold pl-6"></label>Renouvelement de la carte VISA <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_moyen_de_paiment_perso({...moyens_de_payment_perso ,renouvelement_visa : e.target.value})}} value={moyens_de_payment_perso.renouvelement_visa} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_moyen_de_paiment_pro({...moyens_de_payment_pro ,renouvelement_visa : e.target.value })}} value={moyens_de_payment_pro.renouvelement_visa} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_moyen_de_paiment_ent({...moyens_de_payment_ent,renouvelement_visa : e.target.value})}} value={moyens_de_payment_ent.renouvelement_visa} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_moyen_de_paiment_ent({...moyens_de_payment_ent,edition_code_confidentiel_bank_card
+                        : e.target.value})}} value={moyens_de_payment_ent.edition_code_confidentiel_bank_card}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
 
 
 
 
-                    <hr/>
+                </div>
 
-                    <label className="text-[30px] font-semibold pl-6"></label>Remplacement de la carte VISA<br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_moyen_de_paiment_perso({...moyens_de_payment_perso ,remplacement_visa : e.target.value})}} value={moyens_de_payment_perso.remplacement_visa} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Retrait intra-bancaire <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_moyen_de_paiment_perso({...moyens_de_payment_perso
+                        ,retrait_intra_bancaire : e.target.value})}}
+                        value={moyens_de_payment_perso.retrait_intra_bancaire}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_moyen_de_paiment_pro({...moyens_de_payment_pro ,remplacement_visa : e.target.value })}} value={moyens_de_payment_pro.remplacement_visa} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_moyen_de_paiment_pro({...moyens_de_payment_pro
+                        ,retrait_intra_bancaire : e.target.value })}}
+                        value={moyens_de_payment_pro.retrait_intra_bancaire}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_moyen_de_paiment_ent({...moyens_de_payment_ent,remplacement_visa : e.target.value})}} value={moyens_de_payment_ent.remplacement_visa} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_moyen_de_paiment_ent({...moyens_de_payment_ent,retrait_intra_bancaire :
+                        e.target.value})}} value={moyens_de_payment_ent.retrait_intra_bancaire} className="py-[2vh]
+                        w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
                     </div>
 
 
 
 
 
-                    <hr/>
 
-                    <label className="text-[30px] font-semibold pl-6"></label>Edition code confidentiel carte VISA <br/>
-                    <label className="text-[30px] font-semibold pl-6">Personnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_moyen_de_paiment_perso({...moyens_de_payment_perso ,edition_code_confidentiel_visa : e.target.value})}} value={moyens_de_payment_perso.edition_code_confidentiel_visa} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Retrait inter-bancaire <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_moyen_de_paiment_perso({...moyens_de_payment_perso
+                        ,retrait_inter_bancaire : e.target.value})}}
+                        value={moyens_de_payment_perso.retrait_inter_bancaire}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_moyen_de_paiment_pro({...moyens_de_payment_pro ,edition_code_confidentiel_visa : e.target.value })}} value={moyens_de_payment_pro.edition_code_confidentiel_visa} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_moyen_de_paiment_pro({...moyens_de_payment_pro
+                        ,retrait_inter_bancaire : e.target.value })}}
+                        value={moyens_de_payment_pro.retrait_inter_bancaire}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_moyen_de_paiment_ent({...moyens_de_payment_ent,edition_code_confidentiel_visa : e.target.value})}} value={moyens_de_payment_ent.edition_code_confidentiel_visa} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_moyen_de_paiment_ent({...moyens_de_payment_ent,
+                        retrait_inter_bancaire : e.target.value})}} value={moyens_de_payment_ent.retrait_inter_bancaire}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
 
 
-                    {/*PRET ET CREDIT---------------------------------------------------------------------------------------------------------------------------*/}
-                    <label className="text-[40px] font-semibold pl-6">Prèt et Crédits : </label><br />
-                    <label className="text-[30px] font-semibold pl-6"></label>Découvert durée : <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_prets_et_credits_perso({...prets_et_credits_perso ,decouvert_duree : e.target.value})}} value={prets_et_credits_perso.decouvert_duree} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+
+
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Creation carete VISA <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_moyen_de_paiment_perso({...moyens_de_payment_perso ,
+                        creation_visa: e.target.value})}} value={moyens_de_payment_perso.creation_visa}
+                        className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_prets_et_credits_pro({...prets_et_credits_pro ,decouvert_duree : e.target.value})}} value={prets_et_credits_pro.decouvert_duree} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_moyen_de_paiment_pro({...moyens_de_payment_pro
+                        ,creation_visa : e.target.value })}} value={moyens_de_payment_pro.creation_visa}
+                        className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_prets_et_credits_ent({...prets_et_credits_ent,decouvert_duree : e.target.value})}} value={prets_et_credits_ent.decouvert_duree} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
-
-
-
-
-
-                    <label className="text-[30px] font-semibold pl-6"></label>Découvert taux : <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_prets_et_credits_perso({...prets_et_credits_perso ,decouvert_taux : e.target.value})}} value={prets_et_credits_perso.decouvert_taux} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_moyen_de_paiment_ent({...moyens_de_payment_ent,creation_visa :
+                        e.target.value})}} value={moyens_de_payment_ent.creation_visa} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_prets_et_credits_pro({...prets_et_credits_pro ,decouvert_taux : e.target.value})}} value={prets_et_credits_pro.decouvert_taux} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+
+
+
+
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Renouvelement de la carte VISA
+                    <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_moyen_de_paiment_perso({...moyens_de_payment_perso
+                        ,renouvelement_visa : e.target.value})}} value={moyens_de_payment_perso.renouvelement_visa}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_prets_et_credits_ent({...prets_et_credits_ent,decouvert_taux : e.target.value})}} value={prets_et_credits_ent.decouvert_taux} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
-
-
-
-
-
-                    <label className="text-[30px] font-semibold pl-6"></label>Taux crédit a court terme : <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_prets_et_credits_perso({...prets_et_credits_perso ,credit_court_terme_taux : e.target.value})}} value={prets_et_credits_perso.credit_court_terme_taux} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_moyen_de_paiment_pro({...moyens_de_payment_pro
+                        ,renouvelement_visa : e.target.value })}} value={moyens_de_payment_pro.renouvelement_visa}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_prets_et_credits_pro({...prets_et_credits_pro ,credit_court_terme_taux : e.target.value})}} value={prets_et_credits_pro.credit_court_terme_taux} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_moyen_de_paiment_ent({...moyens_de_payment_ent,renouvelement_visa :
+                        e.target.value})}} value={moyens_de_payment_ent.renouvelement_visa} className="py-[2vh] w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_prets_et_credits_ent({...prets_et_credits_ent,credit_court_terme_taux : e.target.value})}} value={prets_et_credits_ent.credit_court_terme_taux} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
 
 
 
 
+                </div>
 
+                <hr />
 
-                    <label className="text-[30px] font-semibold pl-6"></label>Taux crédit a terme moyen : <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_prets_et_credits_perso({...prets_et_credits_perso ,credit_moyen_terme_taux : e.target.value})}} value={prets_et_credits_perso.credit_moyen_terme_taux} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <div className="flex flex-col gap-[1vh]">
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Remplacement de la carte
+                    VISA<br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_moyen_de_paiment_perso({...moyens_de_payment_perso
+                        ,remplacement_visa : e.target.value})}} value={moyens_de_payment_perso.remplacement_visa}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_prets_et_credits_pro({...prets_et_credits_pro ,credit_moyen_terme_taux : e.target.value})}} value={prets_et_credits_pro.credit_moyen_terme_taux} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_moyen_de_paiment_pro({...moyens_de_payment_pro
+                        ,remplacement_visa : e.target.value })}} value={moyens_de_payment_pro.remplacement_visa}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_prets_et_credits_ent({...prets_et_credits_ent,credit_moyen_terme_taux : e.target.value})}} value={prets_et_credits_ent.credit_moyen_terme_taux} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
-
-
-
-
-
-
-
-
-                    <label className="text-[30px] font-semibold pl-6"></label>Taux crédit long terme : <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_prets_et_credits_perso({...prets_et_credits_perso ,credit_long_terme_taux : e.target.value})}} value={prets_et_credits_perso.credit_long_terme_taux} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_moyen_de_paiment_ent({...moyens_de_payment_ent,remplacement_visa :
+                        e.target.value})}} value={moyens_de_payment_ent.remplacement_visa} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_prets_et_credits_pro({...prets_et_credits_pro ,credit_long_terme_taux : e.target.value})}} value={prets_et_credits_pro.credit_long_terme_taux} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+
+
+
+
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Edition code confidentiel carte
+                    VISA
+                    <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Personnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_moyen_de_paiment_perso({...moyens_de_payment_perso
+                        ,edition_code_confidentiel_visa : e.target.value})}}
+                        value={moyens_de_payment_perso.edition_code_confidentiel_visa} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_prets_et_credits_ent({...prets_et_credits_ent,credit_long_terme_taux : e.target.value})}} value={prets_et_credits_ent.credit_long_terme_taux} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
-
-
-
-
-
-
-
-
-                    <label className="text-[30px] font-semibold pl-6"></label>Option possible :<br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_prets_et_credits_perso({...prets_et_credits_perso ,options_possibles : e.target.value})}} value={prets_et_credits_perso.options_possibles} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_moyen_de_paiment_pro({...moyens_de_payment_pro
+                        ,edition_code_confidentiel_visa : e.target.value })}}
+                        value={moyens_de_payment_pro.edition_code_confidentiel_visa} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_prets_et_credits_pro({...prets_et_credits_pro ,options_possibles : e.target.value})}} value={prets_et_credits_pro.options_possibles} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_moyen_de_paiment_ent({...moyens_de_payment_ent,edition_code_confidentiel_visa
+                        :
+                        e.target.value})}} value={moyens_de_payment_ent.edition_code_confidentiel_visa}
+                        className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_prets_et_credits_ent({...prets_et_credits_ent,options_possibles : e.target.value})}} value={prets_et_credits_ent.options_possibles} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
+
+
+                    {/*PRET ET
+                    CREDIT---------------------------------------------------------------------------------------------------------------------------*/}
+                    <label className="text-[40px] font-semibold ">Prèt et Crédits : </label><br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Découvert durée : <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_prets_et_credits_perso({...prets_et_credits_perso
+                        ,decouvert_duree : e.target.value})}} value={prets_et_credits_perso.decouvert_duree}
+                        className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_prets_et_credits_pro({...prets_et_credits_pro
+                        ,decouvert_duree : e.target.value})}} value={prets_et_credits_pro.decouvert_duree}
+                        className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_prets_et_credits_ent({...prets_et_credits_ent,decouvert_duree :
+                        e.target.value})}} value={prets_et_credits_ent.decouvert_duree} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
+
+
+
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Découvert taux : <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_prets_et_credits_perso({...prets_et_credits_perso
+                        ,decouvert_taux : e.target.value})}} value={prets_et_credits_perso.decouvert_taux}
+                        className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_prets_et_credits_pro({...prets_et_credits_pro
+                        ,decouvert_taux : e.target.value})}} value={prets_et_credits_pro.decouvert_taux}
+                        className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_prets_et_credits_ent({...prets_et_credits_ent,decouvert_taux :
+                        e.target.value})}} value={prets_et_credits_ent.decouvert_taux} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
+
+
+
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Taux crédit a court terme :
+                    <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_prets_et_credits_perso({...prets_et_credits_perso
+                        ,credit_court_terme_taux : e.target.value})}}
+                        value={prets_et_credits_perso.credit_court_terme_taux}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_prets_et_credits_pro({...prets_et_credits_pro
+                        ,credit_court_terme_taux : e.target.value})}}
+                        value={prets_et_credits_pro.credit_court_terme_taux}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_prets_et_credits_ent({...prets_et_credits_ent,credit_court_terme_taux :
+                        e.target.value})}} value={prets_et_credits_ent.credit_court_terme_taux} className="py-[2vh]
+                        w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
+                    </div>
+
+
+
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+
+
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Taux crédit a terme moyen :
+                    <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_prets_et_credits_perso({...prets_et_credits_perso
+                        ,credit_moyen_terme_taux : e.target.value})}}
+                        value={prets_et_credits_perso.credit_moyen_terme_taux}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_prets_et_credits_pro({...prets_et_credits_pro
+                        ,credit_moyen_terme_taux : e.target.value})}}
+                        value={prets_et_credits_pro.credit_moyen_terme_taux}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_prets_et_credits_ent({...prets_et_credits_ent,credit_moyen_terme_taux :
+                        e.target.value})}} value={prets_et_credits_ent.credit_moyen_terme_taux} className="py-[2vh]
+                        w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
+                    </div>
+
+
+
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+
+
+
+
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Taux crédit long terme : <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_prets_et_credits_perso({...prets_et_credits_perso
+                        ,credit_long_terme_taux : e.target.value})}}
+                        value={prets_et_credits_perso.credit_long_terme_taux}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_prets_et_credits_pro({...prets_et_credits_pro
+                        ,credit_long_terme_taux : e.target.value})}} value={prets_et_credits_pro.credit_long_terme_taux}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_prets_et_credits_ent({...prets_et_credits_ent,credit_long_terme_taux :
+                        e.target.value})}} value={prets_et_credits_ent.credit_long_terme_taux} className="py-[2vh]
+                        w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
+                    </div>
+
+
+
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+
+
+
+
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Option possible :<br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_prets_et_credits_perso({...prets_et_credits_perso
+                        ,options_possibles : e.target.value})}} value={prets_et_credits_perso.options_possibles}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_prets_et_credits_pro({...prets_et_credits_pro
+                        ,options_possibles : e.target.value})}} value={prets_et_credits_pro.options_possibles}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_prets_et_credits_ent({...prets_et_credits_ent,options_possibles :
+                        e.target.value})}} value={prets_et_credits_ent.options_possibles} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
+
+
+
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
 
 
 
                     {/*PLACEMENT---------------------------------------------------------------------------------------------------------------------------*/}
-                    <label className="text-[40px] font-semibold pl-6">Placement : </label><br />
-                    <label className="text-[30px] font-semibold pl-6"></label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_placement_perso({...placement_perso ,depots_a_court_terme : e.target.value})}} value={placement_perso.depots_a_court_terme} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[40px] font-semibold ">Placement : </label><br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ." onChange={(e)=>{set_placement_perso({...placement_perso
+                        ,depots_a_court_terme : e.target.value})}} value={placement_perso.depots_a_court_terme}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_placement_pro({...placement_pro ,depots_a_court_terme : e.target.value})}} value={placement_pro.depots_a_court_terme} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_placement_pro({...placement_pro
+                        ,depots_a_court_terme :
+                        e.target.value})}} value={placement_pro.depots_a_court_terme} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_placement_ent({...placement_ent,depots_a_court_terme : e.target.value})}} value={placement_ent.depots_a_court_terme} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
-
-
-                    <label className="text-[30px] font-semibold pl-6"></label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_placement_perso({...placement_perso ,depots_a_moyen_terme : e.target.value})}} value={placement_perso.depots_a_moyen_terme} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_placement_ent({...placement_ent,depots_a_court_terme :
+                        e.target.value})}} value={placement_ent.depots_a_court_terme} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_placement_pro({...placement_pro ,depots_a_moyen_terme : e.target.value})}} value={placement_pro.depots_a_moyen_terme} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_placement_ent({...placement_ent,depots_a_moyen_terme : e.target.value})}} value={placement_ent.depots_a_moyen_terme} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
 
 
 
-                    <label className="text-[30px] font-semibold pl-6"></label> <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_placement_perso({...placement_perso ,depots_a_long_terme : e.target.value})}} value={placement_perso.depots_a_long_terme} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ." onChange={(e)=>{set_placement_perso({...placement_perso
+                        ,depots_a_moyen_terme : e.target.value})}} value={placement_perso.depots_a_moyen_terme}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_placement_pro({...placement_pro ,depots_a_long_terme : e.target.value})}} value={placement_pro.depots_a_long_terme} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_placement_pro({...placement_pro
+                        ,depots_a_moyen_terme :
+                        e.target.value})}} value={placement_pro.depots_a_moyen_terme} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_placement_ent({...placement_ent,depots_a_long_terme : e.target.value})}} value={placement_ent.depots_a_long_terme} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..."
+                            onChange={(e)=>{set_placement_ent({...placement_ent,depots_a_moyen_terme :
+                        e.target.value})}} value={placement_ent.depots_a_moyen_terme} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
+
+
+
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label> <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ." onChange={(e)=>{set_placement_perso({...placement_perso
+                        ,depots_a_long_terme : e.target.value})}} value={placement_perso.depots_a_long_terme}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_placement_pro({...placement_pro
+                        ,depots_a_long_terme :
+                        e.target.value})}} value={placement_pro.depots_a_long_terme} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_placement_ent({...placement_ent,depots_a_long_terme
+                        :
+                        e.target.value})}} value={placement_ent.depots_a_long_terme} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
+
+
                     {/*EPARGNE---------------------------------------------------------------------------------------------------------------------------*/}
-                    <label className="text-[40px] font-semibold pl-6">Epargne : </label><br />                   
-                    <label className="text-[30px] font-semibold pl-6"></label>Epargne duree taux 01 : <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_epargne_perso({...epargne_perso , epargne_duree_taux_01 : e.target.value})}} value={epargne_perso.epargne_duree_taux_01} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[40px] font-semibold ">Epargne : </label><br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Epargne duree taux 01 : <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ." onChange={(e)=>{set_epargne_perso({...epargne_perso ,
+                        epargne_duree_taux_01
+                        : e.target.value})}} value={epargne_perso.epargne_duree_taux_01} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_epargne_pro({...epargne_pro , epargne_duree_taux_01 : e.target.value})}} value={epargne_pro.epargne_duree_taux_01} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_epargne_pro({...epargne_pro ,
+                        epargne_duree_taux_01 :
+                        e.target.value})}} value={epargne_pro.epargne_duree_taux_01} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_epargne_ent({...epargne_ent , epargne_duree_taux_01 : e.target.value})}} value={epargne_ent.epargne_duree_taux_01} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
-
-
-
-
-                    <label className="text-[30px] font-semibold pl-6"></label>Epargne duree taux 02 :  <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_epargne_perso({...epargne_perso , epargne_duree_taux_02 : e.target.value})}} value={epargne_perso.epargne_duree_taux_02} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_epargne_ent({...epargne_ent , epargne_duree_taux_01
+                        :
+                        e.target.value})}} value={epargne_ent.epargne_duree_taux_01} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_epargne_pro({...epargne_pro , epargne_duree_taux_02 : e.target.value})}} value={epargne_pro.epargne_duree_taux_02} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+
+
+
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Epargne duree taux 02 : <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ." onChange={(e)=>{set_epargne_perso({...epargne_perso ,
+                        epargne_duree_taux_02
+                        : e.target.value})}} value={epargne_perso.epargne_duree_taux_02} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_epargne_ent({...epargne_ent , epargne_duree_taux_02 : e.target.value})}} value={epargne_ent.epargne_duree_taux_02} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
-
-
-
-
-                    <label className="text-[30px] font-semibold pl-6"></label>Epargne duree taux 03 : <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_epargne_perso({...epargne_perso , epargne_duree_taux_03 : e.target.value})}} value={epargne_perso.epargne_duree_taux_03} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_epargne_pro({...epargne_pro ,
+                        epargne_duree_taux_02 :
+                        e.target.value})}} value={epargne_pro.epargne_duree_taux_02} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_epargne_pro({...epargne_pro , epargne_duree_taux_03 : e.target.value})}} value={epargne_pro.epargne_duree_taux_03} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_epargne_ent({...epargne_ent , epargne_duree_taux_02
+                        :
+                        e.target.value})}} value={epargne_ent.epargne_duree_taux_02} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_epargne_ent({...epargne_ent , epargne_duree_taux_03 : e.target.value})}} value={epargne_ent.epargne_duree_taux_03} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
 
 
 
 
-                    <label className="text-[30px] font-semibold pl-6"></label>Epargne duree taux 04 :  <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_epargne_perso({...epargne_perso , epargne_duree_taux_04 : e.target.value})}} value={epargne_perso.epargne_duree_taux_04} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Epargne duree taux 03 : <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ." onChange={(e)=>{set_epargne_perso({...epargne_perso ,
+                        epargne_duree_taux_03
+                        : e.target.value})}} value={epargne_perso.epargne_duree_taux_03} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_epargne_pro({...epargne_pro , epargne_duree_taux_04 : e.target.value})}} value={epargne_pro.epargne_duree_taux_04} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_epargne_pro({...epargne_pro ,
+                        epargne_duree_taux_03 :
+                        e.target.value})}} value={epargne_pro.epargne_duree_taux_03} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_epargne_ent({...epargne_ent , epargne_duree_taux_04 : e.target.value})}} value={epargne_ent.epargne_duree_taux_04} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
-
-
-
-
-
-                    <label className="text-[30px] font-semibold pl-6"></label>Epargne duree taux 05 :  <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_epargne_perso({...epargne_perso , epargne_duree_taux_05 : e.target.value})}} value={epargne_perso.epargne_duree_taux_05} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_epargne_ent({...epargne_ent , epargne_duree_taux_03
+                        :
+                        e.target.value})}} value={epargne_ent.epargne_duree_taux_03} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_epargne_pro({...epargne_pro , epargne_duree_taux_05 : e.target.value})}} value={epargne_pro.epargne_duree_taux_05} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+
+
+
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Epargne duree taux 04 : <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ." onChange={(e)=>{set_epargne_perso({...epargne_perso ,
+                        epargne_duree_taux_04
+                        : e.target.value})}} value={epargne_perso.epargne_duree_taux_04} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_epargne_ent({...epargne_ent , epargne_duree_taux_05 : e.target.value})}} value={epargne_ent.epargne_duree_taux_05} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
-
-
-
-
-
-
-                    <label className="text-[30px] font-semibold pl-6"></label>Epargne duree taux 06 :  <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_epargne_perso({...epargne_perso , epargne_duree_taux_06 : e.target.value})}} value={epargne_perso.epargne_duree_taux_06} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_epargne_pro({...epargne_pro ,
+                        epargne_duree_taux_04 :
+                        e.target.value})}} value={epargne_pro.epargne_duree_taux_04} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_epargne_pro({...epargne_pro , epargne_duree_taux_06 : e.target.value})}} value={epargne_pro.epargne_duree_taux_06} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_epargne_ent({...epargne_ent , epargne_duree_taux_04
+                        :
+                        e.target.value})}} value={epargne_ent.epargne_duree_taux_04} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_epargne_ent({...epargne_ent , epargne_duree_taux_06 : e.target.value})}} value={epargne_ent.epargne_duree_taux_06} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
 
 
 
 
+                </div>
 
-                    <label className="text-[30px] font-semibold pl-6"></label>Epargne duree taux 07 :  <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_epargne_perso({...epargne_perso , epargne_duree_taux_07 : e.target.value})}} value={epargne_perso.epargne_duree_taux_07} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Epargne duree taux 05 : <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ." onChange={(e)=>{set_epargne_perso({...epargne_perso ,
+                        epargne_duree_taux_05
+                        : e.target.value})}} value={epargne_perso.epargne_duree_taux_05} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_epargne_pro({...epargne_pro , epargne_duree_taux_07 : e.target.value})}} value={epargne_pro.epargne_duree_taux_07} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_epargne_pro({...epargne_pro ,
+                        epargne_duree_taux_05 :
+                        e.target.value})}} value={epargne_pro.epargne_duree_taux_05} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_epargne_ent({...epargne_ent , epargne_duree_taux_07 : e.target.value})}} value={epargne_ent.epargne_duree_taux_07} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
-
-
-
-
-
-                    <label className="text-[30px] font-semibold pl-6"></label>Epargne duree taux 08 :  <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_epargne_perso({...epargne_perso , epargne_duree_taux_08 : e.target.value})}} value={epargne_perso.epargne_duree_taux_08} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_epargne_ent({...epargne_ent , epargne_duree_taux_05
+                        :
+                        e.target.value})}} value={epargne_ent.epargne_duree_taux_05} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_epargne_pro({...epargne_pro , epargne_duree_taux_08 : e.target.value})}} value={epargne_pro.epargne_duree_taux_08} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+
+
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Epargne duree taux 06 : <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ." onChange={(e)=>{set_epargne_perso({...epargne_perso ,
+                        epargne_duree_taux_06
+                        : e.target.value})}} value={epargne_perso.epargne_duree_taux_06} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_epargne_ent({...epargne_ent , epargne_duree_taux_08 : e.target.value})}} value={epargne_ent.epargne_duree_taux_08} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
-
-
-
-
-
-
-                    <label className="text-[30px] font-semibold pl-6"></label>Epargne duree taux 09 :  <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_epargne_perso({...epargne_perso , epargne_duree_taux_09 : e.target.value})}} value={epargne_perso.epargne_duree_taux_09} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_epargne_pro({...epargne_pro ,
+                        epargne_duree_taux_06 :
+                        e.target.value})}} value={epargne_pro.epargne_duree_taux_06} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_epargne_pro({...epargne_pro , epargne_duree_taux_09 : e.target.value})}} value={epargne_pro.epargne_duree_taux_09} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_epargne_ent({...epargne_ent , epargne_duree_taux_06
+                        :
+                        e.target.value})}} value={epargne_ent.epargne_duree_taux_06} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_epargne_ent({...epargne_ent , epargne_duree_taux_09 : e.target.value})}} value={epargne_ent.epargne_duree_taux_09} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
+
+
+
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
 
 
 
 
 
-
-
-                    <label className="text-[30px] font-semibold pl-6"></label>Epargne duree taux 10 :  <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_epargne_perso({...epargne_perso , epargne_duree_taux_10 : e.target.value})}} value={epargne_perso.epargne_duree_taux_10} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Epargne duree taux 07 : <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ." onChange={(e)=>{set_epargne_perso({...epargne_perso ,
+                        epargne_duree_taux_07
+                        : e.target.value})}} value={epargne_perso.epargne_duree_taux_07} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_epargne_pro({...epargne_pro , epargne_duree_taux_10 : e.target.value})}} value={epargne_pro.epargne_duree_taux_10} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_epargne_pro({...epargne_pro ,
+                        epargne_duree_taux_07 :
+                        e.target.value})}} value={epargne_pro.epargne_duree_taux_07} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_epargne_ent({...epargne_ent , epargne_duree_taux_10 : e.target.value})}} value={epargne_ent.epargne_duree_taux_10} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_epargne_ent({...epargne_ent , epargne_duree_taux_07
+                        :
+                        e.target.value})}} value={epargne_ent.epargne_duree_taux_07} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
+
+
+
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Epargne duree taux 08 : <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ." onChange={(e)=>{set_epargne_perso({...epargne_perso ,
+                        epargne_duree_taux_08
+                        : e.target.value})}} value={epargne_perso.epargne_duree_taux_08} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_epargne_pro({...epargne_pro ,
+                        epargne_duree_taux_08 :
+                        e.target.value})}} value={epargne_pro.epargne_duree_taux_08} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_epargne_ent({...epargne_ent , epargne_duree_taux_08
+                        :
+                        e.target.value})}} value={epargne_ent.epargne_duree_taux_08} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
+
+
+
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+
+
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Epargne duree taux 09 : <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ." onChange={(e)=>{set_epargne_perso({...epargne_perso ,
+                        epargne_duree_taux_09
+                        : e.target.value})}} value={epargne_perso.epargne_duree_taux_09} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_epargne_pro({...epargne_pro ,
+                        epargne_duree_taux_09 :
+                        e.target.value})}} value={epargne_pro.epargne_duree_taux_09} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_epargne_ent({...epargne_ent , epargne_duree_taux_09
+                        :
+                        e.target.value})}} value={epargne_ent.epargne_duree_taux_09} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
+
+
+
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+
+
+
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Epargne duree taux 10 : <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ." onChange={(e)=>{set_epargne_perso({...epargne_perso ,
+                        epargne_duree_taux_10
+                        : e.target.value})}} value={epargne_perso.epargne_duree_taux_10} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_epargne_pro({...epargne_pro ,
+                        epargne_duree_taux_10 :
+                        e.target.value})}} value={epargne_pro.epargne_duree_taux_10} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_epargne_ent({...epargne_ent , epargne_duree_taux_10
+                        :
+                        e.target.value})}} value={epargne_ent.epargne_duree_taux_10} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
+
+
+
+
                     {/*EPARGNE---------------------------------------------------------------------------------------------------------------------------*/}
-                    <label className="text-[40px] font-semibold pl-6">Coffre Fort : </label><br />     
-                    <label className="text-[30px] font-semibold pl-6"></label>Petit : <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_coffre_fort_perso({...coffre_fort_perso ,petit : e.target.value})}} value={coffre_fort_perso.petit} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[40px] font-semibold ">Coffre Fort : </label><br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Petit : <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ." onChange={(e)=>{set_coffre_fort_perso({...coffre_fort_perso ,petit
+                        :
+                        e.target.value})}} value={coffre_fort_perso.petit} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_coffre_fort_pro({...coffre_fort_pro ,petit : e.target.value})}} value={coffre_fort_pro.petit} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_coffre_fort_pro({...coffre_fort_pro ,petit :
+                        e.target.value})}} value={coffre_fort_pro.petit} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_coffre_fort_ent({...coffre_fort_ent ,petit : e.target.value})}} value={coffre_fort_ent.petit} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
-
-
-                    <label className="text-[30px] font-semibold pl-6"></label>Moyen : <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_coffre_fort_perso({...coffre_fort_perso ,moyen : e.target.value})}} value={coffre_fort_perso.moyen} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_coffre_fort_ent({...coffre_fort_ent ,petit :
+                        e.target.value})}} value={coffre_fort_ent.petit} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_coffre_fort_pro({...coffre_fort_pro ,moyen : e.target.value})}} value={coffre_fort_pro.moyen} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_coffre_fort_ent({...coffre_fort_ent ,moyen : e.target.value})}} value={coffre_fort_ent.moyen} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
 
 
 
-                    <label className="text-[30px] font-semibold pl-6"></label>Grand :<br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_coffre_fort_perso({...coffre_fort_perso ,grand : e.target.value})}} value={coffre_fort_perso.grand} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Moyen : <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ." onChange={(e)=>{set_coffre_fort_perso({...coffre_fort_perso ,moyen
+                        :
+                        e.target.value})}} value={coffre_fort_perso.moyen} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_coffre_fort_pro({...coffre_fort_pro ,grand : e.target.value})}} value={coffre_fort_pro.grand} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_coffre_fort_pro({...coffre_fort_pro ,moyen :
+                        e.target.value})}} value={coffre_fort_pro.moyen} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_coffre_fort_ent({...coffre_fort_ent ,grand : e.target.value})}} value={coffre_fort_ent.grand} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_coffre_fort_ent({...coffre_fort_ent ,moyen :
+                        e.target.value})}} value={coffre_fort_ent.moyen} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
 
 
 
-                    <label className="text-[30px] font-semibold pl-6"></label>Cautionnement :<br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_coffre_fort_perso({...coffre_fort_perso ,cautionnement : e.target.value})}} value={coffre_fort_perso.cautionnement} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Grand :<br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ." onChange={(e)=>{set_coffre_fort_perso({...coffre_fort_perso ,grand
+                        :
+                        e.target.value})}} value={coffre_fort_perso.grand} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_coffre_fort_pro({...coffre_fort_pro ,cautionnement : e.target.value})}} value={coffre_fort_pro.cautionnement} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_coffre_fort_pro({...coffre_fort_pro ,grand :
+                        e.target.value})}} value={coffre_fort_pro.grand} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_coffre_fort_ent({...coffre_fort_ent ,cautionnement : e.target.value})}} value={coffre_fort_ent.cautionnement} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_coffre_fort_ent({...coffre_fort_ent ,grand :
+                        e.target.value})}} value={coffre_fort_ent.grand} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
+
+
+
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Cautionnement :<br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ." onChange={(e)=>{set_coffre_fort_perso({...coffre_fort_perso
+                        ,cautionnement
+                        : e.target.value})}} value={coffre_fort_perso.cautionnement} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....." onChange={(e)=>{set_coffre_fort_pro({...coffre_fort_pro
+                        ,cautionnement :
+                        e.target.value})}} value={coffre_fort_pro.cautionnement} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_coffre_fort_ent({...coffre_fort_ent ,cautionnement
+                        :
+                        e.target.value})}} value={coffre_fort_ent.cautionnement} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
+
+
+
+
                     {/*EPARGNE---------------------------------------------------------------------------------------------------------------------------*/}
-                    <label className="text-[40px] font-semibold pl-6">Financement externe : </label><br />     
-                    <label className="text-[30px] font-semibold pl-6"></label>Encaissement cheque etranger : <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_financement_externe_perso({...financement_externe_perso ,encaissement_cheque_etranger : e.target.value})}} value={financement_externe_perso.encaissement_cheque_etranger} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[40px] font-semibold ">Financement externe : </label><br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Encaissement cheque etranger :
+                    <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_financement_externe_perso({...financement_externe_perso
+                        ,encaissement_cheque_etranger : e.target.value})}}
+                        value={financement_externe_perso.encaissement_cheque_etranger} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_financement_externe_pro({...financement_externe_pro , encaissement_cheque_etranger: e.target.value})}} value={financement_externe_pro.encaissement_cheque_etranger} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....."
+                            onChange={(e)=>{set_financement_externe_pro({...financement_externe_pro ,
+                        encaissement_cheque_etranger: e.target.value})}}
+                        value={financement_externe_pro.encaissement_cheque_etranger} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_financement_externe_ent({...financement_externe_ent ,encaissement_cheque_etranger : e.target.value })}} value={financement_externe_ent.encaissement_cheque_etranger} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
-    
-
-
-                    <label className="text-[30px] font-semibold pl-6"></label>Virement reçu<br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_financement_externe_perso({...financement_externe_perso ,virement_recu : e.target.value})}} value={financement_externe_perso.virement_recu} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_financement_externe_ent({...financement_externe_ent
+                        ,encaissement_cheque_etranger : e.target.value })}}
+                        value={financement_externe_ent.encaissement_cheque_etranger} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_financement_externe_pro({...financement_externe_pro , virement_recu: e.target.value})}} value={financement_externe_pro.virement_recu} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+
+
+
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Virement reçu<br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_financement_externe_perso({...financement_externe_perso
+                        ,virement_recu : e.target.value})}} value={financement_externe_perso.virement_recu}
+                        className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_financement_externe_ent({...financement_externe_ent ,virement_recu : e.target.value })}} value={financement_externe_ent.virement_recu} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
-
-
-
-
-                    <label className="text-[30px] font-semibold pl-6"></label>Virement emis<br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_financement_externe_perso({...financement_externe_perso ,virement_emis : e.target.value})}} value={financement_externe_perso.virement_emis} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....."
+                            onChange={(e)=>{set_financement_externe_pro({...financement_externe_pro ,
+                        virement_recu: e.target.value})}} value={financement_externe_pro.virement_recu}
+                        className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_financement_externe_pro({...financement_externe_pro ,virement_emis : e.target.value})}} value={financement_externe_pro.virement_emis} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_financement_externe_ent({...financement_externe_ent
+                        ,virement_recu : e.target.value })}} value={financement_externe_ent.virement_recu}
+                        className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_financement_externe_ent({...financement_externe_ent ,virement_emis : e.target.value })}} value={financement_externe_ent.virement_emis} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
 
 
 
 
+                </div>
 
-                    <label className="text-[30px] font-semibold pl-6"></label>Exportation domiciliation <br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_financement_externe_perso({...financement_externe_perso ,exportation_domiciliation : e.target.value})}} value={financement_externe_perso.exportation_domiciliation} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Virement emis<br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_financement_externe_perso({...financement_externe_perso
+                        ,virement_emis : e.target.value})}} value={financement_externe_perso.virement_emis}
+                        className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_financement_externe_pro({...financement_externe_pro ,exportation_domiciliation : e.target.value})}} value={financement_externe_pro.exportation_domiciliation} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....."
+                            onChange={(e)=>{set_financement_externe_pro({...financement_externe_pro
+                        ,virement_emis : e.target.value})}} value={financement_externe_pro.virement_emis}
+                        className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_financement_externe_ent({...financement_externe_ent ,exportation_domiciliation : e.target.value })}} value={financement_externe_ent.exportation_domiciliation} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
-
-
-
-
-                    <label className="text-[30px] font-semibold pl-6"></label>Importation domiciliation<br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_financement_externe_perso({...financement_externe_perso , importation_domiciliation: e.target.value})}} value={financement_externe_perso.importation_domiciliation} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_financement_externe_ent({...financement_externe_ent
+                        ,virement_emis : e.target.value })}} value={financement_externe_ent.virement_emis}
+                        className="py-[2vh]
+                        w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_financement_externe_pro({...financement_externe_pro , importation_domiciliation: e.target.value})}} value={financement_externe_pro.importation_domiciliation} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+
+
+
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Exportation domiciliation <br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_financement_externe_perso({...financement_externe_perso
+                        ,exportation_domiciliation : e.target.value})}}
+                        value={financement_externe_perso.exportation_domiciliation} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_financement_externe_ent({...financement_externe_ent ,importation_domiciliation : e.target.value })}} value={financement_externe_ent.importation_domiciliation} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
-
-
-
-
-                    <label className="text-[30px] font-semibold pl-6"></label>Transfert libre prelevement compte dinars<br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_financement_externe_perso({...financement_externe_perso ,transfert_libre_prelevement_compte_dinars : e.target.value})}} value={financement_externe_perso.transfert_libre_prelevement_compte_dinars} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....."
+                            onChange={(e)=>{set_financement_externe_pro({...financement_externe_pro
+                        ,exportation_domiciliation : e.target.value})}}
+                        value={financement_externe_pro.exportation_domiciliation} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_financement_externe_pro({...financement_externe_pro ,transfert_libre_prelevement_compte_dinars : e.target.value})}} value={financement_externe_pro.transfert_libre_prelevement_compte_dinars} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_financement_externe_ent({...financement_externe_ent
+                        ,exportation_domiciliation : e.target.value })}}
+                        value={financement_externe_ent.exportation_domiciliation} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_financement_externe_ent({...financement_externe_ent ,transfert_libre_prelevement_compte_dinars : e.target.value })}} value={financement_externe_ent.transfert_libre_prelevement_compte_dinars} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
 
 
 
 
+                </div>
 
-                    <label className="text-[30px] font-semibold pl-6"></label>Transfert libre prelevement compte devise :<br/>
-                    <label className="text-[30px] font-semibold pl-6">Perssonnel :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder=". . . ."  onChange={(e)=>{set_financement_externe_perso({...financement_externe_perso ,transfert_libre_prelevement_compte_devise : e.target.value})}} value={financement_externe_perso.transfert_libre_prelevement_compte_devise} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Importation domiciliation<br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_financement_externe_perso({...financement_externe_perso
+                        , importation_domiciliation: e.target.value})}}
+                        value={financement_externe_perso.importation_domiciliation} className="py-[2vh] w-[35vw]
+                        pl-[2vw]
+                        rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Professionnel : </label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="....."  onChange={(e)=>{set_financement_externe_pro({...financement_externe_pro ,transfert_libre_prelevement_compte_devise : e.target.value})}} value={financement_externe_pro.transfert_libre_prelevement_compte_devise} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....."
+                            onChange={(e)=>{set_financement_externe_pro({...financement_externe_pro ,
+                        importation_domiciliation: e.target.value})}}
+                        value={financement_externe_pro.importation_domiciliation}
+                        className="py-[2vh] w-[35vw] pl-[2vw] rounded-[4px]"></input>
                     </div>
-                    <label className="text-[30px] font-semibold pl-6">Entreprise :</label>
-                    <div className="bg-white w-[500px] h-[60px] flex items-center rounded-md mt-4 mb-6">
-                        <input placeholder="..."  onChange={(e)=>{set_financement_externe_ent({...financement_externe_ent ,transfert_libre_prelevement_compte_devise : e.target.value })}} value={financement_externe_ent.transfert_libre_prelevement_compte_devise} className="bg-[#ffffff] text-[20px] rounded-md w-[470px] font-semibold pl-6"></input>
-                    </div> 
-                    
-                    
-                    
-                    
-                    <hr/>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_financement_externe_ent({...financement_externe_ent
+                        ,importation_domiciliation : e.target.value })}}
+                        value={financement_externe_ent.importation_domiciliation} className="py-[2vh] w-[35vw] pl-[2vw]
+                        rounded-[4px]"></input>
+                    </div>
 
-                    <button>submit</button>
-                </form>
-            </div>
+
+
+
+                </div>
+
+                <hr />
+
+                <div className="flex flex-col gap-[1vh]">
+
+
+
+
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Transfert libre prelevement
+                    compte
+                    dinars<br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_financement_externe_perso({...financement_externe_perso
+                        ,transfert_libre_prelevement_compte_dinars : e.target.value})}}
+                        value={financement_externe_perso.transfert_libre_prelevement_compte_dinars} className="py-[2vh]
+                        w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....."
+                            onChange={(e)=>{set_financement_externe_pro({...financement_externe_pro
+                        ,transfert_libre_prelevement_compte_dinars : e.target.value})}}
+                        value={financement_externe_pro.transfert_libre_prelevement_compte_dinars} className="py-[2vh]
+                        w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_financement_externe_ent({...financement_externe_ent
+                        ,transfert_libre_prelevement_compte_dinars : e.target.value })}}
+                        value={financement_externe_ent.transfert_libre_prelevement_compte_dinars} className="py-[2vh]
+                        w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
+                    </div>
+
+
+
+
+                </div>
+
+                <hr />
+
+
+
+
+                <div className="flex flex-col gap-[1vh]">
+                    <label className="text-[1.1rem] font-medium text-BlueDark"></label>Transfert libre prelevement
+                    compte devise
+                    :<br />
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Perssonnel :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder=". . . ."
+                            onChange={(e)=>{set_financement_externe_perso({...financement_externe_perso
+                        ,transfert_libre_prelevement_compte_devise : e.target.value})}}
+                        value={financement_externe_perso.transfert_libre_prelevement_compte_devise} className="py-[2vh]
+                        w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Professionnel : </label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="....."
+                            onChange={(e)=>{set_financement_externe_pro({...financement_externe_pro
+                        ,transfert_libre_prelevement_compte_devise : e.target.value})}}
+                        value={financement_externe_pro.transfert_libre_prelevement_compte_devise} className="py-[2vh]
+                        w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
+                    </div>
+                    <label className="text-[1.1rem] font-medium text-BlueDark">Entreprise :</label>
+                    <div className="bg-white  h-[60px] flex items-center rounded-md mt-4 mb-6">
+                        <input placeholder="..." onChange={(e)=>{set_financement_externe_ent({...financement_externe_ent
+                        ,transfert_libre_prelevement_compte_devise : e.target.value })}}
+                        value={financement_externe_ent.transfert_libre_prelevement_compte_devise} className="py-[2vh]
+                        w-[35vw]
+                        pl-[2vw] rounded-[4px]"></input>
+                    </div>
+                </div>
+
+
+
+                <hr />
+                <button className='border-4 border-Red bg-Red text-white w-[14vw] py-[4vh] text-[1.5rem] font-bold rounded-[4px]'>submit</button>
+            </form>
         </div>
+    </div>
+</div>
     )
 }
 
