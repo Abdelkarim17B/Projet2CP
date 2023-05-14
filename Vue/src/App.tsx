@@ -18,8 +18,6 @@ import AdminModifierBanque from "./Pages/Admin/AdminModifierBanque";
 import AdminAjouterBanque from "./Pages/Admin/AdminAjouterBanque";
 import AdminListeDesAnnonces from "./Pages/Admin/AdminListeAnonces";
 import AdminProfile from "./Pages/Admin/AdminProfile";
-import AdminModifierProfile from "./Pages/Admin/AdminModifierProfile";
-import AdminAjouterAdmin from "./Pages/Admin/AdminAjouterAdmin";
 const LazyResultat = React.lazy(() => import('./Pages/Client/ResultatCmp'));
 
 const banksLoader = async () => {
@@ -57,10 +55,9 @@ const router = createBrowserRouter(
           <Route path="ajouter" element={<AdminAjouterBanque />} />
         </Route>
         <Route path="annonces" element={<AdminListeDesAnnonces />} />
-        <Route path="profile">
-        <Route index element={<AdminProfile />} />
-        <Route path="modifier" element={<AdminModifierProfile />} />
-        <Route path="ajouter" element={<AdminAjouterAdmin/>}/>
+        <Route path="profil">
+        <Route path=":id" element={<AdminProfile />} />
+        
       </Route>
       </Route>
     </Route>
