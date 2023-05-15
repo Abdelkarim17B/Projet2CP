@@ -118,6 +118,10 @@ function AdminAuth() {
                     theme: "light",
                 });
             }
+            
+        }
+        finally{
+            window.location.reload();
         }
     }
     return(
