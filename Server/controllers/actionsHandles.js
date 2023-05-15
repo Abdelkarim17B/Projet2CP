@@ -62,7 +62,7 @@ const bankUpdateHandler = async (req,res) => {
     try
     {
         const bank = await bankUpdater.updateBank(client,bankID,update);
-        req.send('Done Updating')
+        res.send('Done Updating')
     }
     catch(err)
     {
@@ -79,7 +79,7 @@ const bankUpdateHandler = async (req,res) => {
 const prestationUpdateHandler = async (req,res) => {
     const client = await connectDB();
     //const bankID = req.params.body.id_banque;
-    const update = req.params.body
+    const update = prestationObjectConstructor(req.body.id_banque,['gestion_de_compte', 'gestion_a_distance', 'option_de_payment', 'moyens_de_payment', 'prets_et_credits', 'placement', 'epargne', 'coffre_fort', 'financement_externe'],['personnel','professionnel', 'entreprise'],req.body);
     try
     {
         const updater = await prestetationUpdater.updatePrestation(client,update,categoriesList,typesList);
