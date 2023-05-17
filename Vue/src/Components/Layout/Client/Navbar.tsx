@@ -14,7 +14,7 @@ function Navbar(){
             </Link>
             <ul className="md:flex hidden gap-[4vw] text-[1.7rem] lg:text-[1.4rem] md:text-[1.1rem] font-light text-Blue66">
                 <li>
-                  <NavLink to="/">Home</NavLink>
+                  <NavLink to="/">Accueil</NavLink>
                 </li>
                 <li >
                   <NavLink to="/Catalogue">Catalogue</NavLink>

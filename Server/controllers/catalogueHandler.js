@@ -4,7 +4,6 @@ const { connectDB } = require('../models/connectDatabase');
 const { disconnectDB } = require('../models/disconnectDatabase');
 const getter = require('../models/bank/getBank');
 const getterPrestation = require('../models/prestation/getPrestation');
-const getterLocation = require('../helpers/getBankLocation');
 const getterAnnounce = require('../models/annonce/getAnnonce');
 
 
@@ -43,8 +42,8 @@ const bankHandler = async (req,res) => {
             console.log('Bank does not exist OR Error Fetching the response');
         }
         else {
-           // const resultLoc = await getterLocation.getBankLocation(resultBank.adresse,process.env.TKEY)
-            results = [resultBank, resultPres];
+            //const resultLoc = await getterLocation.getBankLocation(resultBank.adresse,process.env.TKEY)
+            results = [resultBank, resultPres ];
             res.send(JSON.stringify(results));
             //console.log('Bank exists But its JSon :', resultBank);
             //console.log('Bank prestation But its JSon :', resultPres);
@@ -104,6 +103,7 @@ const compaHandler = async (req,res) => {
 
     finally
     {
+        
         const CompResults =
         {
             Bank1 : finalResultBank1,

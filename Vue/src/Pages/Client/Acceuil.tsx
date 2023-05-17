@@ -7,6 +7,7 @@ import FAQ from "../../Components/Pages/Client/Accueil/FAQ";
 import Selector from "../../Components/Pages/Client/Accueil/Selector";
 import {AnnonceModel} from "../../Model/Announce";
 import {Bank} from "../../Model/Bank";
+import { ClientStat } from "../../Model/ClientStat";
 
 function Accueil() {
   const banks = useLoaderData() as Bank[];
@@ -30,6 +31,16 @@ function Accueil() {
   }, []);
 
   
+  const [Stat , setStats] = useState<ClientStat>();
+  useEffect(() => {
+    const statFetching = async () => {
+      const data = await (
+        await fetch('http://localhost:3000/stat')
+      ).json();
+        setStats(data);
+    };
+    statFetching();
+  }, []);
 
 
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
@@ -59,29 +70,21 @@ function Accueil() {
                       </div>
                     </div>
               </div>
-              <ReactSimplyCarousel
-                    activeSlideIndex={activebanqueIndex}
-                    onRequestChange={setActivebanqueIndex}
-                    itemsToShow={6}
-                    itemsToScroll={1}
-                    autoplay={true}
-                    responsiveProps={[
-                      {
-                        itemsToShow: 6,
-                        itemsToScroll: 1,
-                      },]}
-                    speed={3500}
-                    easing="linear"
-                    >
-                  {banks && 
-                    banks.map(banque => <Link to={"/catalogue/"+banque.id_banque}><div className="bg-white flex w-[20vw] h-[15vh] justify-center items-center">
-                    <img src={banque.logo} className="max-h-[10vh] max-w-[15vw]"/>
-                  </div></Link>)
-                  }
-
-              </ReactSimplyCarousel>
             </div>
 
+            {/*Banks*/}
+            <div className="w-full flex flex-col justify-center items-center text-center gap-[5vh] mt-[10vh]">
+              <h2 className="font-medium max-w-[82vw] lg:text-[4.5rem] md:text-[3.3rem] text-[1.7rem] text-center text-BlueDark">Les banques</h2>
+                <div className="grid grid-cols-3 gap-[2vw] justify-items-center mb-24 w-[82vw]">
+                {banks.map((Banque) =>(
+                    <Link to={"/catalogue/"+Banque.id_banque.toString()}>
+                        <div key={Banque.id_banque} className="bg-white w-[25vw] h-[25vh] rounded-sm flex items-center justify-center">
+                            <img className="max-h-[64%] max-w-[64%] w-auto" src={Banque.logo} alt={Banque.nom_banque}/>
+                        </div>
+                    </Link>
+                ))}
+            </div>
+            </div>
               
             {/* Espace des annonces*/}
             <div className="h-[80vh] w-full flex flex-col justify-center items-center text-center gap-[5vh]">
@@ -119,15 +122,15 @@ function Accueil() {
                 <div className="flex md:flex-row flex-col px-[9vw] md:justify-between gap-[5vh]">
                     <div className="flex flex-col justify-center items-center md:gap-[6vh] gap-[2vh]">
                         <div className="border-2 rounded-full lg:h-[5vw] md:h-[8vw] lg:w-[5vw] md:w-[8vw] h-[15vw] w-[15vw] flex items-center justify-center"><p className="text-[4vh] font-medium text-BlueDark ">1</p></div>
-                        <div className="md:max-w-[22vw] max-w-[50vw] font-medium text-BlueDark lg:text-[2rem] md:text-[1.5rem] text-[1.2rem] text-center">Entrer le nom de la premiere banque</div>
+                        <div className="md:max-w-[22vw] max-w-[50vw] font-medium text-BlueDark lg:text-[2rem] md:text-[1.5rem] text-[1.2rem] text-center">Entrer le nom de la première banque</div>
                     </div>
                     <div className="flex flex-col justify-center items-center md:gap-[6vh] gap-[2vh]">
                     <div className="border-2 rounded-full lg:h-[5vw] md:h-[8vw] lg:w-[5vw] md:w-[8vw] h-[15vw] w-[15vw] flex items-center justify-center"><p className="text-[4vh] font-medium text-BlueDark ">2</p></div>
-                        <div className="md:max-w-[22vw] max-w-[50vw] font-medium text-BlueDark lg:text-[2rem] md:text-[1.5rem] text-[1.2rem] text-center">Entrer le nom de la premiere banque</div>
+                        <div className="md:max-w-[22vw] max-w-[50vw] font-medium text-BlueDark lg:text-[2rem] md:text-[1.5rem] text-[1.2rem] text-center">Entrer le nom de la deuxième banque</div>
                     </div>
                     <div className="flex flex-col justify-center items-center md:gap-[6vh] gap-[2vh]">
                     <div className="border-2 rounded-full lg:h-[5vw] md:h-[8vw] lg:w-[5vw] md:w-[8vw] h-[15vw] w-[15vw] flex items-center justify-center"><p className="text-[4vh] font-medium text-BlueDark ">3</p></div>
-                        <div className="md:max-w-[22vw] max-w-[50vw] font-medium text-BlueDark lg:text-[2rem] md:text-[1.5rem] text-[1.2rem] text-center">Entrer le nom de la premiere banque</div>
+                        <div className="md:max-w-[22vw] max-w-[50vw] font-medium text-BlueDark lg:text-[2rem] md:text-[1.5rem] text-[1.2rem] text-center">Cliquez sur comparer et voila le resultat</div>
                     </div>
                 </div>
             </div>
@@ -143,7 +146,7 @@ function Accueil() {
                 <h2 className="text-white lg:text-[4.5rem] md:text-[3.3rem] text-[2.5rem] text-center font-medium ">Statistiques</h2>
                 <div className="flex lg:flex-row flex-col px-[9vw] lg:justify-between items-center">
                     <div className="flex flex-col justify-center items-center align-center text-[2rem] px-[4vw]">
-                        <h3 className="font-medium lg:text-[4.4rem] md:text-[3rem] text-[2rem]">14</h3>
+                        <h3 className="font-medium lg:text-[4.4rem] md:text-[3rem] text-[2rem]">{Stat?.bankNumber}</h3>
                         <p>Banques</p> 
                     </div>
                     <div className="h-[13vh] w-[1px] bg-Light lg:rotate-0 rotate-90"></div> 
@@ -153,7 +156,7 @@ function Accueil() {
                     </div> 
                     <div className="h-[13vh] w-[1px] bg-Light lg:rotate-0 rotate-90"></div> 
                     <div className="flex flex-col justify-center items-center align-center text-[2rem] px-[4vw]">
-                        <h3 className="font-medium lg:text-[4.4rem] md:text-[3rem] text-[2rem]">3</h3>
+                        <h3 className="font-medium lg:text-[4.4rem] md:text-[3rem] text-[2rem]">{Stat?.annonceNumber}</h3>
                         <p>Annonces</p> 
                     </div>
                 </div>
