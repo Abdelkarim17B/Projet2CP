@@ -28,26 +28,26 @@ function FAQElement(props: FAQProps) {
   const faqs: FAQProps[] = [
     {
       id: 1,
-      question: "What is React?",
-      answer: "React is a JavaScript library for building user interfaces.",
+      question: "Comment utiliser Banky?",
+      answer: "Vous pouver simplement consulter offres des banques avec ses profiles ou bien comparer deux banques entre eux.",
     },
     {
       id:2,
-      question: "What is TypeScript?",
+      question: "Pourquoi Banky?",
       answer:
-        "TypeScript is a superset of JavaScript that adds type annotations and other features to help catch errors at compile time.",
+        "Puisque Banky offre une meilleur experience pour l'utilisateur et meme un systeme des annonces pour les banques et les partenaires.",
     },
     {
       id:3,
-      question: "Why use React with TypeScript?",
+      question: "Les données de Banky sont réelles?",
       answer:
-        "Using TypeScript with React can help catch errors earlier in the development process and make your code easier to reason about.",
+        "Oui, effectivement les données stocekr dans le site Banky sont a jour et fiables.",
     },
     {
         id:4,
-        question: "Why use React with TypeScript?",
+        question: "Comment ajouter des annonces?",
         answer:
-          "Using TypeScript with React can help catch errors earlier in the development process and make your code easier to reason about.",
+          "Vous pouver envoyer vos annonces en utilsans le contact form dans la page 'Contactez-Nous' et attendre la validation de l'admin.",
       },
   ];
 

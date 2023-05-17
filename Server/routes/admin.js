@@ -3,6 +3,7 @@ const express = require('express');
 const adminHandler = require('../controllers/adminHandler');
 const authHandler = require('../controllers/authHandler');
 const changesHandler = require('../controllers/actionsHandles');
+const statHandler = require('../controllers/statHandler');
 
 const verifier = require('../helpers/authVerifier');
 const { verify } = require('jsonwebtoken');
@@ -27,6 +28,6 @@ routeAd.post('/announce/Create' , verifier ,changesHandler.announceCreationHandl
 routeAd.put('/annouce/Update/:id' , verifier ,changesHandler.announceUpdateHandler);
 routeAd.delete('/annouce/Delete/:id',verifier ,changesHandler.announceDeleteHandler);
 
-
+routeAd.get('/stat',statHandler.statHandlerAdmin);
 
 module.exports = routeAd;

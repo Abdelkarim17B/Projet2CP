@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { BiChevronDown } from "react-icons/bi";
 import { AiOutlineSearch } from "react-icons/ai";
-import { Bank } from "../../../Model/Bank";
+import { Bank } from "../../../../Model/Bank";
 
 interface props {
   chooseMessage: Function;
@@ -27,7 +27,7 @@ const Selector = (props:props) => {
           ? selected?.length > 50
             ? selected?.substring(0, 60) + "..."
             : selected
-          : "Citer une banque ici pour Comparer"}
+          : "Choisissez une banque ici pour Comparer"}
         <BiChevronDown size={20} className={`${open && "rotate-180"}`} />
       </div>
       <ul
