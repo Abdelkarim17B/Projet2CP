@@ -1,4 +1,4 @@
-import {PrestationModel} from "./../../../Model/Prestation"
+import {PrestationModel} from "./../../../../Model/Prestation"
 
 function Prestation(props: PrestationModel) {
   return (

@@ -6,7 +6,7 @@ import Navbar from "./Navbar"
 function Layout(){
     return (
       <div>
-        <Navbar language="Français"/>
+        <Navbar />
         <Outlet />
         <Footer />    
       </div>

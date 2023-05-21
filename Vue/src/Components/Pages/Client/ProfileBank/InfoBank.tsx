@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { Bank } from "../../../Model/Bank"
+import { Bank } from "../../../../Model/Bank"
 
 
 function InfoBank(props: Bank){
