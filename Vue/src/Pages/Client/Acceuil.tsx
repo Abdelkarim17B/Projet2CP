@@ -23,7 +23,7 @@ function Accueil() {
   useEffect(() => {
     const AnnounceFetching = async () => {
       const data = await (
-        await fetch('http://localhost:3000/home')
+        await fetch('https://banky-back.vercel.app/home')
       ).json();
         setAnnounces(data);
     };
@@ -35,7 +35,7 @@ function Accueil() {
   useEffect(() => {
     const statFetching = async () => {
       const data = await (
-        await fetch('http://localhost:3000/stat')
+        await fetch('https://banky-back.vercel.app/stat')
       ).json();
         setStats(data);
     };

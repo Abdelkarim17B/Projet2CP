@@ -23,7 +23,7 @@ import AdminProfile from "./Pages/Admin/AdminProfile";
 const LazyResultat = React.lazy(() => import('./Pages/Client/ResultatCmp'));
 
 const banksLoader = async () => {
-  const res = await fetch('http://localhost:3000/catalogue/')
+  const res = await fetch('https://banky-back.vercel.app/catalogue/')
   return res.json()
 }
 

@@ -26,7 +26,7 @@ function ResultatCmp() {
   useEffect(() => {
     const BankFetching = async () => {
       const data = await (
-        await fetch('http://localhost:3000/comparaison/'+firstBanque+'/'+secondBanque)
+        await fetch('https://banky-back.vercel.app/comparaison/'+firstBanque+'/'+secondBanque)
       ).json();
 
         setBankFirst((data.Bank1)[0]);
