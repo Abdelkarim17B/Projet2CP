@@ -10,7 +10,7 @@ function Dashboard() {
   useEffect(() => {
     const statFetching = async () => {
       const data = await (
-        await fetch('https://banky-back.vercel.app/admin/stat')
+        await fetch('https://projet2-cp-i8rn.vercel.app/admin/stat')
       ).json();
         setStats(data);
     };

@@ -12,7 +12,7 @@ function ProfileBank(){
     useEffect(() => {
       const BankFetching = async () => {
         const data = await (
-          await fetch('https://banky-back.vercel.app/catalogue/'+id)
+          await fetch('https://projet2-cp-i8rn.vercel.app/catalogue/'+id)
         ).json();
         setBank(() => data[0]);
         setOffre(() => data[1]);

@@ -23,7 +23,7 @@ function Accueil() {
   useEffect(() => {
     const AnnounceFetching = async () => {
       const data = await (
-        await fetch('https://banky-back.vercel.app/home')
+        await fetch('https://projet2-cp-i8rn.vercel.app/home')
       ).json();
         setAnnounces(data);
     };
@@ -35,7 +35,7 @@ function Accueil() {
   useEffect(() => {
     const statFetching = async () => {
       const data = await (
-        await fetch('https://banky-back.vercel.app/stat')
+        await fetch('https://projet2-cp-i8rn.vercel.app/stat')
       ).json();
         setStats(data);
     };
