@@ -3,6 +3,7 @@ const routesClient = require("./routes/client");
 const routesAdmin = require("./routes/admin");
 
 const cors = require("cors");
+require('dotenv').config()
 
 PORT = process.env.PORT || 3000;
 

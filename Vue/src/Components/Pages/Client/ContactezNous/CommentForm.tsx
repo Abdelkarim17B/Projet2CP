@@ -35,7 +35,7 @@ function CommentForm() {
         mail: email,
         msg: message
       }
-      axios.post("http://localhost:3000/send",data).then(res =>{
+      axios.post("https://banky-back.vercel.app/send",data).then(res =>{
         setSent(true);
       }).then(notify).then(resetForm).catch(() => console.log("message not sent"))
     }
